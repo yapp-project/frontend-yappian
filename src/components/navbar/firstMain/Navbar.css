@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,900');
+
+.navbar{
+    margin:0px 45px 0px 45px;
+    height:75px;
+    padding-top:30px;
+    padding-bottom:14px;
+    display:flex;
+    flex-direction:row;
+}
+
+.left{
+    flex:1;
+}
+
+.right{
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex:1;
+    padding-right:5px;
+}
+
+.YAPPIAN-Copy {
+    width: 140px;
+    height: 45px;
+    object-fit: contain;
+    font-family: NotoSansCJKkr;
+    font-size: 30px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.3px;
+    color: #ffffff;
+}
+
+.loginBtn {
+    width: 84px;
+    height: 29px;
+    border-radius: 14.5px;
+    border: solid 1px #111111;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+
+
+.center{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.flex1{
+    display:flex;
+    flex-flow: column;
+}
+
+.googleLogo{
+    display:flex;
+    flex-flow: row;
+    justify-content: center;
+    align-content: center;
+    margin-bottom:20px;
+}
+
+.Group {
+    width: 84px;
+    height: 29px;
+    object-fit: contain;
+}
+
+.leftFlow{
+    display:flex;
+    flow-direction:row;
+    padding-top:5px;
+}
+
+
+.CreateNewProject {
+    width: 91px;
+    height: 18px;
+    font-family: NotoSansCJKkr;
+    font-size: 12px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.4px;
+    text-align: center;
+    color: #b382de;
+    border-bottom:2px solid #b382de;
+    margin:5px 27.5px 0px 0px;
+}
+
+.userIcon{
+    color:#ffffff;
+    font-size:20pt;
+}
+/*font-family: 'Noto Sans KR', sans-serif;*/
