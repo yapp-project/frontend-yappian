@@ -11,6 +11,7 @@
 
 .left{
     flex:1;
+
 }
 
 .right{
@@ -18,7 +19,7 @@
     justify-content: flex-end;
     align-items: center;
     flex:1;
-    padding-right:5px;
+    padding-right:50px;
 }
 
 .YAPPIAN-Copy {
@@ -78,21 +79,6 @@
 }
 
 
-.CreateNewProject {
-    width: 91px;
-    height: 18px;
-    font-family: NotoSansCJKkr;
-    font-size: 12px;
-    font-weight: 900;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: -0.4px;
-    text-align: center;
-    color: #b382de;
-    border-bottom:2px solid #b382de;
-    margin:5px 27.5px 0px 0px;
-}
 
 .userIcon{
     color:#ffffff;

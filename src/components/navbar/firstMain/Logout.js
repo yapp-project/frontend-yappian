@@ -1,17 +1,21 @@
-import React from 'react'
+import React , {Component} from 'react'
 import './Navbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUserCircle} from "@fortawesome/free-solid-svg-icons/faUserCircle";
+import CreatePopupWrapper from "../../popup/CreatePopupWrapper";
 
+class Logout extends Component {
 
-const Logout = () => (
-    <div className="leftFlow">
-        <div className="CreateNewProject">새 프로젝트 만들기</div>
-        <div class="user">
-            <FontAwesomeIcon icon={ faUserCircle } className="userIcon"/>
-        </div>
-    </div>
-);
-
+    render(){
+        return (
+            <div className="leftFlow">
+                <CreatePopupWrapper />
+                <div className="user">
+                    <FontAwesomeIcon icon={faUserCircle} className="userIcon"/>
+                </div>
+            </div>
+        );
+    }
+}
 
 export default Logout;

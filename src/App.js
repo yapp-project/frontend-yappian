@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import {MainContainer} from "./container";
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStroopwafel } from '@fortawesome/free-solid-svg-icons'
+import {MainContainer, UrlMainContainer} from "./container";
+import testContainer from './container/testContainer';
+import {BrowserRouter, Route} from "react-router-dom";
+
 
 class App extends Component {
   render() {
     return (
-        <Router>
-            <Route exact path='/' component={MainContainer}/>
-        </Router>
+            <BrowserRouter>
+                <Route exact path="/" component={MainContainer} />
+                <Route path="/url/:project_state" component={UrlMainContainer} />
+                <Route path="/test" component={testContainer} />
+            </BrowserRouter>
     );
   }
 }
 
-library.add(faStroopwafel)
 
 export default App;

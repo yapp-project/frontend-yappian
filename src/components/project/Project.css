@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,900');
+
+
+.projectWrapper{
+    display:flex;
+    flex-direction: row;
+}
+
+.projectImage {
+    width: 120px;
+    height: 120px;
+    border: solid 1px #979797;
+    background-color: #d8d8d8;
+}
+
+.projectInfo {
+    padding-left:10px;
+}
+
+.project_finished {
+    width: 34px;
+    height: 18px;
+    border-radius: 9px;
+    border: solid 1px #b682df;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:60px;
+}
+
+.project_finished_font {
+    width: 19px;
+    height: 17px;
+    font-family: NotoSansCJKkr;
+    font-size: 10px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.7;
+    letter-spacing: normal;
+    color: #b682df;
+    margin-left:3px;
+}

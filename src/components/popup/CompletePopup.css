@@ -1,0 +1,80 @@
+.completePopupWrapper {
+    width: 727px;
+    height: 520px;
+    border-radius: 5px;
+    box-shadow: 1px 5px 9px 3px rgba(0, 0, 0, 0.03);
+    background-color: #ffffff;
+}
+
+.completeTitle {
+    width: 220px;
+    height: 45px;
+    font-family: NotoSansCJKkr;
+    font-size: 30px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.9px;
+    text-align: center;
+    color: #b382de;
+    border-bottom: 2px solid #b382de;
+}
+
+.CompleteMiddleIntro {
+    width: 372px;
+    height: 18px;
+    font-family: NotoSansCJKkr;
+    font-size: 12px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.2px;
+    text-align: center;
+    color: #999999;
+}
+
+.insertUrlWrapper {
+    width: 580px;
+    height: 36px;
+    border-radius: 20px;
+    border: solid 1px #b6b6b6;
+    background-color: #ffffff;
+    padding:
+}
+
+input::placeholder {
+    padding-left:26px;
+    width: 69px;
+    height: 18px;
+    font-family: NotoSansCJKkr;
+    font-size: 12px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.1px;
+    color: #999999;
+}
+
+.introduceTitle {
+    width: 75px;
+    height: 18px;
+    font-family: NotoSansCJKkr;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.2px;
+    color: #000000;
+}
+
+.introduceTextArea {
+    width: 580px;
+    height: 114px;
+    border-radius: 20px;
+    border: solid 1px #b6b6b6;
+    background-color: #ffffff;
+}

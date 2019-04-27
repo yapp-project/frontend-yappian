@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,900');
+
+.joinPopupMainWrapper {
+    width: 505px;
+    height: 326px;
+    border-radius: 5px;
+    box-shadow: 1px 5px 9px 3px rgba(0, 0, 0, 0.03);
+    background-color: #ffffff;
+    margin-top:100px;
+}
+
+
+.popupTitle {
+    width: 220px;
+    height: 45px;
+    font-family: NotoSansCJKkr;
+    font-size: 30px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.9px;
+    text-align: center;
+    color: #b382de;
+    border-bottom: 2px solid #b382de;
+    margin: 34px 143px 0px 142px;
+}
+
+.middleIntro {
+    width: 372px;
+    height: 18px;
+    font-family: NotoSansCJKkr;
+    font-size: 12px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.2px;
+    text-align: center;
+    color: #999999;
+    margin:33px 67px 0px 66px;
+}
+
+.undermiddleIntro {
+    width:auto;
+    height: 12px;
+    font-family: NotoSansCJKkr;
+    font-size: 8px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.1px;
+    color: #999999;
+    margin:30px 166px 0px ;
+    text-align: center;
+}
+
+.inviteCodeWrapper {
+    display : flex;
+    margin:15px 0px 0px 170px;
+}
+
+.inviteCode {
+    margin : 0 5px 0 5px;
+    flex : 1;
+    width: 32px;
+    height: 40px;
+    border-radius: 12px;
+    border: solid 1px #b6b6b6;
+    background-color: #ffffff;
+    text-align: center;
+    color: #4f4f4f;
+}
+
+.center{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+}
