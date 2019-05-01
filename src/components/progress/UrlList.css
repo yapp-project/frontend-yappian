@@ -1,0 +1,115 @@
+.urlListMainWrapper{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+}
+
+.urlListWrapper {
+    display: flex;
+    margin-top: 67px;
+}
+
+.flexboxInUrlList {
+    display: flex;
+}
+
+.urlListTitle {
+    font-family: NotoSansCJKkr;
+    font-size: 16pt;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.38;
+    letter-spacing: -0.1px;
+    color: #4e4e4e;
+    margin-right: 85px;
+}
+
+.ContentWrapper {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.urlList {
+    display:flex;
+    margin-top:46px;
+}
+
+.urlListObject {
+    flex : 1;
+}
+
+.urlListObjectTitleFont {
+    font-family: NotoSansCJKkr;
+    font-size: 18pt;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #111111;
+    margin-bottom:19px;
+}
+
+.urlObjectWrapper {
+    width: 100%;
+    height: 40px;
+    border-radius: 20.5px;
+    border: solid 0.5px #5b5b5b;
+    background-color: #ffffff;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.border-side {
+    border-right: 1px solid #999999;
+    padding-right: 27px;
+}
+
+.padding-left {
+    padding-left: 27px;
+}
+
+.insideUrlObject {
+    flex : 1;
+}
+
+.LeftInUrlObject {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.CenterInUrlObject {
+    display: flex;
+    justify-content: center;
+    padding-top:10px;
+    width: 54px;
+    height: 22px;
+    font-family: NotoSansCJKkr;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: -0.1px;
+    text-align: center;
+    color: #000000;
+}
+
+.RightInUrlObject {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.shareIconStyled {
+    width: 20px;
+    height: 21px;
+    margin:9px 0px 10px 15px;
+}
+
+.deleteIconStyled {
+    width: 10px;
+    height: 10px;
+    margin:15px 16px 15px 0px;
+}

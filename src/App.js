@@ -10,7 +10,7 @@ class App extends Component {
     return (
             <BrowserRouter>
                 <Route exact path="/" component={MainContainer} />
-                <Route path="/url/:project_state" component={UrlMainContainer} />
+                <Route path="/:project_state" component={UrlMainContainer} />
                 <Route path="/test" component={testContainer} />
             </BrowserRouter>
     );

@@ -1,0 +1,21 @@
+.progressWrapper {
+    display: flex;
+}
+
+.ProjectInfo {
+    font-family: NotoSansCJKkr;
+    font-size: 30pt;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.3px;
+    color: #111111;
+}
+.-WEB-1 .text-style-1 {
+    font-weight: 100;
+}
+
+.marginLabel{
+    margin: 0px 20px 0px 20px;
+}

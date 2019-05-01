@@ -1,0 +1,40 @@
+.insertProgramFormWrapper {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.insertToolName {
+    width: 170px;
+    height: 40px;
+    border-radius: 20.5px;
+    border: solid 0.5px #5b5b5b;
+    background-color: #ffffff;
+    margin-right:20px;
+}
+
+.insertUrl {
+    width: 600px;
+    height: 40px;
+    border-radius: 20.5px;
+    border: solid 0.5px #5b5b5b;
+    background-color: #ffffff;
+    margin-right:14px;
+}
+
+input::placeholder{
+    font-family: NotoSansCJKkr;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: -0.1px;
+    color: #999999;
+    text-align: center;
+}
+
+.submitButtonStyled {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}

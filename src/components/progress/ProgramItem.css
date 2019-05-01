@@ -1,0 +1,40 @@
+.programItemWrapper {
+    width: 197px;
+    height: 65.4px;
+    border-radius: 10px;
+    background-color: #b382de;
+    font-size: 16pt;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.22;
+    letter-spacing: -0.2px;
+    color: #ffffff;
+    margin:0px 19px 19px 0px;
+
+}
+
+.centerAligned {
+    display: flex;
+    justify-content: center;
+}
+
+.ItemName {
+    width: 48px;
+    height: 22px;
+    font-family: NotoSansCJKkr;
+
+}
+
+.closeIconWrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding:10px 10px 0px 0px;
+}
+
+.closeIconStyled {
+    width: 10px;
+    height: 10px;
+    display: flex;
+    justify-content: flex-end;
+}

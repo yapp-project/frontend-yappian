@@ -6,6 +6,10 @@ import {ProgressContainer, CompleteContainer} from "../components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
+import user from '../img/user-icon-gray@3x.png';
+import otherIcon from '../img/invalid-name@3x.png';
+
+
 class UrlMainContainer extends Component {
     constructor(props) {
         super(props);
@@ -25,15 +29,20 @@ class UrlMainContainer extends Component {
                         <div className="left">
                             <div className="urlLogo">YAPPIAN.</div>
                         </div>
-                        <div className="right colorIcon">
-                            <FontAwesomeIcon className="navIcon margin-right" icon={faCaretDown}/>
-                            <FontAwesomeIcon className="navIcon" icon={faUserCircle}/>
+                        <div className="right">
+                            <img src={otherIcon} className="otherIcon margin-right" />
+                            <img src={user} className="userIcon" />
                         </div>
                     </div>
                     <div className="selectedStateWrapper">
-
+                        <div className="inactivedStateBar">
+                            PROGRESS
+                        </div>
+                        <div className="activedStateBar">
+                            COMPLETE
+                        </div>
                     </div>
-                    <div className="others">
+                    <div className="stateWrapper">
                         {this.state.selected === 'progress' ? <ProgressContainer /> : <CompleteContainer />}
                     </div>
 
