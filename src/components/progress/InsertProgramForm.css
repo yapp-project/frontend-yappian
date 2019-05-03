@@ -38,3 +38,8 @@ input::placeholder{
     height: 40px;
     object-fit: contain;
 }
+
+.buttonStyled {
+    padding: 0;
+    border: 0;
+}

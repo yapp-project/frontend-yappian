@@ -13,13 +13,11 @@
     justify-content: center;
     align-items: center;
     font-family: NotoSansCJKkr;
-    font-size: 14px;
     font-weight: 300;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.57;
     letter-spacing: -0.1px;
-    color: #999999;
 }
 
 .taskTitle {
@@ -37,7 +35,6 @@ input::placeholder {
     justify-content: center;
     align-items: center;
     font-family: NotoSansCJKkr;
-    font-size: 14px;
     font-weight: 300;
     font-style: normal;
     font-stretch: normal;
@@ -53,8 +50,6 @@ input::placeholder {
     border: solid 0.5px #5b5b5b;
     background-color: #ffffff;
     font-family: NotoSansCJKkr;
-    font-size: 14px;
-    font-weight: 300;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.57;
@@ -65,4 +60,9 @@ input::placeholder {
 .submitButtonStyled {
     width: 40px;
     height: 40px;
+}
+
+.buttonStyled {
+    padding: 0;
+    border: 0;
 }

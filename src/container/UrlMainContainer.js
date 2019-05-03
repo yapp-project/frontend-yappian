@@ -14,7 +14,8 @@ class UrlMainContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selected : props.match.params.project_state
+            selected : props.match.params.project_state,
+
         }
     }
 
@@ -35,10 +36,12 @@ class UrlMainContainer extends Component {
                         </div>
                     </div>
                     <div className="selectedStateWrapper">
-                        <div className="inactivedStateBar">
+                        <div className={ this.state.selected === 'progress' ? 'activedStateBar' : 'inactivedStateBar'}
+                             onClick={() => {this.setState( {selected : 'progress'})}}>
                             PROGRESS
                         </div>
-                        <div className="activedStateBar">
+                        <div className={this.state.selected === 'complete' ? 'activedStateBar' : 'inactivedStateBar'}
+                             onClick={() => {this.setState( {selected : 'complete'})}}>
                             COMPLETE
                         </div>
                     </div>

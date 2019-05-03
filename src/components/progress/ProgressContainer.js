@@ -3,18 +3,26 @@ import './ProgressContainer.css'
 import UsedProgram from './UsedProgram';
 import UrlList from './UrlList';
 
-const ProgressContainer = () => (
-    <div className="ProgressWrapper">
-        <div className="ProjectInfo">
-            <label className="text-style-1">14기</label>
-            <label className="marginLabel">|</label>
-            <label className="text-style-1">WEB 1팀</label>
-        </div>
+class ProgressContainer extends Component {
+    constructor(props){
+        super(props);
 
-        <UsedProgram />
-        <UrlList />
+    }
+    render(){
+        return (
+            <div className="ProgressWrapper">
+                <div className="ProjectInfo">
+                    <label className="text-style-1">14기</label>
+                    <label className="marginLabel">|</label>
+                    <label className="text-style-1">WEB 1팀</label>
+                </div>
 
-    </div>
-)
+                <UsedProgram />
+                <UrlList />
+
+            </div>
+        );
+    }
+}
 
 export default ProgressContainer;

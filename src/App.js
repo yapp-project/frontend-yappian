@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import {MainContainer, UrlMainContainer} from "./container";
-import testContainer from './container/testContainer';
+import testContainer2 from './container/testContainer2';
 import {BrowserRouter, Route} from "react-router-dom";
+import test from './container/Test';
 
 
 class App extends Component {
@@ -11,7 +12,8 @@ class App extends Component {
             <BrowserRouter>
                 <Route exact path="/" component={MainContainer} />
                 <Route path="/:project_state" component={UrlMainContainer} />
-                <Route path="/test" component={testContainer} />
+                <Route path="/test" component={testContainer2} />
+                <Route path="/test2" component={test} />
             </BrowserRouter>
     );
   }
