@@ -68,7 +68,7 @@ class CreatePopupWrapper extends Component{
                             </div>
                         </div>
 
-                        <Link to="/url/progress">
+                        <Link to="/progress">
                             <div className="submitButton textAlignCenter">
                                 <FontAwesomeIcon className="fontInSubmitButton" icon={faCheck}/>
                             </div>

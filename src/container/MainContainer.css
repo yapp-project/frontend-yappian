@@ -5,9 +5,13 @@
     margin:0 auto;
     background-repeat: no-repeat;
     background-size:cover;
-    background-image: url("../img/group-12@3x.png");
+    background-image: url("../img/group-5@3x.png");
     width:auto;
     overflow:hidden;
+}
+
+.background-img {
+
 }
 
 
@@ -52,41 +56,30 @@
 .intro_font {
     width:800px;
     margin-top:80px;
-    position: absolute;
-    z-index:2;
-}
-
-.Oval {
-    width: 700px;
-    height: 700px;
-    position: absolute;
-    z-index:1;
-    margin-left:701px;
 }
 
 .Your-app-with--passi {
     height: 140px;
     font-family: NotoSansCJKkr;
-    font-size: 75px;
+    font-size: 60pt;
     font-weight: 900;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.17;
     letter-spacing: -1.8px;
-    color: #ffffff;
+    color: #000000;
 }
 
 .upder-big-font{
     height: 44px;
     font-family: NotoSansCJKkr;
-    font-size: 18px;
+    font-size: 14pt;
     font-weight: 300;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.57;
     letter-spacing: -0.1px;
-    color: #ffffff;
-    margin-top:50px;
+    color: #000000;
 }
 
 .bottom{

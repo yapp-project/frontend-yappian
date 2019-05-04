@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './UrlMainContainer.css';
 import axios from 'axios';
-import { BrowserRouter as Link } from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import {ProgressContainer, CompleteContainer} from "../components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle, faCaretDown } from "@fortawesome/free-solid-svg-icons";
@@ -28,7 +28,9 @@ class UrlMainContainer extends Component {
                 <div className="wrapperPadding">
                     <div className="urlNavWrapper">
                         <div className="left">
-                            <div className="urlLogo">YAPPIAN.</div>
+                                <NavLink to="/" className="urlLogo">
+                                    YAPPIAN.
+                                </NavLink>
                         </div>
                         <div className="right">
                             <img src={otherIcon} className="otherIcon margin-right" />

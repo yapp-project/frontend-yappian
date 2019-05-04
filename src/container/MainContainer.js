@@ -3,7 +3,6 @@ import './MainContainer.css';
 import axios from 'axios';
 import { ProjectList, Login, Logout } from '../components';
 import { BrowserRouter as Link } from 'react-router-dom';
-import oval from '../img/oval@3x.png';
 
 import styled from 'styled-components';
 import CreatePopupWrapper from "../components/popup/CreatePopupWrapper";
@@ -78,7 +77,9 @@ class MainContainer extends Component {
             <div className="main">
                 <div className="navbar">
                     <div className="left">
+                        <Link to="/">
                         <div className="logo">YAPPIAN.</div>
+                        </Link>
                     </div>
                     <div className="right">
                         {
@@ -97,8 +98,6 @@ class MainContainer extends Component {
                             의미가 있는 일을 해나가고, 기존에 없던 새로운 가치를 만들기 위해 노력하는 대학생 연합 기업형 IT동아리입니다.
                         </div>
                     </div>
-
-                    <img className="Oval" src={oval} />
                 </div>
                 <div className="bottom">
                     { this.state.project.length > 0 ? (

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './ProgramItem.css';
 
-import closeIcon from '../../img/group-5@3x.png'
+import closeIcon from '../../img/close-tool.png'
 import axios from "axios";
 
 class ProgramItem extends Component {
