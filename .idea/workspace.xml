@@ -1,44 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="93783b20-2aca-456c-ab77-5b005eae6547" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/project_sample.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/complete/CompleteContainer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/complete/CompleteContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/popup/CompletePopup.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/popup/CompletePopup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/popup/CreatePopupWrapper.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/popup/CreatePopupWrapper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/popup/JoinProjectPopup.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/popup/JoinProjectPopup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/progress/ProgressContainer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/progress/ProgressContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/project/Project.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/project/Project.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/project/ProjectLIst.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/project/ProjectList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/container/UrlMainContainer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/container/UrlMainContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/container/testContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/group-12@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/oval@3x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navbar/firstMain/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navbar/firstMain/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navbar/firstMain/Logout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navbar/firstMain/Logout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navbar/firstMain/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navbar/firstMain/Navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navbar/firstMain/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navbar/firstMain/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/MainContainer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/MainContainer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/MainContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/MainContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
-    </list>
+    <list default="true" id="93783b20-2aca-456c-ab77-5b005eae6547" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,52 +12,26 @@
     <favorites_list name="frontend-yappian" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/container/MainContainer.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-                  <folding>
-                    <element signature="e#0#39#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/App.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="12" column="81" lean-forward="true" selection-start-line="12" selection-start-column="81" selection-end-line="12" selection-end-column="81" />
-                  <folding>
-                    <element signature="e#0#41#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/container/MainContainer.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="215">
-                  <caret line="101" column="22" lean-forward="true" selection-start-line="101" selection-start-column="22" selection-end-line="101" selection-end-column="22" />
-                  <folding>
-                    <element signature="e#0#39#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/container/MainContainer.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -197,6 +134,28 @@
               <item name="frontend-yappian" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="complete" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="frontend-yappian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="frontend-yappian" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="navbar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="frontend-yappian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="frontend-yappian" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="navbar" type="462c0819:PsiDirectoryNode" />
+              <item name="firstMain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="frontend-yappian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="frontend-yappian" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="popup" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -210,7 +169,20 @@
               <item name="frontend-yappian" type="b2602c69:ProjectViewProjectNode" />
               <item name="frontend-yappian" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="frontend-yappian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="frontend-yappian" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="container" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="frontend-yappian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="frontend-yappian" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -222,7 +194,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556967653876" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557047359186" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -233,15 +205,15 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/container" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/complete" />
       <recent name="$PROJECT_DIR$/src/components/progress" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/img" />
       <recent name="$PROJECT_DIR$/src" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/container" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -276,19 +248,19 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103969000" />
+    <option name="totallyTimeSpent" value="104116000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="514" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49763033" visible="true" weight="0.12026862" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49591836" visible="true" weight="0.115384616" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
-      <window_info active="true" id="Favorites" order="6" sideWeight="0.50236964" side_tool="true" visible="true" weight="0.12026862" />
+      <window_info active="true" id="Favorites" order="6" sideWeight="0.50236964" side_tool="true" weight="0.12026862" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32938388" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -570,8 +542,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/container/MainContainer.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
@@ -579,16 +551,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="68" column="19" selection-start-line="68" selection-start-column="19" selection-end-line="68" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="81" lean-forward="true" selection-start-line="12" selection-start-column="81" selection-end-line="12" selection-end-column="81" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -609,6 +571,13 @@
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
         </state>
       </provider>
     </entry>
