@@ -14,10 +14,9 @@ const options = [
 class ProjectList extends Component {
   constructor(props){
       super(props);
-      this.onChange = this.onChange.bind(this);
   }
 
-  onChange(event, data) {
+  onChange = (event, data) => {
     this.props.onChange(data.value);
   }
 

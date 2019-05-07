@@ -4,8 +4,7 @@ import './UrlList.css';
 import './UsedProgram.css'
 import InsertProgramForm from "./UsedProgram";
 import InsertUrlForm from './InsertUrlForm';
-
-import shareIcon from '../../img/group@3x.png';
+import shareIcon from '../../img/goUrl.png';
 import deleteIcon from '../../img/closeIcon.png';
 import axios from 'axios';
 

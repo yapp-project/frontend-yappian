@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import {MainContainer, UrlMainContainer, TestMainContainer} from "./container";
+import {MainContainer, UrlMainContainer, TestMainContainer, Notfound} from "./container";
 import testContainer2 from './container/testContainer2';
-import {BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import test from './container/Test';
 
 
@@ -10,10 +10,12 @@ class App extends Component {
   render() {
     return (
             <BrowserRouter>
-                <Route exact path="/" component={TestMainContainer} />
-                <Route path="/:project_state" component={UrlMainContainer} />
-                <Route path="/test" component={testContainer2} />
-                <Route path="/test2" component={test} />
+                <Switch>
+                    <Route exact path="/" component={MainContainer} />
+                    <Route path="/:project_state" component={UrlMainContainer} />
+                    <Route path="/test" component={TestMainContainer} />
+                    <Route component={Notfound} />
+                </Switch>
             </BrowserRouter>
     );
   }

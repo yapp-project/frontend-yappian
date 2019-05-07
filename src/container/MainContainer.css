@@ -1,67 +1,64 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,900');
+.mainWrapper{
+    margin:0px;
+    padding: 0px;
+    height:100vh;
+    width:100vw;
+}
 
-
-.main{
-    margin:0 auto;
+.top {
+    /*background image 설정*/
+    width:100vw;
+    height:62.500vh;
+    background-image:url("../img/group-5@3x.png");
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-size:cover;
-    background-image: url("../img/group-5@3x.png");
-    width:auto;
-    overflow:hidden;
 }
 
-.background-img {
-
+.bottom {
+    margin-top:5.599vh;
 }
 
-
-.navbar {
-    height: 75px;
-    margin: 0px 45px 0px 45px;
-    display: flex;
-    flex-direction:row;
+.nav {
+    width:100%;
+    height:9.635vh;
+    font-size:1rem;
+    padding-left:3.72vw;
+    padding-right:3.75vw;
+    display:flex;
 }
 
-.left{
+.nav-left {
     flex :1;
 }
 
-.right {
-    flex:1;
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 5px;
-}
-
-.logo {
-    width: 140px;
-    height: 45px;
+.mainLogo {
+    width: 11.667vw;
+    height: 5.859vh;
     object-fit: contain;
-    font-family: NotoSansCJKkr;
-    font-size: 30px;
-    font-weight: 900;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: -0.3px;
-    color: #ffffff;
+    margin-top: 3.776vh;
 }
 
-.intro{
-    margin: 128px 77px 0px 182px;
+.nav-right {
+    flex :1;
     display:flex;
-    flex-direction:row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 4.688vh;
 }
 
-.intro_font {
-    width:800px;
-    margin-top:80px;
+.mainInfo {
+    margin-top:11.068vh;
+    padding-left:7.583vw;
+    width: 63.583vw;
+    height: 27.214vh;
+    object-fit: contain;
 }
 
-.Your-app-with--passi {
-    height: 140px;
-    font-family: NotoSansCJKkr;
-    font-size: 60pt;
+
+
+.bigInfo-font {
+    font-family: 'NotoSansCJKkr';
+    font-size: 5.286rem;
     font-weight: 900;
     font-style: normal;
     font-stretch: normal;
@@ -70,10 +67,9 @@
     color: #000000;
 }
 
-.upder-big-font{
-    height: 44px;
-    font-family: NotoSansCJKkr;
-    font-size: 14pt;
+.smallInfo-font {
+    font-family: 'NotoSansCJKkr';
+    font-size: 1rem;
     font-weight: 300;
     font-style: normal;
     font-stretch: normal;
@@ -82,39 +78,3 @@
     color: #000000;
 }
 
-.bottom{
-    width:100%;
-    height:300px;
-    position: absolute;
-    z-index: 3;
-    top:790px;
-    background-color: #ffffff;
-    padding: 20px 90px 0px 90px;
-}
-
-.icon_stlyed{
-    color:#111111;
-}
-
-
-
-
-
-/*반응형 ref)    http://blog.saltfactory.net/using-css-media-query-for-responsive-web/   */
-
-
-
-/* Smartphones (portrait and landscape) */
-@media only screen
-and (min-device-width : 320px){
-    /* Styles */
-}
-
-
-
-/* Desktops and laptops */
-@media only screen
-and (min-width : 1224px) {
-    /* Styles */
-    .main{ height:750px}
-}

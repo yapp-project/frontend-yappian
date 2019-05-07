@@ -4,22 +4,19 @@ import { Button, Header, Image, Modal } from 'semantic-ui-react'
 import { BrowserRouter as LinkButton, Link } from 'react-router-dom'
 import logo from '../../../img/googleLogo.png'
 import loginBtn from '../../../img/loginBtn.png'
-
 class Login extends Component{
     constructor(props){
         super(props);
 
-        this.onLogin = this.onLogin.bind(this);
     }
 
-    onLogin () {
+    onLogin = () => {
         this.props.onLogin();
     }
 
 
     render(){
         return(
-            <div className="loginBtn">
                 <Modal size="tiny" trigger={<Image className="Group" src={loginBtn} />}>
                     <Modal.Header>구글 로그인</Modal.Header>
                     <Modal.Content>
@@ -31,7 +28,6 @@ class Login extends Component{
                         </div>
                     </Modal.Content>
                 </Modal>
-            </div>
         );
     }
 }
