@@ -1,4 +1,97 @@
 .completeWrapper1 {
-    background-color: #b382de;
-    margin-top:300px;
+    width:100%;
+    height:100vh;
+    display: flex;
+    flex-direction: row;
+    margin-top: 46px;
 }
+
+.leftInComplete {
+    width:24.750vw;
+    height: 623px;
+    border-right:1px solid #d8d8d8;
+    padding-right:37px;
+}
+
+.rightInComplete {
+    width:66.875vw;
+    height:100%;
+    padding-left:36.5px;
+}
+
+.teamInfoInComplete {
+    display:flex;
+    flex-direction: row;
+}
+
+.leftInTeamInfoComplete {
+    flex: 1;
+}
+
+.rightInTeamInfoComplete {
+    flex: 1;
+    display:flex;
+    justify-content: flex-end;
+}
+
+.completeIcon {
+    width: 4.250vw;
+    height: 8.203vh;
+    object-fit: contain;
+}
+
+.teamName {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom:12px;
+}
+
+.teamOthersInfo {
+    font-family: NotoSansCJKkr;
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.1px;
+    color: #111111;
+}
+
+
+.projectIntroInComplete {
+    margin-top:7.552vh;
+    font-family: NotoSansCJKkr;
+    font-size: 1rem;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    color: #111111;
+}
+
+.projectAddress {
+    margin-top: 7.552vh;
+
+    word-wrap:break-word;
+    border-radius: 5px;
+    border: solid 0.5px #666666;
+    background-color: #efefef;
+
+    font-family: NotoSansCJKkr;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    color: #444444;
+
+    padding: 7px 17px 7px 17px;
+}
+
+.pdfView {
+    width:60vw;
+    height:100vh;
+}
+
