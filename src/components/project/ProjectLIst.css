@@ -13,8 +13,12 @@
 }
 
 .projectList-select-box{
-    margin-left:90px;
-    color:#bcbcbc;
+    margin-left: 90px;
+    width: 100px;
+    height: 33px;
+    border-radius: 20px;
+    border: solid 1px #b6b6b6;
+    background-color: #ffffff;
 }
 
 .list_style {

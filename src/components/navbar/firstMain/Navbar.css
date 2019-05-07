@@ -36,16 +36,6 @@
     color: #ffffff;
 }
 
-.loginBtn {
-    width: 84px;
-    height: 29px;
-    border-radius: 14.5px;
-    border: solid 1px #111111;
-    display:flex;
-    justify-content: center;
-    align-items:center;
-}
-
 
 .center{
     display:flex;
@@ -67,21 +57,37 @@
 }
 
 .Group {
-    width: 84px;
-    height: 29px;
+    width: 7.917vw;
+    height: 3.906vh;
     object-fit: contain;
 }
 
 .leftFlow{
     display:flex;
     flow-direction:row;
-    padding-top:5px;
 }
 
 
 
 .userIcon{
-    color:#ffffff;
-    font-size:20pt;
+    width: 2.417vw;
+    height: 3.776vh;
+    object-fit: contain;
+    margin-left:1.250vw;
+}
+
+
+.CreateNewProject {
+    font-size: 1.143rem;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.5px;
+    text-align: center;
+    color: #ffdb44;
+    text-decoration: underline;
+    display:flex;
+    align-items: center;
 }
 /*font-family: 'Noto Sans KR', sans-serif;*/
