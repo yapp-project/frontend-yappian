@@ -22,12 +22,12 @@ class UsedProgram extends Component {
     }
 
     handleGetUrl = () => {
-        const apiUrl = 'http://15.164.13.58:8085/v1/api/project/1/url/list';
+        const apiUrl = 'http://15.164.13.58:8085/v1/api/project/5/url/list';
 
         axios.get(apiUrl)
             .then(res => {
                 this.setState ({
-                    toolList  : res.data.data.filter(tool => (tool.type === 'TOOL'))
+                    toolList  : res.data.filter(tool => (tool.type === 'TOOL'))
                 })
             })
             .catch(error => {
@@ -36,7 +36,7 @@ class UsedProgram extends Component {
     }
 
     handleDeleteUrl = (data) => {
-        const apiUrl = 'http://15.164.13.58:8085/v1/api/project/1/url/'+data;
+        const apiUrl = 'http://15.164.13.58:8085/v1/api/project/5/url/'+data;
 
         axios.delete(apiUrl)
             .then(res => {

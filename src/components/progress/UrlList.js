@@ -21,18 +21,18 @@ class UrlList extends Component{
         this.handleGetUrl()
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
+    componentDidUpdate() {
         this.handleGetUrl()
     }
 
 
     handleGetUrl = () => {
-        const apiUrl = 'http://15.164.13.58:8085/v1/api/project/1/url/list';
+        const apiUrl = 'http://15.164.13.58:8085/v1/api/project/5/url/list';
 
         axios.get(apiUrl)
             .then(res => {
                 this.setState ({
-                    urlList  : res.data.data
+                    urlList  : res.data
                 })
             })
             .catch(error => {
@@ -41,7 +41,7 @@ class UrlList extends Component{
     }
 
     handleDeleteUrl = (data) => {
-        const apiUrl = 'http://15.164.13.58:8085/v1/api/project/1/url/'+data;
+        const apiUrl = 'http://15.164.13.58:8085/v1/api/project/5/url/'+data;
 
         axios.delete(apiUrl)
             .then(res => {
@@ -74,19 +74,19 @@ class UrlList extends Component{
 
 
                         {
-                            urlList.filter(url => (url.type === 'FIRST')).map((url, index) => (
-                                <div className="urlObjectWrapper" key={"first"+index}>
-                                    <div className="insideUrlObject LeftInUrlObject">
-                                        <img src={shareIcon} className="shareIconStyled" />
-                                    </div>
-                                    <div className="insideUrlObject CenterInUrlObject">
-                                        {url.title}
-                                    </div>
-                                    <div className="insideUrlObject RightInUrlObject" onClick={() => this.handleDeleteUrl(url.idx)}>
-                                        <img src={deleteIcon} className="deleteIconStyled" />
-                                    </div>
-                                </div>
-                            ))
+                                    urlList.filter(url => (url.type === 'FIRST')).map((url, index) => (
+                                        <div className="urlObjectWrapper" key={"first"+index}>
+                                            <div className="insideUrlObject LeftInUrlObject">
+                                                <img src={shareIcon} className="shareIconStyled" />
+                                            </div>
+                                            <div className="insideUrlObject CenterInUrlObject">
+                                                {url.title}
+                                            </div>
+                                            <div className="insideUrlObject RightInUrlObject" onClick={() => this.handleDeleteUrl(url.idx)}>
+                                                <img src={deleteIcon} className="deleteIconStyled" />
+                                            </div>
+                                        </div>
+                                    ))
                         }
 
 
@@ -98,19 +98,19 @@ class UrlList extends Component{
                         </div>
 
                         {
-                            urlList.filter(url => (url.type === 'SECOND')).map((url, index) => (
-                                <div className="urlObjectWrapper" key={"second"+index}>
-                                    <div className="insideUrlObject LeftInUrlObject">
-                                        <img src={shareIcon} className="shareIconStyled" />
-                                    </div>
-                                    <div className="insideUrlObject CenterInUrlObject">
-                                        {url.title}
-                                    </div>
-                                    <div className="insideUrlObject RightInUrlObject" onClick={() => this.handleDeleteUrl(url.idx)}>
-                                        <img src={deleteIcon} className="deleteIconStyled" />
-                                    </div>
-                                </div>
-                            ))
+                                    urlList.filter(url => (url.type === 'SECOND')).map((url, index) => (
+                                        <div className="urlObjectWrapper" key={"second"+index}>
+                                            <div className="insideUrlObject LeftInUrlObject">
+                                                <img src={shareIcon} className="shareIconStyled" />
+                                            </div>
+                                            <div className="insideUrlObject CenterInUrlObject">
+                                                {url.title}
+                                            </div>
+                                            <div className="insideUrlObject RightInUrlObject" onClick={() => this.handleDeleteUrl(url.idx)}>
+                                                <img src={deleteIcon} className="deleteIconStyled" />
+                                            </div>
+                                        </div>
+                                    ))
                         }
 
                     </div>
@@ -120,19 +120,19 @@ class UrlList extends Component{
                         </div>
 
                         {
-                            urlList.filter(url => (url.type === 'HOME')).map((url, index) => (
-                                <div className="urlObjectWrapper" key={"home"+index}>
-                                    <div className="insideUrlObject LeftInUrlObject">
-                                        <img src={shareIcon} className="shareIconStyled" />
-                                    </div>
-                                    <div className="insideUrlObject CenterInUrlObject">
-                                        {url.title}
-                                    </div>
-                                    <div className="insideUrlObject RightInUrlObject" onClick={() => this.handleDeleteUrl(url.idx)}>
-                                        <img src={deleteIcon} className="deleteIconStyled" />
-                                    </div>
-                                </div>
-                            ))
+                                    urlList.filter(url => (url.type === 'HOME')).map((url, index) => (
+                                        <div className="urlObjectWrapper" key={"home"+index}>
+                                            <div className="insideUrlObject LeftInUrlObject">
+                                                <img src={shareIcon} className="shareIconStyled" />
+                                            </div>
+                                            <div className="insideUrlObject CenterInUrlObject">
+                                                {url.title}
+                                            </div>
+                                            <div className="insideUrlObject RightInUrlObject" onClick={() => this.handleDeleteUrl(url.idx)}>
+                                                <img src={deleteIcon} className="deleteIconStyled" />
+                                            </div>
+                                        </div>
+                                    ))
                         }
 
                     </div>
