@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="93783b20-2aca-456c-ab77-5b005eae6547" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/progress/InsertProgramForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/progress/InsertProgramForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/progress/InsertUrlForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/progress/InsertUrlForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/progress/UrlList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/progress/UrlList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/progress/UsedProgram.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/progress/UsedProgram.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,8 +44,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/App.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="15" column="63" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
+                <state relative-caret-position="285">
+                  <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -238,7 +234,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557468690831" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557468913278" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -289,12 +285,12 @@
       <workItem from="1555601923979" duration="3687000" />
       <workItem from="1555914649564" duration="119307000" />
       <workItem from="1557133545825" duration="9863000" />
-      <workItem from="1557465363857" duration="1036000" />
+      <workItem from="1557465363857" duration="1249000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163818000" />
+    <option name="totallyTimeSpent" value="164031000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -798,8 +794,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="63" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
+        <state relative-caret-position="285">
+          <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
