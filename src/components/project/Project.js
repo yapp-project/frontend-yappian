@@ -1,26 +1,19 @@
 import React from 'react';
 import './Project.css';
 
-const Project = (props) => {
-    const project = props.project;
+import finishedIcon from '../../img/finishedIcon.png';
+
+const Project = () => {
     return(
-        <div className="projectWrapper">
+        <div className="projectObjectWrapper">
             <div className="projectImage"></div>
-            <div className="projectInfo">
-                {project.team_name} <br />
-                {project.platform}
-                <div>
-                    {project.finished === true ?
-                        <div className="project_finished">
-                            <div className="project_finished_font">런칭</div>
-                        </div>
-                        :
-                        ""
-                    }
+            <div className="projectInfoWrapper">
+                <div className="projectName">DITO</div>
+                <div className="platformName">Android</div>
+                <div className="finishedWrapper">
+                    <img src={finishedIcon} className="finishedProject"/>
                 </div>
-
             </div>
-
         </div>
     )
 }

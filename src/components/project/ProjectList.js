@@ -1,47 +1,70 @@
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { Dropdown } from 'semantic-ui-react'
 
 import Project from './Project';
-import './ProjectLIst.css';
+import {Dropdown} from "semantic-ui-react";
+import axios from 'axios';
+import './ProjectList.css';
 
-const options = [
-    { key: 1, text: '13기', value: "13" },
-    { key: 2, text: '14기', value: "14" },
-]
+import left from '../../img/projeclist-left.png';
+import right from '../../img/projeclist-right.png'
+
 
 class ProjectList extends Component {
   constructor(props){
       super(props);
+
+      this.state = {
+          gisuList : []
+      }
   }
 
-  onChange = (event, data) => {
-    this.props.onChange(data.value);
+  componentDidMount() {
+      this.getOrdersNumber();
   }
+
+  getOrdersNumber = () => {
+      const apiUrl = 'http://15.164.13.58:8085/v1/api/orders';
+
+      axios.get(apiUrl)
+          .then(res => {
+                  res.data.map((list, index) =>
+                      this.setState({
+                          gisuList : this.state.gisuList.concat({
+                              key : index, text : list.number+'기', value: parseInt(list.number)
+                          })
+                      })
+                  )
+              }
+                  )
+          .catch(error => {
+             console.log(error);
+          });
+
+  }
+
+
+
 
 
   render(){
+      const {gisuList} = this.state;
+
       return(
-          <div className="projectList_main">
-              <div className="projectList-select-box">
-                  {' '}
-                  <Dropdown options={options} inline
-                            onChange={this.onChange} value={this.props.gisu}
-                  />
+          <div className="projectListContainer">
+              <div className="selectBoxWrapper">
+                  <Dropdown placeholder='기수선택' options={gisuList} />
               </div>
-              <div className="projectList">
-                  <FontAwesomeIcon icon={faAngleLeft} className="icon_styled" onClick={this.forward}/>
-                  <ul className="list_style">
+              <div className="projectListWrapper">
+                  <div className="moveButtonWrapper">
+                      <img src={left} className="moveProjectObjectbutton" />
+                  </div>
+                  <div className="projectObjectList">
 
-                      {this.props.projects.slice(0,4).map((project, index) => (
-
-                          <li className="ul_style" key={index}>
-                              <Project project={project} />
-                          </li>
-                      )) }
-                  </ul>
-                  <FontAwesomeIcon icon={faAngleRight} className="icon_styled"/>
+                      <Project />
+                  </div>
+                  <div className="moveButtonWrapper">
+                      <img src={right} className="moveProjectObjectbutton" />
+                  </div>
               </div>
           </div>
       );
@@ -50,3 +73,5 @@ class ProjectList extends Component {
 
 
 export default ProjectList;
+
+
