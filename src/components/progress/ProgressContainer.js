@@ -7,6 +7,9 @@ class ProgressContainer extends Component {
     constructor(props){
         super(props);
 
+        this.state = {
+            projectIdx : this.props.projectIdx
+        }
     }
     render(){
         return (
@@ -16,9 +19,8 @@ class ProgressContainer extends Component {
                     <label className="marginLabel">|</label>
                     <label className="text-style-1">WEB 1팀</label>
                 </div>
-
-                <UsedProgram />
-                <UrlList />
+                <UsedProgram projectIdx={this.state.projectIdx} />
+                <UrlList projectIdx={this.state.projectIdx} />
 
             </div>
         );

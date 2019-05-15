@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faCheck } from "@fortawesome/free-solid-svg-icons";
 
@@ -18,6 +19,23 @@ class CreatePopupWrapper extends Component{
         super(props);
     }
 
+    handleSubmit = () => {
+        const apiUrl = 'http://15.164.13.58:8085/v1/api/project'
+
+        axios.post(apiUrl, {
+            "ordersIdx": 4,
+            "password": "1414",
+            "projectName": "hello1",
+            "projectType": "ANDROID"
+        })
+            .then(
+                console.log("성공")
+            )
+            .catch(error => {
+                console.log(error)
+            });
+    }
+
     render(){
         return(
             <div className="CreateWrapper">
@@ -31,42 +49,46 @@ class CreatePopupWrapper extends Component{
                     YAPP의 새로운 프로젝트를 만드세요!
                 </div>
 
-                <div className="formWrapper">
-                    <div className="selectBox textAlignCenter">
-                        <div className="selectBoxText">
-                            <Dropdown text='기수선택'>
-                                <Dropdown.Menu>
-                                    <Dropdown.Item text='13기' value="13"/>
-                                    <Dropdown.Item text='14기' value="14"/>
-                                </Dropdown.Menu>
-                            </Dropdown>
+
+                <form onSubmit={this.handleSubmit}>
+                    <div className="formWrapper">
+                        <div className="selectBox textAlignCenter">
+                            <div className="selectBoxText">
+                                <Dropdown text='기수선택'>
+                                    <Dropdown.Menu>
+                                        <Dropdown.Item text='13기' value="13"/>
+                                        <Dropdown.Item text='14기' value="14"/>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </div>
+                        </div>
+                        <input className="projectNameTextField" placeholder="프로젝트 이름"/>
+                        <div className="platformWrapper">
+                            <div className="platformButtonWapper platformButtonNoneSelected textAlignCenter">
+                                <div className="platformButton platformButtonNoneSelectedFont">IOS</div>
+                            </div>
+                            <div className="platformButtonWapper platformButtonNoneSelected textAlignCenter">
+                                <div className="platformButton platformButtonNoneSelectedFont">ANDROID</div>
+                            </div>
+                            <div className="platformButtonWapper platformButtonSelected textAlignCenter">
+                                <div className="platformButton platformButtonSelectedFont">WEB</div>
+                            </div>
+                        </div>
+                        <div className="inviteCodeInfo">초대 코드(네자리 숫자)를 생성해 주세요.</div>
+                        <div className="inviteCodeWrapper">
+                            <input className="inviteCode" placeholder="*" maxLength="1"/>
+                            <input className="inviteCode" placeholder="*" maxLength="1"/>
+                            <input className="inviteCode" placeholder="*" maxLength="1"/>
+                            <input className="inviteCode" placeholder="*" maxLength="1"/>
                         </div>
                     </div>
-                    <input className="projectNameTextField" placeholder="프로젝트 이름"/>
-                    <div className="platformWrapper">
-                        <div className="platformButtonWapper platformButtonNoneSelected textAlignCenter">
-                            <div className="platformButton platformButtonNoneSelectedFont">IOS</div>
+                    <Link to="/progress">
+                        <div className="submitButton textAlignCenter">
+                            <FontAwesomeIcon className="fontInSubmitButton" icon={faCheck}/>
                         </div>
-                        <div className="platformButtonWapper platformButtonNoneSelected textAlignCenter">
-                            <div className="platformButton platformButtonNoneSelectedFont">ANDROID</div>
-                        </div>
-                        <div className="platformButtonWapper platformButtonSelected textAlignCenter">
-                            <div className="platformButton platformButtonSelectedFont">WEB</div>
-                        </div>
-                    </div>
-                    <div className="inviteCodeInfo">초대 코드(네자리 숫자)를 생성해 주세요.</div>
-                    <div className="inviteCodeWrapper">
-                        <input className="inviteCode" placeholder="*" maxLength="1"/>
-                        <input className="inviteCode" placeholder="*" maxLength="1"/>
-                        <input className="inviteCode" placeholder="*" maxLength="1"/>
-                        <input className="inviteCode" placeholder="*" maxLength="1"/>
-                    </div>
-                </div>
-                <Link to="/progress">
-                    <div className="submitButton textAlignCenter">
-                        <FontAwesomeIcon className="fontInSubmitButton" icon={faCheck}/>
-                    </div>
-                </Link>
+                    </Link>
+                </form>
+
             </div>
         )
     }

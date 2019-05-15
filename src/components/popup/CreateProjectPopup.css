@@ -180,6 +180,7 @@
     border-radius: 10px;
     border: solid 1px #b6b6b6;
     background-color: #ffffff;
+    text-align: center;
 }
 
 .m-rightInInsertCode {
@@ -196,6 +197,10 @@
     letter-spacing: -0.2px;
     color: #ff0000;
     margin-top: 8px;
+}
+
+.visibilityCodeCaution {
+    display: none;
 }
 
 .submitCreateProjectForm{
@@ -216,4 +221,8 @@
     width: 28.1px;
     height: 20.9px;
     object-fit: contain;
+}
+
+input[type=radio] {
+    display: none;
 }

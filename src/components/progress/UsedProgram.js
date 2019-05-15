@@ -9,7 +9,8 @@ class UsedProgram extends Component {
         super(props);
 
         this.state = {
-            toolList : []
+            toolList : [],
+            projectIdx : this.props.projectIdx
         }
     }
 
@@ -22,7 +23,8 @@ class UsedProgram extends Component {
     }
 
     handleGetUrl = () => {
-        const apiUrl = 'http://15.164.13.58:8085/v1/api/project/5/url/list';
+        const { projectIdx } = this.state;
+        const apiUrl = `http://15.164.13.58:8085/v1/api/project/`+ projectIdx + `/url/list`;
 
         axios.get(apiUrl)
             .then(res => {
@@ -36,7 +38,8 @@ class UsedProgram extends Component {
     }
 
     handleDeleteUrl = (data) => {
-        const apiUrl = 'http://15.164.13.58:8085/v1/api/project/5/url/'+data;
+        const { projectIdx } = this.state;
+        const apiUrl = `http://15.164.13.58:8085/v1/api/project/`+ projectIdx + `/url/`+data;
 
         axios.delete(apiUrl)
             .then(res => {
@@ -52,7 +55,7 @@ class UsedProgram extends Component {
                 <div className="flexboxInUsedProgram">
                     <div className="usedProgramTitle">사용한 협업 프로그램 등록</div>
                     <div className="thisContentWrapper">
-                        <InsertProgramForm />
+                        <InsertProgramForm projectIdx={this.state.projectIdx}/>
                         <div className="programItemAlign">
                             <ProgramItem toolList={this.state.toolList} />
                         </div>

@@ -14,8 +14,8 @@ class UrlMainContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selected : props.match.params.project_state,
-
+            selected : 'progress',
+            projectIdx : props.match.params.projectIdx
         }
     }
 
@@ -48,7 +48,7 @@ class UrlMainContainer extends Component {
                         </div>
                     </div>
                     <div className="stateWrapper">
-                        {this.state.selected === 'progress' ? <ProgressContainer /> : <CompleteContainer />}
+                        {this.state.selected === 'progress' ? <ProgressContainer projectIdx={this.state.projectIdx}/> : <CompleteContainer projectIdx={this.state.projectIdx}/>}
                     </div>
 
 

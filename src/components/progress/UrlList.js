@@ -13,7 +13,8 @@ class UrlList extends Component{
         super(props);
 
         this.state = {
-            urlList : []
+            urlList : [],
+            projectIdx : this.props.projectIdx
         }
     }
 
@@ -27,7 +28,8 @@ class UrlList extends Component{
 
 
     handleGetUrl = () => {
-        const apiUrl = 'http://15.164.13.58:8085/v1/api/project/5/url/list';
+        const { projectIdx } = this.state;
+        const apiUrl = `http://15.164.13.58:8085/v1/api/project/` + projectIdx + `/url/list`;
 
         axios.get(apiUrl)
             .then(res => {
@@ -41,7 +43,8 @@ class UrlList extends Component{
     }
 
     handleDeleteUrl = (data) => {
-        const apiUrl = 'http://15.164.13.58:8085/v1/api/project/5/url/'+data;
+        const { projectIdx } = this.state;
+        const apiUrl = `http://15.164.13.58:8085/v1/api/project/` + projectIdx + `/url/`+data;
 
         axios.delete(apiUrl)
             .then(res => {
@@ -52,7 +55,7 @@ class UrlList extends Component{
     }
 
     render(){
-        const { urlList } = this.state;
+        const { urlList, projectIdx } = this.state;
 
         return(
             <div className="urlListMainWrapper">
@@ -61,7 +64,7 @@ class UrlList extends Component{
                         <div className="urlListTitle">산출물 업로드</div>
                         <div className="ContentWrapper">
 
-                                <InsertUrlForm/>
+                                <InsertUrlForm projectIdx={projectIdx}/>
 
                         </div>
                     </div>

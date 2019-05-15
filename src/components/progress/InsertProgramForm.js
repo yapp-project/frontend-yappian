@@ -11,7 +11,8 @@ class InsertProgramForm extends Component {
         this.state = {
             toolName : '',
             url : '',
-            toolList : []
+            toolList : [],
+            projectIdx : this.props.projectIdx
         }
     }
 
@@ -24,8 +25,8 @@ class InsertProgramForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        const {toolName, url} = this.state;
-        const apiUrl = 'http://15.164.13.58:8085/v1/api/project/5/url';
+        const {toolName, url, projectIdx} = this.state;
+        const apiUrl = `http://15.164.13.58:8085/v1/api/project/`+ projectIdx +`/url`;
 
         axios.post(apiUrl, {
             "contents" : url,
