@@ -38,35 +38,10 @@
 }
 
 .urlLogo {
-    width: 94px;
-    height: 29px;
-    opacity: 0.7;
-    font-family: NotoSansCJKkr;
-    font-size: 20pt;
-    font-weight: 900;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: -0.2px;
-    color: #999999;
+    width: 7.833333333333334vw;
+    height: 3.7760416666666665vh;
+    object-fit: contain;
 }
-
-.userIcon {
-    width: 29px;
-    height: 29px;
-    opacity: 0.7;
-}
-
-.otherIcon {
-    width: 29px;
-    height: 29px;
-    opacity: 0.7;
-}
-
-.margin-right {
-    margin-right:10px;
-}
-
 
 .selectedStateWrapper {
     width:100%;

@@ -31,6 +31,7 @@ class CreateProjectPopup extends Component{
     }
 
     showCreatePopup = () => {
+
         this.props.showCreatePopup()
     }
 
@@ -39,7 +40,7 @@ class CreateProjectPopup extends Component{
     }
 
     getOrdersNumber = () => {
-        const apiUrl = 'http://15.164.13.58:8085/v1/api/orders';
+        const apiUrl = 'https://localhost:8085/api/orders';
 
         axios.get(apiUrl)
             .then(res => {
@@ -107,7 +108,7 @@ class CreateProjectPopup extends Component{
         e.preventDefault();
         const {ordersIdx, projectName, projectType, code1, code2, code3, code4, codeCaution } = this.state;
 
-        const apiUrl = 'http://15.164.13.58:8085/v1/api/project';
+        const apiUrl = 'https://localhost:8085/api/project';
         if(codeCaution === false){
             axios.post(apiUrl, {
                 "ordersIdx": ordersIdx,
@@ -117,10 +118,10 @@ class CreateProjectPopup extends Component{
             })
                 .then(res => {
                     console.log(res.data)
-                    // this.setState({
-                    //     projectIdx : 5,
-                    //     redirect : true
-                    // })
+                    this.setState({
+                        projectIdx : res.data.projectIdx,
+                        redirect : true
+                    })
 
                 })
                 .catch(error => {
@@ -135,7 +136,7 @@ class CreateProjectPopup extends Component{
 
 
     render(){
-        const {projectIdx} = this.state;
+        const { projectIdx } = this.state;
 
         if(this.state.redirect === true){
             return(

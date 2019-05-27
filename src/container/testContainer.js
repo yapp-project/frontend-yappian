@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import JoinProjectPopup from "../components/popup/JoinProjectPopup";
 
 class testContainer extends Component {
     constructor(props){
@@ -58,12 +59,7 @@ class testContainer extends Component {
 
     render(){
         return(
-            <div>
-                <button onClick={() => {this.getUrl()}}>Click this</button>
-                {this.state.data}
-            </div>
-
-
+            <JoinProjectPopup />
         );
     }
 

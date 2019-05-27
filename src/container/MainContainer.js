@@ -4,23 +4,15 @@ import './MainContainer.css';
 import mainLogo from '../img/yappian-copy@3x.png'
 import MainInfoFont from '../img/MainInfoFont.png'
 
-import axios from 'axios';
-import { ProjectList, Login, Logout } from '../components';
-import { BrowserRouter as Link } from 'react-router-dom';
-
-//{this.state.login === true ? (<Logout />) : (<Login onLogin={this.onLogin}/>)}
+import { ProjectListWrapper, Login, Logout } from '../components';
 class MainContainer extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            login: false,
-            gisu: "13",
-            project: []
+            login: false
         }
-
     }
-
 
 
     render(){
@@ -32,16 +24,23 @@ class MainContainer extends Component {
                             <img src={mainLogo} className="mainLogo" />
                         </div>
                         <div className="nav-right">
-                            <Logout />
+                            {
+                                this.state.login === true ?
+                                    (
+                                        <Logout login={this.state.login} />
+                                    ) :
+                                    (
+                                        <Login />
+                                    )
+                            }
+
                         </div>
                     </div>
                     <img src={MainInfoFont}  className="mainInfo"/>
-                    <div>
 
-                    </div>
                 </div>
                 <div className="bottom">
-                    <ProjectList />
+                    <ProjectListWrapper />
                 </div>
             </div>
         );

@@ -1,21 +1,23 @@
 import React from 'react';
 import './Project.css';
+import { Link } from 'react-router-dom'
 
 import finishedIcon from '../../img/finishedIcon.png';
 
-const Project = () => {
+const Project = ({project}) => {
+
     return(
-        <div className="projectObjectWrapper">
-            <div className="projectImage"></div>
-            <div className="projectInfoWrapper">
-                <div className="projectName">DITO</div>
-                <div className="platformName">Android</div>
-                <div className="finishedWrapper">
-                    <img src={finishedIcon} className="finishedProject"/>
-                </div>
+        <Link to={"/main/" + project.projectIdx} className="projectObjectWrapper">
+            <img src={project.imgUrl} className="imgSize" />
+            <div>
+                <div className="projectName projectFont">{project.name}</div>
+                <div className="projectFont">{project.type}</div>
+                {project.releaseCheck === 'Y' ? (
+                    <img src={finishedIcon} className="finishedIconStyled" />
+                ) : ''}
             </div>
-        </div>
-    )
+        </Link>
+    );
 }
 
 export default Project;

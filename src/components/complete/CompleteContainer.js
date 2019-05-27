@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import './CompleteContainer.css';
 import axios from 'axios'
+import GoogleDocsViewer from 'react-google-docs-viewer'
+import { Document, Page } from 'react-pdf';
+
+import pdf from '../../img/sample-file.pdf'
 
 
 import completeIcon from '../../img/completeImg.png'
-import pdfViewer from '../../img/1팀 yapppian dc1 발표자료.pdf'
 
 class CompleteContainer extends Component {
     constructor(props){
@@ -12,11 +15,19 @@ class CompleteContainer extends Component {
 
         this.state = {
             projectIdx: this.props.projectIdx,
-            projectObject: {}
+            projectObject: [],
+            pdfUrl : '',
+
+            numPages: null,
+            pageNumber: 1
         }
     }
 
     componentDidMount() {
+        this.onGetCompleteProject()
+    }
+
+    componentWillMount() {
         this.onGetCompleteProject()
     }
 
@@ -27,7 +38,8 @@ class CompleteContainer extends Component {
         axios.get(apiUrl)
             .then(res => {
                 this.setState({
-                    projectObject : res.data
+                    projectObject : res.data,
+                    pdfUrl : res.data.fileList[1].fileUrl
                 })
             })
             .catch(error => {
@@ -35,8 +47,14 @@ class CompleteContainer extends Component {
             })
     }
 
+    onDocumentLoadSuccess = ({ numPages }) => {
+        this.setState({ numPages });
+    }
+
     render(){
         const { projectObject } = this.state;
+        const pdfUrl = this.state.pdfUrl;
+        const { pageNumber } = this.state;
 
         return(
             <div className="completeWrapper1">
@@ -63,7 +81,7 @@ class CompleteContainer extends Component {
                     </div>
                 </div>
                 <div className="rightInComplete">
-                    <iframe type="file" src="https://s3.ap-northeast-2.amazonaws.com/yappian/Files/2019/05/f33ddd76-6bfc-463b-8b17-31b650345c8c_yappian 2차 뎁캠 발표자료22.pdf" className="pdfView"/>
+                    <iframe src={pdfUrl} className="pdfView"/>
                 </div>
             </div>
         );

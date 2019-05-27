@@ -2,17 +2,29 @@
 
 .joinPopupMainWrapper {
     width: 505px;
-    height: 326px;
+    height: 409px;
     border-radius: 5px;
-    box-shadow: 1px 5px 9px 3px rgba(0, 0, 0, 0.03);
+    box-shadow: 1px 5px 9px 3px rgba(0, 0, 0, 0.09);
     background-color: #ffffff;
-    margin-top:100px;
+    display : flex;
+    align-items: center;
+    flex-direction: column;
+    padding : 26px 26px 26px 42px;
 }
 
+.joinHeader {
+    width:100%;
+    display: flex;
+    justify-content: flex-end;
+}
 
-.popupTitle {
-    width: 220px;
-    height: 45px;
+.styledJoinCloseIcon {
+    width: 24px;
+    height: 24px;
+    opacity: 0.5;
+}
+
+.joinTitle {
     font-family: NotoSansCJKkr;
     font-size: 30px;
     font-weight: bold;
@@ -22,59 +34,79 @@
     letter-spacing: -0.9px;
     text-align: center;
     color: #b382de;
-    border-bottom: 2px solid #b382de;
-    margin: 34px 143px 0px 142px;
+
+    padding-bottom: 3px;
+    border-bottom : 2px solid #b382de;
+    margin-bottom: 29px;
 }
 
-.middleIntro {
-    width: 372px;
-    height: 18px;
+.joinContent {
     font-family: NotoSansCJKkr;
-    font-size: 12px;
-    font-weight: 300;
+    font-size: 1rem;
+    font-weight: 500;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
     letter-spacing: -0.2px;
     text-align: center;
-    color: #999999;
-    margin:33px 67px 0px 66px;
+    color: #555555;
 }
 
-.undermiddleIntro {
-    width:auto;
-    height: 12px;
+.alignedCenterForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top : 36px;
+}
+
+.codeNoticeWord {
     font-family: NotoSansCJKkr;
-    font-size: 8px;
+    font-size: 14px;
     font-weight: 300;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
-    letter-spacing: -0.1px;
-    color: #999999;
-    margin:30px 166px 0px ;
-    text-align: center;
+    letter-spacing: -0.2px;
+    color: #8b8b8b;
 }
 
-.inviteCodeWrapper {
-    display : flex;
-    margin:15px 0px 0px 170px;
+.inputBoxesStyled {
+    margin-top: 9px;
+    margin-bottom : 8px;
 }
 
-.inviteCode {
-    margin : 0 5px 0 5px;
-    flex : 1;
+.joinInviteCode {
     width: 32px;
-    height: 40px;
-    border-radius: 12px;
+    height: 35px;
+    border-radius: 10px;
     border: solid 1px #b6b6b6;
     background-color: #ffffff;
+    margin-right: 15px;
     text-align: center;
-    color: #4f4f4f;
 }
 
-.center{
+.joinCaution {
+    font-family: NotoSansCJKkr;
+    font-size: 1rem;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.2px;
+    color: #ff0000;
+}
+
+.submitButtonInJoin {
+    width: 348px;
+    height: 65px;
+    border-radius: 32.5px;
+    box-shadow: 0 10px 15px 3px rgba(0, 0, 0, 0.03);
+    background-image: linear-gradient(100deg, #5ae0ff, #c86dd7);
+
     display:flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+
+    margin-top:44px;
 }

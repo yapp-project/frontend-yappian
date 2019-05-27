@@ -1,0 +1,26 @@
+.userIcon {
+    width: 29px;
+    height: 29px;
+    opacity: 0.7;
+}
+
+.otherIcon {
+    width: 29px;
+    height: 29px;
+    opacity: 0.7;
+}
+
+.margin-right {
+    margin-right:10px;
+}
+
+.right {
+    flex : 1;
+    padding-right:0px;
+}
+
+.loginImg {
+    width: 95px;
+    height: 30px;
+    object-fit: contain;
+}

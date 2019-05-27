@@ -36,7 +36,7 @@ class InsertUrlForm extends Component {
         e.preventDefault();
 
         const {type, title, content, projectIdx} = this.state;
-        const apiUrl = 'http://15.164.13.58:8085/v1/api/project/'+ projectIdx +'/url';
+        const apiUrl = 'http://15.164.13.58:8085/api/project/'+ projectIdx +'/url';
 
         axios.post(apiUrl, {
             "contents" : content,

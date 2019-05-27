@@ -1,0 +1,34 @@
+.notFoundWrapper {
+    margin: 0 auto;
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.notFoundTopLine {
+    width: 100%;
+    height: 10px;
+    background-image: linear-gradient(to right, #5ae0ff, #c86dd7);
+}
+
+.errorBox {
+    font-family: NotoSansCJKkr;
+    font-size: 5rem;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.9px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #b382de;
+    padding: 30px;
+}
+
+.moveMainStyled {
+    text-decoration: none;
+    color: #0d71bb;
+}

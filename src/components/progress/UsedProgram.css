@@ -29,5 +29,17 @@
 .programItemAlign {
     display: flex;
     flex-wrap: wrap;
+}
 
+.non-member-notice {
+    margin-top: 53.6px;
+    font-family: NotoSansCJKkr;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.38;
+    letter-spacing: -0.1px;
+    text-align: center;
+    color: #9a9a9a;
 }
