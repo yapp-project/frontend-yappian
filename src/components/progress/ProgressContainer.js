@@ -22,7 +22,7 @@ class ProgressContainer extends Component {
     }
 
     getProject = () => {
-        const apiUrl = `http://15.164.13.58:8085/api/project/`+ this.state.projectIdx;
+        const apiUrl = `https://yappian.com/api/project/`+ this.state.projectIdx;
 
         axios.get(apiUrl)
             .then(res => {

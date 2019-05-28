@@ -33,7 +33,7 @@ class CompleteContainer extends Component {
 
     onGetCompleteProject  = () => {
         const { projectIdx } = this.state
-        const apiUrl = `http://15.164.13.58:8085/v1/api/project/`+ projectIdx + `/finish`
+        const apiUrl = `https://yappian.com/api/project/`+ projectIdx + `/finish`
 
         axios.get(apiUrl)
             .then(res => {

@@ -33,7 +33,7 @@ class UrlList extends Component{
 
     handleGetUrl = () => {
         const { projectIdx } = this.state;
-        const apiUrl = `http://15.164.13.58:8085/api/project/` + projectIdx + `/url/list`;
+        const apiUrl = `https://yappian.com/api/project/` + projectIdx + `/url/list`;
 
         axios.get(apiUrl)
             .then(res => {
@@ -53,7 +53,7 @@ class UrlList extends Component{
 
         const { projectIdx } = this.state;
 
-            const apiUrl = `http://15.164.13.58:8085/api/project/` + projectIdx + `/url/`+data;
+            const apiUrl = `https://yappian.com/api/project/` + projectIdx + `/url/`+data;
 
             axios.delete(apiUrl)
                 .then(res => {
@@ -68,11 +68,6 @@ class UrlList extends Component{
     }
 
 
-    handleUrlClick = (data) => {
-        if(this.state.noMoveUrl === false){
-            window.open("http://www.naver.com")
-        }
-    }
 
     render(){
         const { urlList, projectIdx } = this.state;

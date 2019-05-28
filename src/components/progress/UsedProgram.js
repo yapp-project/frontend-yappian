@@ -26,7 +26,7 @@ class UsedProgram extends Component {
 
     handleGetUrl = () => {
         const { projectIdx } = this.state;
-        const apiUrl = `http://15.164.13.58:8085/api/project/`+ projectIdx + `/url/list`;
+        const apiUrl = `https://yappian.com/api/project/`+ projectIdx + `/url/list`;
 
         axios.get(apiUrl)
             .then(res => {

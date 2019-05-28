@@ -1,14 +1,43 @@
-.completePopupWrapper {
-    width: 727px;
-    height: 520px;
-    border-radius: 5px;
-    box-shadow: 1px 5px 9px 3px rgba(0, 0, 0, 0.03);
-    background-color: #ffffff;
+.completeWrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(0,0,0, 0.5);
 }
 
-.completeTitle {
-    width: 220px;
-    height: 45px;
+.topStyled {
+    width: 100%;
+    height: 10px;
+    background-image: linear-gradient(to right, #5ae0ff, #c86dd7);
+}
+
+.completeFrame {
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    top: 25%;
+    bottom: 25%;
+    margin: auto;
+    width: 57.58333333333333vw;
+    height: 77.21354166666666vh;
+    border-radius: 5px;
+    box-shadow: 1px 5px 9px 3px rgba(0, 0, 0, 0.09);
+    background-color: #ffffff;
+    z-index: 1;
+    padding:34px 58px 37px 57px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.completePopupTitle {
+    width: fit-content;
     font-family: NotoSansCJKkr;
     font-size: 30px;
     font-weight: bold;
@@ -18,63 +47,74 @@
     letter-spacing: -0.9px;
     text-align: center;
     color: #b382de;
-    border-bottom: 2px solid #b382de;
+    border-bottom: 1px solid #b382de;
+    margin-bottom: 3.2552083333333335vh;
 }
 
-.CompleteMiddleIntro {
-    width: 372px;
-    height: 18px;
+.completePopupInfo{
     font-family: NotoSansCJKkr;
-    font-size: 12px;
-    font-weight: 300;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: -0.2px;
-    text-align: center;
-    color: #999999;
-}
-
-.insertUrlWrapper {
-    width: 580px;
-    height: 36px;
-    border-radius: 20px;
-    border: solid 1px #b6b6b6;
-    background-color: #ffffff;
-    padding:
-}
-
-input::placeholder {
-    padding-left:26px;
-    width: 69px;
-    height: 18px;
-    font-family: NotoSansCJKkr;
-    font-size: 12px;
-    font-weight: 300;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: -0.1px;
-    color: #999999;
-}
-
-.introduceTitle {
-    width: 75px;
-    height: 18px;
-    font-family: NotoSansCJKkr;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
     letter-spacing: -0.2px;
-    color: #000000;
+    text-align: center;
+    color: #555555;
+    margin-bottom: 4.947916666666666vh;
 }
 
-.introduceTextArea {
-    width: 580px;
-    height: 114px;
+.completePopupInputUrlBox {
+    width: 100%;
+    height: 5.208333333333334vh;
     border-radius: 20px;
     border: solid 1px #b6b6b6;
     background-color: #ffffff;
+    display: flex;
+
+}
+
+.emptySpace {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputStyled {
+    flex: 11 auto;
+    border: none;
+}
+
+.inputStyled::placeholder {
+    text-align: start;
+    font-family: NotoSansCJKkr;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.2px;
+    color: #8b8b8b;
+}
+
+.inputUrlImg {
+    width: 22px;
+    height: 23px;
+    object-fit: contain;
+}
+
+.intro-img-wrapper {
+    width: 100%;
+    background-color: #0d71bb;
+    display: flex;
+    flex-direction: row;
+}
+
+.intro-wrapper {
+    flex: 3;
+}
+
+.img-wrapper {
+    flex: 1;
 }

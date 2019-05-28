@@ -33,7 +33,7 @@ class ProjectListWrapper extends Component {
 
 
     getOrdersNumber = () => {
-        const apiUrl = 'https://localhost:8085/api/orders';
+        const apiUrl = 'https://yappian.com/api/orders';
 
         axios.get(apiUrl)
             .then(res => {
@@ -53,7 +53,7 @@ class ProjectListWrapper extends Component {
     }
 
     getProjectList = () => {
-        const apiUrl = `https://localhost:8085/api/order/` + this.state.defaultGisu + `/projects`
+        const apiUrl = `https://yappian.com/api/order/` + this.state.defaultGisu + `/projects`
         const { firstListNum } = this.state;
 
         axios.get(apiUrl)

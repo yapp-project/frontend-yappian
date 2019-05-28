@@ -22,7 +22,7 @@ class ProgramItem extends Component {
             toolIdx : data
         })
 
-        const apiUrl = 'http://15.164.13.58:8085/api/project/1/url/'+dataState;
+        const apiUrl = 'https://yappian.com/api/project/1/url/'+dataState;
 
         axios.delete(apiUrl)
             .then(res => {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {CompleteContainer, ProgressContainer} from "../components";
+import { GoogleLogin } from 'react-google-login';
 
 export default class TestMainContainer extends Component {
     constructor(props){
@@ -10,21 +10,14 @@ export default class TestMainContainer extends Component {
         }
     }
 
-    handleChangeView = (data) => {
-        console.log(data)
-        this.setState({
-            viewState : data
-        })
+    handleSuccess = () => {
+
     }
+
 
     render() {
         return (
-            <div>
-                <button onClick={() => this.handleChangeView("progress")}>progress</button>
-                <button onClick={() => this.handleChangeView("complete")}>complete</button>
-                {this.state.viewState === 'progress' ? ( <ProgressContainer /> ) : (<CompleteContainer />)}
-                <ProgressContainer />
-            </div>
+            <GoogleLogin clientId="571755016264-5itf6g6p8jer881uk229gj2o7guihp4r.apps.googleusercontent.com" onSuccess={this.handleSuccess} buttonText="Login"/>
         );
     }
 }

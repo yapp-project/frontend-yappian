@@ -2,7 +2,7 @@
   "name": "frontend-yappian",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://localhost:8085/",
+  "homepage": "https://yappian.com/",
   "dependencies": {
     "@babel/core": "7.2.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
@@ -40,6 +40,7 @@
     "jest-pnp-resolver": "1.0.2",
     "jest-resolve": "23.6.0",
     "jest-watch-typeahead": "^0.2.1",
+    "js-cookie": "^2.2.0",
     "mini-css-extract-plugin": "0.5.0",
     "npm": "^6.9.0",
     "optimize-css-assets-webpack-plugin": "5.0.1",
@@ -51,10 +52,12 @@
     "react": "^16.8.6",
     "react-app-polyfill": "^0.2.2",
     "react-bootstrap": "^1.0.0-beta.8",
+    "react-cookie": "^4.0.0",
     "react-dev-utils": "^8.0.0",
     "react-dom": "^16.8.6",
     "react-fontawesome": "^1.6.1",
     "react-google-docs-viewer": "^1.0.1",
+    "react-google-login": "^5.0.4",
     "react-iframe": "^1.8.0",
     "react-pdf": "^4.0.5",
     "react-router": "^3.2.1",
@@ -67,6 +70,7 @@
     "style-loader": "0.23.1",
     "styled-components": "^4.2.0",
     "terser-webpack-plugin": "1.2.2",
+    "universal-cookie": "^4.0.0",
     "url-loader": "1.1.2",
     "webpack": "4.28.3",
     "webpack-dev-server": "3.1.14",
@@ -78,7 +82,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
   },
-  "proxy": "https://localhost:8085",
+  "proxy": "https://yappian.com",
   "eslintConfig": {
     "extends": "react-app"
   },
