@@ -2,7 +2,7 @@
   "name": "frontend-yappian",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://yappian.com/",
+  "homepage": "https://yappian.com",
   "dependencies": {
     "@babel/core": "7.2.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
@@ -59,6 +59,7 @@
     "react-google-docs-viewer": "^1.0.1",
     "react-google-login": "^5.0.4",
     "react-iframe": "^1.8.0",
+    "react-input-files": "^1.2.0",
     "react-pdf": "^4.0.5",
     "react-router": "^3.2.1",
     "react-router-dom": "^5.0.0",

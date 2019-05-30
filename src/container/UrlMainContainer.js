@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import { Link, Redirect } from 'react-router-dom';
 
+
 import {ProgressContainer, CompleteContainer} from "../components";
 import Logout from '../components/navbar/url/Logout'
 import Login from '../components/navbar/url/Login'
@@ -9,6 +10,7 @@ import Login from '../components/navbar/url/Login'
 import './UrlMainContainer.css';
 
 import logoOnUrl from '../img/logo-on-url.png'
+
 
 class UrlMainContainer extends Component {
     constructor(props) {

@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
 import './MainContainer.css';
-import Cookies from 'universal-cookie';
+import  Cookie  from 'universal-cookie';
 
 import mainLogo from '../img/yappian-copy@3x.png'
 import MainInfoFont from '../img/MainInfoFont.png'
 
 import { ProjectListWrapper, Login, Logout } from '../components';
 
-const cookies = new Cookies();
-
+const cookie = new Cookie()
 
 class MainContainer extends Component {
+
     constructor(props) {
         super(props);
 
@@ -23,16 +23,17 @@ class MainContainer extends Component {
         //console.log(this.state.cookie)
     }
 
-    handleLogin = (session) => {
+    handleLogin = () => {
         //alert(session + "환영합니다")
         //cookies.set('JSESSIONID', session)
         //alert(cookies.get('JSESSIONID'))
-        // this.setState({
-        //     login: !this.state.login
-        // })
+        // console.log(getCookie('SESSION'))
+
+        console.log()
+        this.setState({
+            login: !this.state.login
+        })
     }
-
-
 
 
     render(){
@@ -60,7 +61,7 @@ class MainContainer extends Component {
 
                 </div>
                 <div className="bottom">
-                    <ProjectListWrapper />
+
                 </div>
             </div>
         );

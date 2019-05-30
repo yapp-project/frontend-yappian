@@ -17,7 +17,6 @@ class CompleteContainer extends Component {
             projectIdx: this.props.projectIdx,
             projectObject: [],
             pdfUrl : '',
-
             numPages: null,
             pageNumber: 1
         }

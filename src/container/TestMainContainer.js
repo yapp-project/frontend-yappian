@@ -1,23 +1,58 @@
-import React, { Component } from 'react';
-import { GoogleLogin } from 'react-google-login';
+import React from 'react'
+import axios, { post } from 'axios';
 
-export default class TestMainContainer extends Component {
-    constructor(props){
-        super(props)
+class TestMainContainer extends React.Component {
 
+    constructor(props) {
+        super(props);
         this.state = {
-            viewState : 'progress'
+            file: '',
+            imagePreviewUrl: ''
+        };
+        this._handleImageChange = this._handleImageChange.bind(this);
+        this._handleSubmit = this._handleSubmit.bind(this);
+    }
+
+    _handleSubmit(e) {
+        e.preventDefault();
+        // TODO: do something with -> this.state.file
+    }
+
+    _handleImageChange(e) {
+        e.preventDefault();
+
+        let reader = new FileReader();
+        let file = e.target.files[0];
+
+        reader.onloadend = () => {
+            this.setState({
+                file: file,
+                imagePreviewUrl: reader.result
+            });
         }
+
+        reader.readAsDataURL(file)
     }
-
-    handleSuccess = () => {
-
-    }
-
 
     render() {
+        let {imagePreviewUrl} = this.state;
+        let $imagePreview = null;
+        if (imagePreviewUrl) {
+            $imagePreview = (<img src={imagePreviewUrl} />);
+        }
+
         return (
-            <GoogleLogin clientId="571755016264-5itf6g6p8jer881uk229gj2o7guihp4r.apps.googleusercontent.com" onSuccess={this.handleSuccess} buttonText="Login"/>
-        );
+            <div>
+                <form onSubmit={this._handleSubmit}>
+                    <input type="file" onChange={this._handleImageChange} />
+                    <button type="submit" onClick={this._handleSubmit}>Upload Image</button>
+                </form>
+                {$imagePreview}
+            </div>
+        )
     }
 }
+
+
+
+export default TestMainContainer

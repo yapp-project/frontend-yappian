@@ -8,63 +8,64 @@ import loginBtn from '../../../img/loginBtn.png'
 
 const cookies = new Cookies();
 
-export const testInstance = axios.create({
-    baseURL: 'https://localhost:8085/',
-    timeout: 180000,
-    withCredentials: true
-})
 
 class Login extends Component{
     constructor(props){
         super(props);
     }
 
-    responseGoogle = (response, error) => {
-        if(error){
-            console.log(error)
-        }else{
-            //console.log(response)
-            //cookies.set('SESSION', response.googleId)
-            //console.log(cookies.get('SESSION'))
-            //console.log(cookies.get('SID'))
-            //this.props.handleLogin(response.googleId)
-
-
-
-            // const url = '/api/login';
-            // testInstance({
-            //     method: 'get',
-            //     url
-            // }).then(response => {
-            //     // Do Stuff
-            //     console.log(response)
-            // }).catch(error => {
-            //     console.log(error)
-            //     // Do Stuff
-            // });
-
-            // axios.get('https://yappian.com/api/login')
-            //     .then(res => {
-            //         console.log(res)
-            //     })
-            //     .catch(error => {
-            //
-            //         console.log(error)
-            //     })
-            //alert(document.cookie.match(/PHPSESSID=[^;]+/));
-        }
-    }
 
     handleThis = () => {
-        axios.get('https://yappian.com/api/login')
+        // axios({
+        //     method: 'get',
+        //     url: 'https://yappian.com/api/login'
+        // })
+        axios.get('https://yappian.com/api/login', {
+            headers : {
+                'Access-Control-Allow-Origin' : '*',
+                'Content-Type' : 'application/json'
+            }
+            //withCredentials : true
+        })
             .then(res => {
+                //console.log(res)
                 console.log(res)
+                this.handleLogin()
             })
             .catch(error => {
-
-                console.log(error)
+                //cookies.get("SESSION")
+                //console.log(cookies.get("SESSION"))
+                this.handleLogin()
+                console.log(error.status)
             })
+        // const req = new XMLHttpRequest();
+        // req.open('GET','https://yappian.com/api/login', true);
+        // //req.withCredentials = true
+        // req.setRequestHeader('Access-Control-Allow-Origin', '*')
+        // req.setRequestHeader('Content-Type', 'application/json')
+        // req.onload = () => {
+        //     if (req.readyState === 4) {
+        //         if (req.status === 200) {
+        //             const json_obj = JSON.parse(req.responseText);
+        //             console.log(json_obj)
+        //             this.handleLogin()
+        //         } else {
+        //             console.error(req.statusText);
+        //             this.handleLogin()
+        //         }
+        //     }
+        // }
+        // req.onerror = () => {
+        //     console.error(req.statusText);
+        // }
+        // req.send(null);
     }
+
+    handleLogin = () => {
+        this.props.handleLogin()
+    }
+
+
 
 
     render(){
