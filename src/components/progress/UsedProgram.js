@@ -20,13 +20,13 @@ class UsedProgram extends Component {
         this.handleGetUrl()
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        this.handleGetUrl()
-    }
+    // componentDidUpdate(prevProps, prevState, snapshot) {
+    //     this.handleGetUrl()
+    // }
 
     handleGetUrl = () => {
         const { projectIdx } = this.state;
-        const apiUrl = `https://yappian.com/api/project/`+ projectIdx + `/url/list`;
+        const apiUrl = `http://localhost:8085/api/project/`+ projectIdx + `/url/list`;
 
         axios.get(apiUrl)
             .then(res => {
@@ -41,7 +41,7 @@ class UsedProgram extends Component {
 
     handleDeleteUrl = (data) => {
         const { projectIdx } = this.state;
-        const apiUrl = `http://15.164.13.58:8085/api/project/`+ projectIdx + `/url/`+data;
+        const apiUrl = `http://localhost:8085/api/project/`+ projectIdx + `/url/`+data;
 
         axios.delete(apiUrl)
             .then(res => {

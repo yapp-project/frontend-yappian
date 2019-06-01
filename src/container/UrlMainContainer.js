@@ -32,7 +32,7 @@ class UrlMainContainer extends Component {
 
 
     handleGetFinalCheck = () => {
-        const apiUrl = `https://yappian.com/api/project/` + this.state.projectIdx + `/finish`
+        const apiUrl = `http://localhost:8085/api/project/` + this.state.projectIdx + `/finish`
 
         axios.get(apiUrl)
             .then(res => {

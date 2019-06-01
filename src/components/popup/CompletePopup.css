@@ -16,13 +16,15 @@
     background-image: linear-gradient(to right, #5ae0ff, #c86dd7);
 }
 
+.completeFrameCenter {
+    width: 100%;
+    height: 98vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .completeFrame {
-    position: absolute;
-    left: 25%;
-    right: 25%;
-    top: 25%;
-    bottom: 25%;
-    margin: auto;
     width: 57.58333333333333vw;
     height: 77.21354166666666vh;
     border-radius: 5px;
@@ -260,16 +262,58 @@ textArea::placeholder {
 }
 
 .launching-frame {
-    width: 100%;
+    width: 12.25vw;
     height: 40px;
     border-radius: 20px;
     border: solid 1px #b6b6b6;
     background-color: #ffffff;
     display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
+.active-button {
+    width: 6.75vw;
+    height: 100%;
+    border-radius: 20px;
+    border: solid 2px #b382de;
+    background-color: #b382de;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: NotoSansCJKkr;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.2px;
+    text-align: center;
+    color: #ffffff;
+}
 
-
+.no-active-button {
+    width: 6.75vw;
+    height: 100%;
+    border-radius: 20px;
+    border: solid 2px #8b8b8b;
+    background-color: #8b8b8b;
+    position: relative;
+    left: 5.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: NotoSansCJKkr;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.2px;
+    text-align: center;
+    color: #ffffff;
+}
 
 
 .img-in-complete{

@@ -28,7 +28,7 @@ class InsertProgramForm extends Component {
         e.preventDefault();
 
         const {toolName, url, projectIdx} = this.state;
-        const apiUrl = `https://yappian.com/api/project/`+ projectIdx +`/url`;
+        const apiUrl = `http://localhost:8085/api/project/`+ projectIdx +`/url`;
 
         axios.post(apiUrl, {
             "contents" : url,

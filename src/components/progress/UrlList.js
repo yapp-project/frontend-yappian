@@ -26,14 +26,14 @@ class UrlList extends Component{
         this.handleGetUrl()
     }
 
-    componentDidUpdate() {
-        this.handleGetUrl()
-    }
+    // componentDidUpdate() {
+    //     this.handleGetUrl()
+    // }
 
 
     handleGetUrl = () => {
         const { projectIdx } = this.state;
-        const apiUrl = `https://yappian.com/api/project/` + projectIdx + `/url/list`;
+        const apiUrl = `http://localhost:8085/api/project/` + projectIdx + `/url/list`;
 
         axios.get(apiUrl)
             .then(res => {
@@ -53,7 +53,7 @@ class UrlList extends Component{
 
         const { projectIdx } = this.state;
 
-            const apiUrl = `https://yappian.com/api/project/` + projectIdx + `/url/`+data;
+            const apiUrl = `http://localhost:8085/api/project/` + projectIdx + `/url/`+data;
 
             axios.delete(apiUrl)
                 .then(res => {

@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
+import Cookies from 'universal-cookie';
+import axios from 'axios'
+
+
 import './MainContainer.css';
-import  Cookie  from 'universal-cookie';
 
 import mainLogo from '../img/yappian-copy@3x.png'
 import MainInfoFont from '../img/MainInfoFont.png'
 
 import { ProjectListWrapper, Login, Logout } from '../components';
 
-const cookie = new Cookie()
-
+const cookies = new Cookies();
 class MainContainer extends Component {
 
     constructor(props) {
@@ -20,20 +22,31 @@ class MainContainer extends Component {
     }
 
     componentDidMount() {
-        //console.log(this.state.cookie)
+        this.getSession()
     }
 
-    handleLogin = () => {
-        //alert(session + "환영합니다")
-        //cookies.set('JSESSIONID', session)
-        //alert(cookies.get('JSESSIONID'))
-        // console.log(getCookie('SESSION'))
-
-        console.log()
+    handleLogin = (status) => {
         this.setState({
-            login: !this.state.login
+            login: status
         })
     }
+
+    getSession = () => {
+        axios.get('http://localhost:8085/session')
+            .then(res => {
+                console.log(res.data)
+                if(res.data == 'ANONYMOUS'){
+                    this.handleLogin(false)
+                }else{
+                    this.handleLogin(true)
+                }
+
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
 
 
     render(){
@@ -58,10 +71,9 @@ class MainContainer extends Component {
                         </div>
                     </div>
                     <img src={MainInfoFont}  className="mainInfo"/>
-
                 </div>
                 <div className="bottom">
-
+                    <ProjectListWrapper />
                 </div>
             </div>
         );
