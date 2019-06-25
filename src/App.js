@@ -15,10 +15,12 @@ class App extends Component {
     render() {
     return (
         <HashRouter>
-            <Route exact path="/" component={MainContainer} />
-            <Route path="/main/:projectIdx" component={UrlMainContainer} />
-            <Route path="/test" component={TestMainContainer} />
-            <Route path="/test1" component={testContaier} />
+                <Route exact path="/" component={MainContainer} />
+                <Route path="/main/:projectIdx" component={UrlMainContainer} />
+                <Route path="/error" component={Notfound} />
+                <Route path="/test" component={TestMainContainer} />
+                <Route path="/test1" component={testContaier} />
+
         </HashRouter>
 
     );

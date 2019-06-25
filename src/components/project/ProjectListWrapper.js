@@ -23,14 +23,9 @@ class ProjectListWrapper extends Component {
     }
 
     componentDidMount() {
-        this.getOrdersNumber()
         this.getProjectList()
+        this.getOrdersNumber()
     }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        //this.getProjectList()
-    }
-
 
     getOrdersNumber = () => {
         const apiUrl = 'http://localhost:8085/api/orders';
@@ -52,20 +47,9 @@ class ProjectListWrapper extends Component {
             });
     }
 
-    getProjectList = () => {
-        const apiUrl = `http://localhost:8085/api/order/` + this.state.defaultGisu + `/projects`
-        const { firstListNum } = this.state;
 
-        axios.get(apiUrl)
-            .then(res => {
-                this.setState({
-                    projectListSize : res.data.length,
-                    projectList : res.data.slice(firstListNum,firstListNum+4)
-                })
-            })
-            .catch(error => {
-                console.log(error)
-            })
+    getProjectList = () => {
+        this.props.getProjectList();
     }
 
     handleGisuChange = (e, data) => {
@@ -73,6 +57,7 @@ class ProjectListWrapper extends Component {
             firstListNum : 0,
             defaultGisu : data.value - 9
         })
+        this.getProjectList()
     }
 
     handleMoveLeft = () => {
@@ -93,6 +78,7 @@ class ProjectListWrapper extends Component {
         }
         this.getProjectList()
     }
+
 
     render(){
         const {gisuList, projectList} = this.state;

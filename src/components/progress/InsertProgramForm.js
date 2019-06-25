@@ -38,9 +38,9 @@ class InsertProgramForm extends Component {
             .then(res => {
                 this.setState({
                     toolName: '',
-                    url : '',
-                    toolList : res.data
+                    url : ''
                 })
+                this.props.onSuccessInsert('TOOL', res.data.urlList.filter(list => list.type==='TOOL'))
             })
             .catch(error => {
                 console.log(error)

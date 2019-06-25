@@ -12,7 +12,9 @@ class UsedProgram extends Component {
             toolList : [],
             projectIdx : this.props.projectIdx,
             login : this.props.login,
-            finalCheck : this.props.finalCheck
+            finalCheck : this.props.finalCheck,
+            TOOLData : [],
+            URLData : []
         }
     }
 
@@ -51,6 +53,13 @@ class UsedProgram extends Component {
             .catch(error => {console.log(error)});
     }
 
+    //insert 후 재로드를 위함
+    onSuccessInsert = (type, ArrayData) => {
+        this.setState({
+            toolList : ArrayData
+        })
+    }
+
 
 
 
@@ -64,9 +73,9 @@ class UsedProgram extends Component {
                     {this.state.login === true && this.state.finalCheck === 'N'?
                         (
                             <div className="thisContentWrapper">
-                                <InsertProgramForm projectIdx={this.state.projectIdx}/>
+                                <InsertProgramForm projectIdx={this.state.projectIdx} onSuccessInsert={this.onSuccessInsert}/>
                                 <div className="programItemAlign">
-                                    <ProgramItem login={this.state.login} toolList={this.state.toolList} finalCheck={this.state.finalCheck} />
+                                    <ProgramItem login={this.state.login} toolList={this.state.toolList} finalCheck={this.state.finalCheck} projectIdx={this.state.projectIdx}/>
                                 </div>
                             </div>
                         ): (

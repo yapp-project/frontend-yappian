@@ -4,6 +4,8 @@ import './Navbar.css'
 import userIcon from '../../../img/userIcon.png';
 import CreateProjectPopup from "../../popup/CreateProjectPopup";
 import MemberInfo from "../../popup/MemberInfo";
+import Modal from "react-modal";
+import TestCreateProjectModal from "../../../container/TestMainContainer";
 
 
 class Logout extends Component {
@@ -11,52 +13,31 @@ class Logout extends Component {
         super(props);
 
         this.state = {
-            showCreatePopup : false,
-            showMemberInfoPopup : false
+            createModal : false,
+            memberInfoPopup : false,
+            gisuList: this.props.gisuList
         }
     }
 
-    showCreatePopup = () => {
-        // if(!this.state.showCreatePopup){
-        //     document.addEventListener('click', this.handleCreatePopup,false);
-        // }else {
-        //     document.removeEventListener('click', this.handleCreatePopup,false);
-        // }
+    openCreateModal = () => {
+        this.setState({createModal: true});
+    }
 
+
+    closeCreateModal = () => {
+        this.setState({createModal: false});
+    }
+
+    openMemberInfoPopup = () => {
         this.setState({
-            showCreatePopup : !this.state.showCreatePopup
+            memberInfoPopup : true
         })
     }
 
-    // handleCreatePopup = (e) => {
-    //     if(this.create.contains(e.target)){
-    //         return;
-    //     }
-    //
-    //     this.showCreatePopup()
-    // }
-
-    showMemberInfoPopup = () => {
-        if (!this.state.showMemberInfoPopup) {
-            //
-            document.addEventListener('click', this.handleMemberPopup, false);
-        } else {
-            document.removeEventListener('click', this.handleMemberPopup, false);
-        }
-
+    closeMemberInfoPopup = () => {
         this.setState({
-            showMemberInfoPopup : !this.state.showMemberInfoPopup
+            memberInfoPopup : false
         })
-    }
-
-    g
-
-    handleMemberPopup = (e) => {
-        if (this.member.contains(e.target)) {
-            return;
-        }
-
-        this.showMemberInfoPopup()
     }
 
 
@@ -65,20 +46,13 @@ class Logout extends Component {
 
         return (
             <div className="leftFlow">
-                <div className="CreateNewProject" onClick={this.showCreatePopup}>새 프로젝트 만들기</div>
-                {
-                    this.state.showCreatePopup === true ?
-                        <CreateProjectPopup showCreatePopup={this.showCreatePopup} />
-                        :
-                        null
-                }
-                <img src={userIcon} className="userIcon" onClick={this.showMemberInfoPopup} ref={node => { this.member = node; }}/>
-                {
-                    this.state.showMemberInfoPopup === true ?
-                        <MemberInfo showMemberInfoPopup={this.showMemberInfoPopup} login={this.props.login} />
-                        :
-                        null
-                }
+                <div className="CreateNewProject" onClick={this.openCreateModal}>새 프로젝트 만들기</div>
+                <CreateProjectPopup openCreateModal={this.openCreateModal} closeCreateModal={this.closeCreateModal} createModal={this.state.createModal} gisuList={this.state.gisuList}/>
+                <img src={userIcon} className="userIcon" onClick={this.openMemberInfoPopup}/>
+                <MemberInfo login={this.props.login}
+                            openMemberInfoPopup={this.openMemberInfoPopup}
+                            closeMemberInfoPopup={this.closeMemberInfoPopup}
+                            memberInfoPopup={this.state.memberInfoPopup} />
             </div>
         );
     }

@@ -16,9 +16,7 @@ class CompleteContainer extends Component {
         this.state = {
             projectIdx: this.props.projectIdx,
             projectObject: [],
-            pdfUrl : '',
-            numPages: null,
-            pageNumber: 1
+            pdfUrl : ''
         }
     }
 
@@ -36,9 +34,13 @@ class CompleteContainer extends Component {
 
         axios.get(apiUrl)
             .then(res => {
-                this.setState({
-                    projectObject : res.data,
-                    pdfUrl : res.data.fileList[1].fileUrl
+                res.data.fileList.map((file, index) => {
+                    if(file.type === 'PDF'){
+                        this.setState({
+                            projectObject : res.data,
+                            pdfUrl : file.fileUrl
+                        })
+                    }
                 })
             })
             .catch(error => {
@@ -46,14 +48,9 @@ class CompleteContainer extends Component {
             })
     }
 
-    onDocumentLoadSuccess = ({ numPages }) => {
-        this.setState({ numPages });
-    }
-
     render(){
         const { projectObject } = this.state;
         const pdfUrl = this.state.pdfUrl;
-        const { pageNumber } = this.state;
 
         return(
             <div className="completeWrapper1">

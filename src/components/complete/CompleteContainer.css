@@ -69,6 +69,7 @@
     line-height: 1.57;
     letter-spacing: normal;
     color: #111111;
+    word-wrap:break-word;
 }
 
 .projectAddress {

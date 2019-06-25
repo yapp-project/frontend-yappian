@@ -1,72 +1,98 @@
 import React, {Component} from 'react';
+import {Redirect} from 'react-router-dom'
 import axios from 'axios'
 
 import './JoinProjectPopup.css';
 import submitButtonImg from "../../img/submit-button.png";
 import closeIcon from "../../img/noun-x-1890803@3x.png";
+import Modal from "react-modal";
 
+const joinProjectPopupBackground = {
+    overlay : {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0,0,0, 0.5)'
+    }
+}
 
 class JoinProjectPopup extends Component {
     constructor(props){
         super(props);
 
         this.state = {
-            projectIdx : 6,
-            code1 : '',
-            code2 : '',
-            code3 : '',
-            code4 : ''
+            projectIdx : this.props.projectIdx,
+            password : "",
+            redirect : false
         }
 
     }
 
-    showJoinPopup = () => {
-        this.props.showJoinPopup()
+    componentDidMount() {
+        if(this.state.redirect === true){
+            this.closeJoinPopup();
+        }
     }
 
     onChangeJoinInput = (e) => {
         this.setState({
-            [e.target.name] : e.target.value
+            password : e.target.value
         })
     }
 
     handleJoinSubmit = () => {
-        console.log("ok")
-        // const { projectIdx, code1, code2, code3, code4 } = this.state;
-        // const apiUrl = `http://15.164.13.58:8085/v1/api/project/` + projectIdx
-        // axios.post(apiUrl, {
-        //     "password" : code1+code2+code3+code4
-        // })
-        //     .then(res => {
-        //         console.log(res.data)
-        //     })
-        //     .catch(error => {
-        //         console.log(error)
-        //     })
+        const { projectIdx, password} = this.state;
+        const apiUrl = `http://localhost:8085/api/project/` + projectIdx;
+
+        axios.post(apiUrl,{
+            "password" : password
+        })
+            .then(res => {
+                console.log(res)
+                // this.setState({
+                //     redirect : true
+                // })
+                //console.log(res.data)
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
+
+    closeJoinPopup = () => {
+        this.props.closeJoinPopup();
+    }
+
     render(){
-        return (
-            <div className="joinPopupMainWrapper">
-                <div className="joinHeader">
-                    <img src={closeIcon} className="styledJoinCloseIcon" onClick={this.showJoinPopup}/>
-                </div>
-                <div className="joinTitle">프로젝트 참여하기</div>
-                <div className="joinContent">프로젝트에 참여하고 팀원들과 산출물을 관리하세요!</div>
-                <form onSubmit={this.handleJoinSubmit} className="alignedCenterForm">
-                    <div className="codeNoticeWord">초대 코드(네자리 숫자)를 입력해 주세요. </div>
-                    <div className="inputBoxesStyled">
-                        <input name="code1" className="joinInviteCode" maxLength="1" onChange={this.onChangeJoinInput}/>
-                        <input name="code2" className="joinInviteCode" maxLength="1" onChange={this.onChangeJoinInput}/>
-                        <input name="code3" className="joinInviteCode" maxLength="1" onChange={this.onChangeJoinInput}/>
-                        <input name="code4" className="joinInviteCode" maxLength="1" onChange={this.onChangeJoinInput}/>
+
+            return (
+                <Modal
+                    isOpen={this.props.joinPopup}
+                    onRequestClose={this.closeJoinPopup}
+                    className="joinPopupMainWrapper" style={joinProjectPopupBackground}
+                >
+
+                    <div className="joinHeader">
+                        <img src={closeIcon} className="styledJoinCloseIcon" onClick={this.closeJoinPopup}/>
                     </div>
-                    <div className="joinCaution">숫자만 입력해 주세요. </div>
-                    <button className="submitButtonInJoin" type="submit">
-                        <img src={submitButtonImg} className="submitButtonImg"/>
-                    </button>
-                </form>
-            </div>
-        );
+                    <div className="joinTitle">프로젝트 참여하기</div>
+                    <div className="joinContent">프로젝트에 참여하고 팀원들과 산출물을 관리하세요!</div>
+                    <form onSubmit={this.handleJoinSubmit} className="alignedCenterForm">
+                        <div className="codeNoticeWord">초대 코드(네자리 숫자)를 입력해 주세요. </div>
+                        <div className="inputBoxesStyled">
+                            <input name="password" type="password" className="joinInviteCode" maxLength="4" onChange={this.onChangeJoinInput}/>
+                        </div>
+                        <button className="submitButtonInJoin" type="submit">
+                            <img src={submitButtonImg} className="submitButtonImg"/>
+                        </button>
+                    </form>
+
+                </Modal>
+            );
+
+
     }
 }
 

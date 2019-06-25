@@ -1,58 +1,72 @@
-import React from 'react'
-import axios, { post } from 'axios';
+import React, { Component } from 'react';
+import axios from 'axios';
+import Modal from 'react-modal';
+import './TestMainContainer.css';
+import TestCreateProjectModal from './TestCreateProjectModal'
+import closeIcon from "../img/noun-x-1890803@3x.png";
+import {Dropdown} from "semantic-ui-react";
+import submitButtonImg from "../img/submit-button.png";
+import OtherPopup from "../components/navbar/url/Logout";
 
-class TestMainContainer extends React.Component {
+const customStyles = {
+    content : {
+        top                   : '50%',
+        left                  : '50%',
+        right                 : 'auto',
+        bottom                : 'auto',
+        marginRight           : '-50%',
+        transform             : 'translate(-50%, -50%)',
+        width                 : '505px',
+        height                : '538px',
 
-    constructor(props) {
+    }
+};
+
+
+
+
+class TestMainContainer extends Component {
+    constructor(props){
         super(props);
+
         this.state = {
-            file: '',
-            imagePreviewUrl: ''
+            modalsOpen: false,
+            otherPopup : false
         };
-        this._handleImageChange = this._handleImageChange.bind(this);
-        this._handleSubmit = this._handleSubmit.bind(this);
+
     }
 
-    _handleSubmit(e) {
-        e.preventDefault();
-        // TODO: do something with -> this.state.file
+    openOtherPopup = () => {
+        this.setState({
+            otherPopup : true
+        })
     }
 
-    _handleImageChange(e) {
-        e.preventDefault();
-
-        let reader = new FileReader();
-        let file = e.target.files[0];
-
-        reader.onloadend = () => {
-            this.setState({
-                file: file,
-                imagePreviewUrl: reader.result
-            });
-        }
-
-        reader.readAsDataURL(file)
+    closeOtherPopup = () => {
+        this.setState({
+            otherPopup : false
+        })
     }
 
-    render() {
-        let {imagePreviewUrl} = this.state;
-        let $imagePreview = null;
-        if (imagePreviewUrl) {
-            $imagePreview = (<img src={imagePreviewUrl} />);
-        }
 
-        return (
+
+
+    render(){
+        return(
             <div>
-                <form onSubmit={this._handleSubmit}>
-                    <input type="file" onChange={this._handleImageChange} />
-                    <button type="submit" onClick={this._handleSubmit}>Upload Image</button>
-                </form>
-                {$imagePreview}
+                <button onClick={this.openOtherPopup}>Open Modal</button>
+                <div className="toCenterModal">
+                    <OtherPopup
+                        openOtherPopup={this.openOtherPopup}
+                        closeOtherPopup={this.closeOtherPopup}
+                        otherPopup={this.state.otherPopup}/>
+                </div>
+
+
             </div>
-        )
+        );
     }
+
 }
 
-
-
-export default TestMainContainer
+export default TestMainContainer;

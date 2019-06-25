@@ -12,7 +12,8 @@ class ProgramItem extends Component {
             toolUrl : '',
             toolIdx : 0,
             login : this.props.login,
-            finalCheck : this.props.finalCheck
+            finalCheck : this.props.finalCheck,
+            projectIdx : this.props.projectIdx
         }
     }
 
@@ -22,21 +23,18 @@ class ProgramItem extends Component {
             toolIdx : data
         })
 
-        const apiUrl = 'http://localhost:8085/api/project/1/url/'+dataState;
+        const apiUrl = 'http://localhost:8085/api/project/'+ this.state.projectIdx+'/url/'+dataState;
 
         axios.delete(apiUrl)
             .then(res => {
-                    this.handleGetUrl();
+                    this.props.handleGetUrl();
                 }
             )
             .catch(error => {console.log(error)});
     }
 
     handleToolUrlClick = (data) => {
-        this.setState({
-            toolUrl : data
-        })
-        window.open(this.state.toolUrl)
+        window.location = data
     }
 
 

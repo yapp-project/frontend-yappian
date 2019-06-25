@@ -1,12 +1,7 @@
-.otherMainWrapper {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
+
+
+.otherPopupInvisible {
+    visibility: hidden;
 }
 
 .otherWrapper {
@@ -19,9 +14,10 @@
     border-radius: 5px;
     box-shadow: 1px 5px 9px 0 rgba(0, 0, 0, 0.2);
     background-color: #ffffff;
-    z-index: 1;
     padding: 16px 23px 21px 25px;
 }
+
+.otherWrapper:focus { outline : none }
 
 .otherTitle {
     font-family: NotoSansCJKkr;

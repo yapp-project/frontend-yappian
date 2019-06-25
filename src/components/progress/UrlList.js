@@ -38,7 +38,7 @@ class UrlList extends Component{
         axios.get(apiUrl)
             .then(res => {
                 this.setState ({
-                    urlList  : res.data
+                    urlList  : res.data.filter(list => list.type !=='TOOL')
                 })
             })
             .catch(error => {
@@ -67,6 +67,15 @@ class UrlList extends Component{
 
     }
 
+    onSuccessInsert = (type, ArrayData) => {
+        this.setState({
+            urlList : ArrayData
+        })
+    }
+
+    handleToolUrlClick = (data) => {
+        window.location = data
+    }
 
 
     render(){
@@ -79,7 +88,7 @@ class UrlList extends Component{
                         <div className="flexboxInUrlList">
                             <div className="urlListTitle">산출물 업로드</div>
                             <div className="ContentWrapper">
-                                <InsertUrlForm projectIdx={projectIdx}/>
+                                <InsertUrlForm projectIdx={projectIdx} onSuccessInsert={this.onSuccessInsert}/>
                             </div>
                         </div>
                     ) : ''}
@@ -95,7 +104,7 @@ class UrlList extends Component{
 
                         {
                                     urlList.filter(url => (url.type === 'FIRST')).map((url, index) => (
-                                            <div className="urlObjectWrapper" key={index} onClick={() => {console.log("url")}}>
+                                            <div className="urlObjectWrapper" key={index} onClick={() => {this.handleToolUrlClick(url.contents)}}>
                                                 <div className="insideUrlObject LeftInUrlObject">
                                                     <img src={shareIcon} className="shareIconStyled" />
                                                 </div>
@@ -123,7 +132,7 @@ class UrlList extends Component{
 
                         {
                                     urlList.filter(url => (url.type === 'SECOND')).map((url, index) => (
-                                        <div className="urlObjectWrapper" key={"second"+index}>
+                                        <div className="urlObjectWrapper" key={"second"+index} onClick={() => {this.handleToolUrlClick(url.contents)}}>
                                             <div className="insideUrlObject LeftInUrlObject">
                                                 <img src={shareIcon} className="shareIconStyled" />
                                             </div>
@@ -148,7 +157,7 @@ class UrlList extends Component{
 
                         {
                                     urlList.filter(url => (url.type === 'HOME')).map((url, index) => (
-                                        <div className="urlObjectWrapper" key={"home"+index}>
+                                        <div className="urlObjectWrapper" key={"home"+index} onClick={() => {this.handleToolUrlClick(url.contents)}}>
                                             <div className="insideUrlObject LeftInUrlObject">
                                                 <img src={shareIcon} className="shareIconStyled" />
                                             </div>

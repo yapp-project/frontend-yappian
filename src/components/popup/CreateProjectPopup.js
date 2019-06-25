@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import Modal from 'react-modal';
 
 import './CreateProjectPopup.css';
 
@@ -8,6 +9,16 @@ import submitButtonImg from '../../img/submit-button.png'
 import {Dropdown} from "semantic-ui-react";
 import axios from "axios";
 
+const modalBackground = {
+    overlay: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0,0,0, 0.5)'
+    }
+}
 
 class CreateProjectPopup extends Component{
     constructor(props){
@@ -23,16 +34,11 @@ class CreateProjectPopup extends Component{
             code2 : '',
             code3 : '',
             code4 : '',
-            plusCode : '',
             codeCaution: false,
             redirect : false,
             projectIdx : 0
         }
-    }
 
-    showCreatePopup = () => {
-
-        this.props.showCreatePopup()
     }
 
     componentDidMount() {
@@ -59,9 +65,26 @@ class CreateProjectPopup extends Component{
 
     }
 
+    //createModal method
+    openCreateModal = () => {
+        this.props.openCreateModal();
+    }
 
+    closeCreateModal = () => {
+        this.setState({
+            ordersIdx: 0,
+            password: "",
+            projectName: "",
+            projectType: "",
+            code1 : '',
+            code2 : '',
+            code3 : '',
+            code4 : '',
+            codeCaution: false
+        })
+        this.props.closeCreateModal();
+    }
 
-    //기수
     insertOrders = (e, { value }) => {
         this.setState({
             ordersIdx : parseInt(value) - 9
@@ -108,6 +131,7 @@ class CreateProjectPopup extends Component{
         e.preventDefault();
         const {ordersIdx, projectName, projectType, code1, code2, code3, code4, codeCaution } = this.state;
 
+
         const apiUrl = 'http://localhost:8085/api/project';
         if(codeCaution === false){
             axios.post(apiUrl, {
@@ -133,6 +157,12 @@ class CreateProjectPopup extends Component{
 
     }
 
+    projectTypeCheck = (type) => {
+        this.setState({
+            projectType : type
+        })
+    }
+
 
 
     render(){
@@ -145,12 +175,15 @@ class CreateProjectPopup extends Component{
         }
 
         const {gisuList, insert} = this.state;
-        return(
 
-            <div className="popupWrapper">
-                <div className="popupFrame">
+        return(
+                <Modal
+                    isOpen={this.props.createModal}
+                    onRequestClose={this.closeCreateModal}
+                    className="createFrameBackground" style={modalBackground}
+                >
                     <div className="header">
-                        <img src={closeIcon} className="styledCloseIcon"  onClick={this.showCreatePopup}/>
+                        <img src={closeIcon} className="styledCloseIcon" onClick={this.closeCreateModal}/>
                     </div>
                     <div className="createProjectPopupInfo">
                         <div className="createProjectTitle">
@@ -163,44 +196,64 @@ class CreateProjectPopup extends Component{
                     <form onSubmit={this.handleSubmit}>
                         <div className="styledCreateProjectForm">
                             <div className="selectGisu">
-                                <Dropdown name="ordersIdx" placeholder='기수선택' options={gisuList} onChange={this.insertOrders}/>
+                                <Dropdown name="ordersIdx" placeholder='기수선택'
+                                          onChange={this.insertOrders} options={gisuList}/>
                             </div>
-                            <input name="projectName" className="inputProjectName" placeholder="프로젝트 이름" onChange={this.handleProjectName} maxLength="9"/>
+                            <input name="projectName" className="inputProjectName" placeholder="프로젝트 이름"
+                                   onChange={this.handleProjectName} maxLength="9"/>
                             <div>
 
                             </div>
                             <div className="platformWrapper">
-                                <div className={this.state.projectType === "IOS" ? 'selectedPlatformBtn m-rightInPlatform' : 'notSelectedPlatformBtn m-rightInPlatform'}>
-                                    <input id="ios" onChange={this.handleProjectType} type="radio" value="IOS" checked={this.state.projectType === "IOS"}/>
+                                <div className={this.state.projectType === "IOS" ? 'selectedPlatformBtn m-rightInPlatform' : 'notSelectedPlatformBtn m-rightInPlatform'}
+                                     onClick={() => this.projectTypeCheck("IOS")}>
+                                    <input id="ios" onChange={this.handleProjectType} type="radio" value="IOS"
+                                           checked={this.state.projectType === "IOS"}/>
                                     <label htmlFor="ios">ios</label>
                                 </div>
-                                <div className={this.state.projectType === "ANDROID" ? 'selectedPlatformBtn m-rightInPlatform' : 'notSelectedPlatformBtn m-rightInPlatform'}>
-                                    <input id="android" onChange={this.handleProjectType} type="radio" value="ANDROID" checked={this.state.projectType === "ANDROID"}/>
+                                <div
+                                    className={this.state.projectType === "ANDROID" ? 'selectedPlatformBtn m-rightInPlatform' : 'notSelectedPlatformBtn m-rightInPlatform'}
+                                    onClick={() => this.projectTypeCheck("ANDROID")}>
+                                    <input id="android" onChange={this.handleProjectType} type="radio"
+                                           value="ANDROID" checked={this.state.projectType === "ANDROID"}/>
                                     <label htmlFor="android">android</label>
                                 </div>
-                                <div className={this.state.projectType === "WEB" ? 'selectedPlatformBtn' : 'notSelectedPlatformBtn'}>
-                                    <input id="web" onChange={this.handleProjectType} type="radio" value="WEB" checked={this.state.projectType === "WEB"}/>
+                                <div
+                                    className={this.state.projectType === "WEB" ? 'selectedPlatformBtn' : 'notSelectedPlatformBtn'}
+                                    onClick={() => this.projectTypeCheck("WEB")}>
+                                    <input id="web" onChange={this.handleProjectType} type="radio" value="WEB"
+                                           checked={this.state.projectType === "WEB"}/>
                                     <label htmlFor="web">web</label>
                                 </div>
                             </div>
                             <div className="codeWrapper">
-                                <div className="codeInfoTitle">초대 코드(네자리 숫자)를 생성해 주세요. </div>
+                                <div className="codeInfoTitle">초대 코드(네자리 숫자)를 생성해 주세요.</div>
                                 <div className="insertCodeWrapper">
-                                    <input name="code1" className="insertCodeObject m-rightInInsertCode" onChange={this.handleCode} maxlength="1"/>
-                                    <input name="code2" className="insertCodeObject m-rightInInsertCode" onChange={this.handleCode} maxlength="1" />
-                                    <input name="code3" className="insertCodeObject m-rightInInsertCode"  onChange={this.handleCode} maxlength="1" />
-                                    <input name="code4" className="insertCodeObject" onChange={this.handleCode} maxlength="1"/>
+                                    <input name="code1" className="insertCodeObject m-rightInInsertCode"
+                                           onChange={this.handleCode} maxLength="1"/>
+                                    <input name="code2" className="insertCodeObject m-rightInInsertCode"
+                                           onChange={this.handleCode} maxLength="1"/>
+                                    <input name="code3" className="insertCodeObject m-rightInInsertCode"
+                                           onChange={this.handleCode} maxLength="1"/>
+                                    <input name="code4" className="insertCodeObject" onChange={this.handleCode}
+                                           maxLength="1"/>
                                 </div>
-                                <div className={this.state.codeCaution === false ? 'visibilityCodeCaution' : 'insertCodeCaution'}>숫자만 입력해 주세요. </div>
+
+                                <div className="codCautionSpace">
+                                    <div
+                                        className={this.state.codeCaution === false ? 'visibilityCodeCaution' : 'insertCodeCaution'}>숫자만
+                                        입력해 주세요.
+                                    </div>
+                                </div>
                             </div>
 
-                                <button className="submitCreateProjectForm" type="submit">
-                                    <img src={submitButtonImg} className="submitButtonImg"/>
-                                </button>
+                            <button className="submitCreateProjectForm" type="submit">
+                                <img src={submitButtonImg} className="submitButtonImg"/>
+                            </button>
                         </div>
                     </form>
-                </div>
-            </div>
+                </Modal>
+
         )
     }
 }

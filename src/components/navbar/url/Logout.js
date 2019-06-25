@@ -7,72 +7,67 @@ import MemberInfo from "../../popup/MemberInfo";
 import OtherPopup from "../../popup/OtherPopup"
 
 
+
 class Logout extends Component {
     constructor(props){
         super(props)
 
         this.state = {
-            otherInUrl : false,
-            memberInUrl : false
+            memberInfoPopup : false,
+            otherPopup : false,
+            redirect : this.props.redirect,
+            projectIdx : this.props.projectIdx
         }
     }
 
-    showOtherInUrl = () => {
-        if(!this.state.otherInUrl){
-            document.addEventListener('click', this.handleOtherInUrl, false)
-        }else {
-            document.removeEventListener('click', this.handleOtherInUrl, false)
-        }
-
+    openMemberInfoPopup = () => {
         this.setState({
-            otherInUrl : !this.state.otherInUrl
+            memberInfoPopup : true
         })
     }
 
-    handleOtherInUrl = (e) => {
-        if(this.otherInUrl.contains(e.target)){
-            return;
-        }
-
-        this.showOtherInUrl()
-    }
-
-    showMemberInUrl = () => {
-        if(!this.state.memberInUrl){
-            document.addEventListener('click', this.handleMemberInUrl, false)
-        }else {
-            document.removeEventListener('click', this.handleMemberInUrl, false)
-        }
-
+    closeMemberInfoPopup = () => {
         this.setState({
-            memberInUrl : !this.state.memberInUrl
+            memberInfoPopup : false
         })
     }
 
-    handleMemberInUrl = (e) => {
-        if(this.memberInUrl.contains(e.target)){
-            return;
-        }
+    openOtherPopup = () => {
+        this.setState({
+            otherPopup : true
+        })
+    }
 
-        this.showMemberInUrl()
+    closeOtherPopup = () => {
+        this.setState({
+            otherPopup : false
+        })
+    }
+
+    redirectToUrl = () => {
+        this.props.redirectToUrl()
     }
 
 
     render(){
         return(
             <div className="right">
-                <img src={otherIcon} className="otherIcon" onClick={this.showOtherInUrl} ref={node => this.otherInUrl = node}/>
-                {
-                    this.state.otherInUrl === true ?
-                        <OtherPopup />
-                        : null
-                }
-                <img src={user} className="userIcon" onClick={this.showMemberInUrl} ref={node => this.memberInUrl = node}/>
-                {
-                    this.state.memberInUrl === true ?
-                        <MemberInfo />
-                        : null
-                }
+
+                <img src={otherIcon} className="otherIcon" onClick={this.openOtherPopup}/>
+                <OtherPopup
+                    openOtherPopup={this.openOtherPopup}
+                    closeOtherPopup={this.closeOtherPopup}
+                    otherPopup={this.state.otherPopup}
+                    projectIdx={this.state.projectIdx}
+                    redirectToUrl={this.redirectToUrl}
+                />
+
+                <img src={user} className="userIcon" onClick={this.openMemberInfoPopup}/>
+                <MemberInfo login={this.props.login}
+                            openMemberInfoPopup={this.openMemberInfoPopup}
+                            closeMemberInfoPopup={this.closeMemberInfoPopup}
+                            memberInfoPopup={this.state.memberInfoPopup} />
+
             </div>
         );
     }
