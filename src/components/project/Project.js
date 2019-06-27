@@ -9,26 +9,33 @@ class Project extends Component {
         super(props);
 
         this.state = {
-            project : this.props.project
+            project : {}
         }
     }
 
-
-
-    componentWillReceiveProps(nextProps){
+    componentDidMount() {
         this.setState({
-            project : nextProps
+            project : this.props.project
         })
-        console.log("1234"+ JSON.stringify(this.state.project))
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        return true;
-    }
+
+    // componentWillReceiveProps(nextProps){
+    //     this.setState({
+    //         project : nextProps.project
+    //     })
+    //     console.log("1234"+ JSON.stringify(this.state.project))
+    // }
+    //
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     return true;
+    // }
 
 
     render(){
         const {project} = this.state;
+
+
 
         return(
             <Link to={"/main/" + project.projectIdx} className="projectObjectWrapper">

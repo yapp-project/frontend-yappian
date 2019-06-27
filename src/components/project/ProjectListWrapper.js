@@ -73,7 +73,7 @@ class ProjectListWrapper extends Component {
         this.setState({
             defaultGisu : data.value
         })
-        console.log(data.value)
+
     }
 
     // handleMoveLeft = () => {
@@ -99,6 +99,7 @@ class ProjectListWrapper extends Component {
     render(){
         const {gisuList} = this.state;
 
+        console.log("ddkdkdkdkdk" + this.state.defaultGisu)
         return(
             <div className="projectListContainer">
                 <div className="selectBoxWrapper">

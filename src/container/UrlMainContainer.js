@@ -21,7 +21,7 @@ class UrlMainContainer extends Component {
             selected : '',
             projectIdx : props.match.params.projectIdx,
             finalCheck : '',
-            login : true,
+            login : false,
             errorRedirect : false,
             complete : false,
             join : false,
@@ -31,8 +31,8 @@ class UrlMainContainer extends Component {
     }
 
     componentDidMount() {
-        //this.getSession()
-        //this.confirmJoinMember()
+        this.getSession()
+        this.confirmJoinMember()
         //console.log(this.state.joinMember)
         this.handleGetFinalCheck()
     }

@@ -4,6 +4,7 @@ import Project from './Project'
 import axios from "axios";
 
 class ProjectList extends Component{
+
     constructor(props){
         super(props);
 
@@ -13,22 +14,37 @@ class ProjectList extends Component{
             projectListSize : 0
         }
 
+        //this.getProjectList()
+    }
+
+    componentDidMount() {
+        console.log("componenet : " + this.state.defaultGisu)
         this.getProjectList()
+        this.setState({
+            defaultGisu : this.props.defaultGisu
+        })
+
     }
 
     componentWillReceiveProps(nextProps){
-        this.getProjectList()
+        console.log(JSON.stringify(nextProps.defaultGisu))
+        this.setState({
+            defaultGisu : nextProps.defaultGisu
+        })
+        //
+        return this.getProjectList(nextProps.defaultGisu)
     }
+    // //
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     return true;
+    // }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        return true;
-    }
 
 
+    getProjectList = (data) => {
 
-    getProjectList = () => {
-        //console.log(this.state.defaultGisu)
-        const apiUrl = `http://localhost:8085/api/order/` + this.state.defaultGisu + `/projects`
+        console.log("get " + data)
+        const apiUrl = `http://localhost:8085/api/order/` + data + `/projects`
 
 
         axios.get(apiUrl)
@@ -49,6 +65,7 @@ class ProjectList extends Component{
     // }
 
     render(){
+        console.log(this.state.defaultGisu)
         return (
             <div className="wrapperProjectList">
                 {
