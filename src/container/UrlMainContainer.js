@@ -21,20 +21,19 @@ class UrlMainContainer extends Component {
             selected : '',
             projectIdx : props.match.params.projectIdx,
             finalCheck : '',
-            login : false,
+            login : true,
             errorRedirect : false,
             complete : false,
             join : false,
-            redirect : false
+            redirect : false,
+            joinMember : true
         }
-    }
-
-    componentWillMount() {
-        this.getSession()
     }
 
     componentDidMount() {
         //this.getSession()
+        //this.confirmJoinMember()
+        //console.log(this.state.joinMember)
         this.handleGetFinalCheck()
     }
 
@@ -75,7 +74,7 @@ class UrlMainContainer extends Component {
         axios.get('http://localhost:8085/session')
             .then(res => {
                 console.log(res.data)
-                if(res.data == 'ANONYMOUS'){
+                if(res.data == 'ANONYMOUS' || res.data == 'INVALID'){
                     this.handleLogin(false)
                 }else{
                     this.handleLogin(true)
@@ -105,6 +104,25 @@ class UrlMainContainer extends Component {
         })
     }
 
+
+    confirmJoinMember = () => {
+        axios.get(`http://localhost:8085/api/user/projects`)
+            .then(res => {
+
+                res.data.map((list, index) => {
+                    if(list.idx > 0){
+                        this.setState({
+                            joinMember : true
+                        })
+                    }
+                })
+
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
     render(){
         if (this.state.errorRedirect === true){
             return(
@@ -123,7 +141,7 @@ class UrlMainContainer extends Component {
                 <div className="wrapperPadding">
                     <div className="urlNavWrapper">
                         <div className="left">
-                            <img src={logoOnUrl} className="urlLogo" onClick={() => {window.location = 'http://localhost:8085/'}}/>
+                            <Link to="/"><img src={logoOnUrl} className="urlLogo"/></Link>
                         </div>
                         {this.state.login === true ?
                             (<Logout projectIdx={this.state.projectIdx} completePopup={this.completePopup} joinPopup={this.joinPopup} finalCheck={this.state.finalCheck} redirectToUrl={this.redirectToUrl}/>) : ( <Login />)
@@ -143,7 +161,7 @@ class UrlMainContainer extends Component {
 
                     </div>
                     <div className="stateWrapper">
-                        {this.state.selected === 'progress' ? <ProgressContainer login={this.state.login} projectIdx={this.state.projectIdx} finalCheck={this.state.finalCheck}/> : <CompleteContainer projectIdx={this.state.projectIdx}/>}
+                        {this.state.selected === 'progress' ? <ProgressContainer login={this.state.login} projectIdx={this.state.projectIdx} finalCheck={this.state.finalCheck} joinMember={this.state.joinMember}/> : <CompleteContainer projectIdx={this.state.projectIdx}/>}
                     </div>
                 </div>
                 {this.state.complete === true ?

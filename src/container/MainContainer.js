@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Cookies from 'universal-cookie';
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 
 import './MainContainer.css';
@@ -18,14 +19,15 @@ class MainContainer extends Component {
 
         this.state = {
             login: false,
-            gisuList : [],
+            //gisuList : [],
+            projectList : [],
             projectListSize : 0
         }
     }
 
     componentDidMount() {
         this.getSession();
-        this.getProjectList();
+        this.getProjectListSize();
     }
 
     handleLogin = (status) => {
@@ -38,7 +40,7 @@ class MainContainer extends Component {
         axios.get('http://localhost:8085/session')
             .then(res => {
                 console.log(res.data)
-                if(res.data == 'ANONYMOUS'){
+                if(res.data == 'ANONYMOUS' || res.data == 'INVALID'){
                     this.handleLogin(false)
                 }else{
                     this.handleLogin(true)
@@ -50,35 +52,35 @@ class MainContainer extends Component {
             })
     }
 
-    getOrdersNumber = () => {
-        const apiUrl = 'http://localhost:8085/api/orders';
+    // getOrdersNumber = () => {
+    //     const apiUrl = 'http://localhost:8085/api/orders';
+    //
+    //     axios.get(apiUrl)
+    //         .then(res => {
+    //                 res.data.map((list, index) =>
+    //                     this.setState({
+    //                         gisuList : this.state.gisuList.concat({
+    //                             key : index, text : list.number+'기', value: parseInt(list.number)
+    //                         })
+    //                     })
+    //
+    //                 )
+    //             }
+    //         )
+    //         .catch(error => {
+    //             console.log(error);
+    //         });
+    // }
+
+    getProjectListSize = () => {
+        const apiUrl = 'http://localhost:8085/api/projects';
 
         axios.get(apiUrl)
             .then(res => {
-                    res.data.map((list, index) =>
-                        this.setState({
-                            gisuList : this.state.gisuList.concat({
-                                key : index, text : list.number+'기', value: parseInt(list.number)
-                            })
-                        })
-
-                    )
-                }
-            )
-            .catch(error => {
-                console.log(error);
-            });
-    }
-
-    getProjectList = () => {
-        const apiUrl = `http://localhost:8085/api/order/` + this.state.defaultGisu + `/projects`
-        const { firstListNum } = this.state;
-
-        axios.get(apiUrl)
-            .then(res => {
+                console.log(res.data)
                 this.setState({
-                    projectListSize : res.data.length,
-                    projectList : res.data.slice(firstListNum,firstListNum+4)
+                    projectList : res.data,
+                    projectListSize : res.data.length
                 })
             })
             .catch(error => {
@@ -86,13 +88,17 @@ class MainContainer extends Component {
             })
     }
 
+
+
     render(){
         return (
             <div className="mainWrapper">
                 <div className="top">
                     <div className="nav">
                         <div className="nav-left">
-                            <img src={mainLogo} className="mainLogo" onClick={() => {window.location = 'http://localhost:8085/'}} />
+                            <Link to="/">
+                                <img src={mainLogo} className="mainLogo" />
+                            </Link>
                         </div>
                         <div className="nav-right">
                             {
@@ -112,11 +118,10 @@ class MainContainer extends Component {
                 <div className="bottom">
                     {
                         this.state.projectListSize > 0 ?
-                            <ProjectListWrapper projectList={this.state.projectList} />
+                            <ProjectListWrapper />
                             :
                             <div className="bottomProjectListNull">완료된 프로젝트가 없습니다.</div>
                     }
-
                 </div>
             </div>
         );

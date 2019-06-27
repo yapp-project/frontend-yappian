@@ -28,24 +28,25 @@ class InsertProgramForm extends Component {
         e.preventDefault();
 
         const {toolName, url, projectIdx} = this.state;
-        const apiUrl = `http://localhost:8085/api/project/`+ projectIdx +`/url`;
 
-        axios.post(apiUrl, {
-            "contents" : url,
-            "title" : toolName,
-            "type" : "TOOL"
-        })
-            .then(res => {
-                this.setState({
-                    toolName: '',
-                    url : ''
-                })
-                this.props.onSuccessInsert('TOOL', res.data.urlList.filter(list => list.type==='TOOL'))
+
+            const apiUrl = `http://localhost:8085/api/project/`+ projectIdx +`/url`;
+
+            axios.post(apiUrl, {
+                "contents" : url,
+                "title" : toolName,
+                "type" : "TOOL"
             })
-            .catch(error => {
-                console.log(error)
-            });
-
+                .then(res => {
+                    this.setState({
+                        toolName: '',
+                        url : ''
+                    })
+                    this.props.onSuccessInsert('TOOL', res.data.urlList.filter(list => list.type==='TOOL'))
+                })
+                .catch(error => {
+                    console.log(error)
+                });
 
     }
 
@@ -54,8 +55,8 @@ class InsertProgramForm extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <div className="insertProgramFormWrapper">
-                    <input name="toolName" className="insertToolName" placeholder="tool name" onChange={this.handleChange} value={this.state.toolName} />
-                    <input name="url" className="insertUrl" placeholder="Copy and Paste URL" onChange={this.handleChange} value={this.state.url}/>
+                    <input name="toolName" className="insertToolName" required placeholder="tool name" onChange={this.handleChange} value={this.state.toolName} />
+                    <input name="url" className="insertUrl" required placeholder="Copy and Paste URL" onChange={this.handleChange} value={this.state.url}/>
                     <button type="submit" className="buttonStyled">
                         <img className="submitButtonStyled" src={submitButton}/>
                     </button>

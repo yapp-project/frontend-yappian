@@ -1,12 +1,12 @@
 .urlListMainWrapper{
     display: flex;
     flex-direction: column;
-    margin-bottom: 60px;
+    margin-bottom: 7.8125vh;
+    padding-top : 67px;
 }
 
 .urlListWrapper {
     display: flex;
-    margin-top: 67px;
 }
 
 .flexboxInUrlList {
@@ -15,20 +15,20 @@
 
 .urlListTitle {
     font-family: NotoSansCJKkr;
-    font-size: 16pt;
+    font-size: 1.3333333333333335vw;
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.38;
     letter-spacing: -0.1px;
     color: #4e4e4e;
-    margin-right: 85px;
+    width : 21.333333333333336vw;
 }
 
 .ContentWrapper {
     display: flex;
     flex-direction: column;
-
+    width: 100%;
 }
 
 .urlList {
@@ -42,14 +42,14 @@
 
 .urlListObjectTitleFont {
     font-family: NotoSansCJKkr;
-    font-size: 18pt;
+    font-size: 1.286rem;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
     letter-spacing: normal;
     color: #111111;
-    margin-bottom:19px;
+    margin-bottom:2.473958333333333vw;
 }
 
 .urlObjectWrapper {
@@ -75,6 +75,10 @@
     flex : 1;
 }
 
+.centerUrlObject {
+    flex : 6;
+}
+
 .LeftInUrlObject {
     display: flex;
     justify-content: flex-start;
@@ -84,8 +88,6 @@
     display: flex;
     justify-content: center;
     padding-top:10px;
-    width: 54px;
-    height: 22px;
     font-family: NotoSansCJKkr;
     font-size: 14px;
     font-weight: 300;

@@ -1,38 +1,40 @@
 .usedProgramWrapper {
     margin-top:31px;
     border-bottom: solid 0.5px #dfdfdf;
+    height:auto;
 }
 
 .usedProgramTitle {
     font-family: NotoSansCJKkr;
-    font-size: 16pt;
+    font-size: 1.3333333333333335vw;
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.38;
     letter-spacing: -0.1px;
     color: #4e4e4e;
-    margin-right: 85px;
+    width: 21.333333333333336vw;
 }
 
 .flexboxInUsedProgram {
     display: flex;
-    height:192px;
-    margin-bottom: 37px;
+    height:auto;
+    margin-bottom : 67.6px
 }
 
 .thisContentWrapper {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .programItemAlign {
     display: flex;
     flex-wrap: wrap;
 }
+r
 
 .non-member-notice {
-    margin-top: 53.6px;
     font-family: NotoSansCJKkr;
     font-size: 16px;
     font-weight: normal;
@@ -40,6 +42,35 @@
     font-stretch: normal;
     line-height: 1.38;
     letter-spacing: -0.1px;
-    text-align: center;
+    color: #9a9a9a;
+    display: flex;
+    flex-direction: row;
+}
+
+.inGoToJoinOrLogin {
+   color : #5ae0ff;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-bottom : 10px;
+    font-weight: 700;
+}
+
+.outGoToJoinOrLogin {
+    background-color : #5ae0ff;
+    color : #ffffff;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-bottom : 10px;
+    font-weight: 700;
+}
+
+.thisColor {
+    font-family: NotoSansCJKkr;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.38;
+    letter-spacing: -0.1px;
     color: #9a9a9a;
 }

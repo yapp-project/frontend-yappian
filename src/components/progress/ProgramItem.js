@@ -43,11 +43,11 @@ class ProgramItem extends Component {
             (
                 this.props.toolList.map((tool, index) => (
                     <div className="programItemWrapper" key={index}>
-                        {this.state.login === true && this.state.finalCheck === 'N' ? (
-                            <div className="closeIconWrapper" onClick={() => this.handleDeleteUrl(tool.idx)}>
-                                <img className="closeIconStyled" src={closeIcon}/>
-                            </div>
-                        ) : ''}
+                        {/*{this.state.login === true && this.state.finalCheck === 'N' ? (*/}
+                            {/*<div className="closeIconWrapper" onClick={() => this.handleDeleteUrl(tool.idx)}>*/}
+                                {/*<img className="closeIconStyled" src={closeIcon}/>*/}
+                            {/*</div>*/}
+                        {/*) : ''}*/}
                         <div className={this.state.login === true && this.state.finalCheck === 'N'? 'centerAligned' : 'mt-10 centerAligned'}  onClick={() => this.handleToolUrlClick(tool.contents)}>
                             {tool.title}
                         </div>

@@ -32,28 +32,62 @@ class InsertUrlForm extends Component {
         })
     }
 
+
+
+    // handleSubmit = (e) => {
+    //     e.preventDefault();
+    //
+    //     const {type, title, content, projectIdx} = this.state;
+    //     const apiUrl = 'http://localhost:8085/api/project/'+ projectIdx +'/url';
+    //
+    //     axios.post(apiUrl, {
+    //         "contents" : content,
+    //         "title" : title,
+    //         "type" : type
+    //     })
+    //         .then(res => {
+    //             this.setState({
+    //                 type: '',
+    //                 title : '',
+    //                 content : ''
+    //             })
+    //             this.props.onSuccessInsert(type, res.data.urlList.filter(list => list.type !== 'TOOL'))
+    //         })
+    //         .catch(error => {
+    //             console.log(error)
+    //         });
+    //
+    // }
+
     handleSubmit = (e) => {
         e.preventDefault();
 
         const {type, title, content, projectIdx} = this.state;
-        const apiUrl = 'http://localhost:8085/api/project/'+ projectIdx +'/url';
 
-        axios.post(apiUrl, {
-            "contents" : content,
-            "title" : title,
-            "type" : type
-        })
-            .then(res => {
-                this.setState({
-                    type: '',
-                    title : '',
-                    content : ''
-                })
-                this.props.onSuccessInsert(type, res.data.urlList.filter(list => list.type !== 'TOOL'))
+        if(type !== '' && title !== '' && content !== ''){
+            const apiUrl = 'http://localhost:8085/api/project/'+ projectIdx +'/url';
+
+            axios.post(apiUrl, {
+                "contents" : content,
+                "title" : title,
+                "type" : type
             })
-            .catch(error => {
-                console.log(error)
-            });
+                .then(res => {
+                    this.setState({
+                        type: '',
+                        title : '',
+                        content : ''
+                    })
+                    this.props.onSuccessInsert(type, res.data.urlList.filter(list => list.type !== 'TOOL'))
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+        }else {
+            alert("입력폼을 확인해주세요.");
+        }
+
+
 
     }
 
@@ -77,8 +111,9 @@ class InsertUrlForm extends Component {
                     <div className="selectBox">
                         <Dropdown placeholder='선택' clearable options={options} onChange={this.handleDropdownChange} value={this.state.type} />
                     </div>
-                    <input name="title" className="taskTitle" placeholder="산출물 제목" onChange={this.handleChange} value={this.state.title} />
-                    <input name="content" className="insertUrl" placeholder="Copy and Paste URL" onChange={this.handleChange} value={this.state.content} />
+                    <input name="title" className="taskTitle" placeholder="산출물 제목" onChange={this.handleChange} value={this.state.title} required/>
+
+                    <input name="content" className="insertUrl1" placeholder="Copy and Paste URL" onChange={this.handleChange} value={this.state.content} required/>
                     <button type="submit" className="buttonStyled">
                         <img className="submitButtonStyled" src={submitButton}/>
                     </button>

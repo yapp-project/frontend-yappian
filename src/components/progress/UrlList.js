@@ -18,7 +18,8 @@ class UrlList extends Component{
             projectIdx : this.props.projectIdx,
             noMoveUrl : false,
             login : this.props.login,
-            finalCheck : this.props.finalCheck
+            finalCheck : this.props.finalCheck,
+            joinMember : this.props.joinMember
         }
     }
 
@@ -84,7 +85,7 @@ class UrlList extends Component{
         return(
             <div className="urlListMainWrapper">
                 <div className="urlListWrapper">
-                    {this.state.login === true && this.state.finalCheck === 'N'? (
+                    {this.state.login === true && this.state.finalCheck === 'N' && this.state.joinMember === true ? (
                         <div className="flexboxInUrlList">
                             <div className="urlListTitle">산출물 업로드</div>
                             <div className="ContentWrapper">
@@ -108,7 +109,7 @@ class UrlList extends Component{
                                                 <div className="insideUrlObject LeftInUrlObject">
                                                     <img src={shareIcon} className="shareIconStyled" />
                                                 </div>
-                                                <div className="insideUrlObject CenterInUrlObject">
+                                                <div className="centerUrlObject CenterInUrlObject">
                                                     {url.title}
                                                 </div>
                                                 {this.state.login === true && this.state.finalCheck === 'N'?
@@ -136,7 +137,7 @@ class UrlList extends Component{
                                             <div className="insideUrlObject LeftInUrlObject">
                                                 <img src={shareIcon} className="shareIconStyled" />
                                             </div>
-                                            <div className="insideUrlObject CenterInUrlObject">
+                                            <div className="centerUrlObject CenterInUrlObject">
                                                 {url.title}
                                             </div>
                                             {this.state.login === true && this.state.finalCheck === 'N'? (
@@ -161,7 +162,7 @@ class UrlList extends Component{
                                             <div className="insideUrlObject LeftInUrlObject">
                                                 <img src={shareIcon} className="shareIconStyled" />
                                             </div>
-                                            <div className="insideUrlObject CenterInUrlObject">
+                                            <div className="centerUrlObject CenterInUrlObject">
                                                 {url.title}
                                             </div>
                                             {this.state.login === true && this.state.finalCheck === 'N' ? (

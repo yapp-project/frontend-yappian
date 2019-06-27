@@ -1,28 +1,28 @@
 .insertUrlWrapper {
     display: flex;
-
 }
 
 .selectBox {
-    width: 170px;
-    height: 40px;
+    width : 14.166666666666666vw;
+    height: 5.208333333333334vh;
     border-radius: 20.5px;
     border: solid 0.5px #5b5b5b;
     background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-family: NotoSansCJKkr;
     font-weight: 300;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.57;
     letter-spacing: -0.1px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .taskTitle {
-    width: 170px;
-    height: 40px;
+    width: 14.166666666666666vw;
+    height: 5.208333333333334vh;
     border-radius: 20.5px;
     border: solid 0.5px #5b5b5b;
     background-color: #ffffff;
@@ -43,9 +43,9 @@ input::placeholder {
     color: #999999;
 }
 
-.insertUrl {
-    width: 420px;
-    height: 40px;
+.insertUrl1 {
+    width: 35vw;
+    height: 5.208333333333334vh;
     border-radius: 20.5px;
     border: solid 0.5px #5b5b5b;
     background-color: #ffffff;
@@ -55,11 +55,13 @@ input::placeholder {
     line-height: 1.57;
     letter-spacing: -0.1px;
     text-align: center;
+    margin:0px 15px 0px 0px;
 }
 
+
 .submitButtonStyled {
-    width: 40px;
-    height: 40px;
+    width: 3.3vw;
+    height: 5.208333333333334vh;
 }
 
 .buttonStyled {

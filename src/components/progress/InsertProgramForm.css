@@ -4,8 +4,8 @@
 }
 
 .insertToolName {
-    width: 170px;
-    height: 40px;
+    width: 14.166666666666666vw;
+    height: 5.208333333333334vh;
     border-radius: 20.5px;
     border: solid 0.5px #5b5b5b;
     background-color: #ffffff;
@@ -14,12 +14,13 @@
 }
 
 .insertUrl {
-    width: 600px;
-    height: 40px;
+    width: 50vw;
+    height: 5.208333333333334vh;
     border-radius: 20.5px;
     border: solid 0.5px #5b5b5b;
     background-color: #ffffff;
     margin-right:14px;
+    text-align: center;
 }
 
 input::placeholder{

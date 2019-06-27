@@ -200,7 +200,7 @@ class CreateProjectPopup extends Component{
                                           onChange={this.insertOrders} options={gisuList}/>
                             </div>
                             <input name="projectName" className="inputProjectName" placeholder="프로젝트 이름"
-                                   onChange={this.handleProjectName} maxLength="9"/>
+                                   onChange={this.handleProjectName} maxLength="9" required/>
                             <div>
 
                             </div>
@@ -208,7 +208,7 @@ class CreateProjectPopup extends Component{
                                 <div className={this.state.projectType === "IOS" ? 'selectedPlatformBtn m-rightInPlatform' : 'notSelectedPlatformBtn m-rightInPlatform'}
                                      onClick={() => this.projectTypeCheck("IOS")}>
                                     <input id="ios" onChange={this.handleProjectType} type="radio" value="IOS"
-                                           checked={this.state.projectType === "IOS"}/>
+                                           checked={this.state.projectType === "IOS"} />
                                     <label htmlFor="ios">ios</label>
                                 </div>
                                 <div
@@ -230,13 +230,13 @@ class CreateProjectPopup extends Component{
                                 <div className="codeInfoTitle">초대 코드(네자리 숫자)를 생성해 주세요.</div>
                                 <div className="insertCodeWrapper">
                                     <input name="code1" className="insertCodeObject m-rightInInsertCode"
-                                           onChange={this.handleCode} maxLength="1"/>
+                                           onChange={this.handleCode} maxLength="1" required/>
                                     <input name="code2" className="insertCodeObject m-rightInInsertCode"
-                                           onChange={this.handleCode} maxLength="1"/>
+                                           onChange={this.handleCode} maxLength="1" required/>
                                     <input name="code3" className="insertCodeObject m-rightInInsertCode"
-                                           onChange={this.handleCode} maxLength="1"/>
+                                           onChange={this.handleCode} maxLength="1" required/>
                                     <input name="code4" className="insertCodeObject" onChange={this.handleCode}
-                                           maxLength="1"/>
+                                           maxLength="1" required/>
                                 </div>
 
                                 <div className="codCautionSpace">

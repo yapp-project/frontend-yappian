@@ -122,22 +122,22 @@ class CompletePopup extends Component {
     handleCompleteSubmit = () => {
         const {productURL, description, releaseCheck, projectIdx, fileIdxList} = this.state;
 
-            axios.post(`http://localhost:8085/api/project/`+ projectIdx +`/finish`, {
-                "description": description,
-                "fileIdxList": fileIdxList,
-                "productURL": productURL,
-                "releaseCheck": releaseCheck
+        axios.post(`http://localhost:8085/api/project/`+ projectIdx +`/finish`, {
+            "description": description,
+            "fileIdxList": fileIdxList,
+            "productURL": productURL,
+            "releaseCheck": releaseCheck
+        })
+            .then(res => {
+                //window.location = 'http://localhost:8085/#/main/'+ projectIdx
+                // this.setState({
+                //     redirect : true
+                // })
+                this.redirectToUrl()
             })
-                .then(res => {
-                    //window.location = 'http://localhost:8085/#/main/'+ projectIdx
-                    // this.setState({
-                    //     redirect : true
-                    // })
-                    this.redirectToUrl()
-                })
-                .catch(error => {
-                    console.log(error)
-                })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     openCompletePopup = () => {
@@ -243,7 +243,7 @@ class CompletePopup extends Component {
 
 
 
-    }
+}
 
 
 export default CompletePopup;

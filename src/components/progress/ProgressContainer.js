@@ -10,10 +10,11 @@ class ProgressContainer extends Component {
         super(props);
 
         this.state = {
-            projectIdx : this.props.projectIdx,
-            projectObject : {},
-            login : this.props.login,
-            finalCheck : this.props.finalCheck
+            projectIdx: this.props.projectIdx,
+            projectObject: {},
+            login: this.props.login,
+            finalCheck: this.props.finalCheck,
+            joinMember: this.props.joinMember
         }
     }
 
@@ -47,8 +48,8 @@ class ProgressContainer extends Component {
                         {this.state.projectObject.projectType} {this.state.projectObject.projectName}
                     </label>
                 </div>
-                <UsedProgram login={this.state.login} projectIdx={this.state.projectIdx} finalCheck={this.state.finalCheck} />
-                <UrlList login={this.state.login} projectIdx={this.state.projectIdx} finalCheck={this.state.finalCheck}/>
+                <UsedProgram login={this.state.login} projectIdx={this.state.projectIdx} finalCheck={this.state.finalCheck} joinMember={this.state.joinMember}/>
+                <UrlList login={this.state.login} projectIdx={this.state.projectIdx} finalCheck={this.state.finalCheck} joinMember={this.state.joinMember}/>
             </div>
         );
     }
