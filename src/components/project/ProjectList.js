@@ -31,18 +31,18 @@ class ProjectList extends Component{
         this.setState({
             defaultGisu : nextProps.defaultGisu
         })
-        //
+        this.getProjectList(this.state.defaultGisu)
 
     }
     // //
-    shouldComponentUpdate(nextProps, nextState) {
-        return true;
-    }
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     return true;
+    // }
 
     // shouldComponentUpdate가 true이면 실행된다. 업데이트시 실행.
-    componentWillUpdate(nextProps, nextState, nextContext) {
-        this.getProjectList(this.state.defaultGisu)
-    }
+    // componentWillUpdate(nextProps, nextState, nextContext) {
+    //     this.getProjectList(this.state.defaultGisu)
+    // }
 
 
     getProjectList = (data) => {

@@ -26,6 +26,14 @@ class UsedProgram extends Component {
         this.handleGetUrl()
     }
 
+    componentWillReceiveProps(nextProps){
+        //console.log(JSON.stringify(nextProps.defaultGisu))
+        this.setState({
+            joinMember : nextProps.joinMember
+        })
+        //
+    }
+
     handleGetUrl = () => {
         const { projectIdx } = this.state;
         const apiUrl = `https://yappian.com/api/project/`+ projectIdx + `/url/list`;
@@ -110,7 +118,7 @@ class UsedProgram extends Component {
                         this.state.finalCheck === 'Y' ?(
                             <div className="thisContentWrapper">
                                 <div className="programItemAlign">
-                                    <ProgramItem login={this.state.login} toolList={this.state.toolList} finalCheck={this.state.finalCheck} projectIdx={this.state.projectIdx} handleGetUrl={this.handleGetUrl}/>
+                                    <ProgramItem joinMember={this.state.joinMember} login={this.state.login} toolList={this.state.toolList} finalCheck={this.state.finalCheck} projectIdx={this.state.projectIdx} handleGetUrl={this.handleGetUrl}/>
                                 </div>
                                 <div className="non-member-notice">
                                     완료된 프로젝트는 조회만 가능합니다.
@@ -122,7 +130,7 @@ class UsedProgram extends Component {
                                         <div className="thisContentWrapper">
                                             <InsertProgramForm projectIdx={this.state.projectIdx} onSuccessInsert={this.onSuccessInsert}/>
                                             <div className="programItemAlign">
-                                                <ProgramItem login={this.state.login} toolList={this.state.toolList} finalCheck={this.state.finalCheck} projectIdx={this.state.projectIdx}  handleGetUrl={this.handleGetUrl}/>
+                                                <ProgramItem joinMember={this.state.joinMember} login={this.state.login} toolList={this.state.toolList} finalCheck={this.state.finalCheck} projectIdx={this.state.projectIdx}  handleGetUrl={this.handleGetUrl}/>
                                             </div>
                                         </div>
                                     )
@@ -131,7 +139,7 @@ class UsedProgram extends Component {
                                             <div className={this.state.toolList.length <= 0 ? "non-member-notice" : "mtUsedProgram non-member-notice"}>
 
                                                     <div className="programItemAlign">
-                                                        <ProgramItem login={this.state.login} toolList={this.state.toolList} finalCheck={this.state.finalCheck} projectIdx={this.state.projectIdx}  handleGetUrl={this.handleGetUrl}/>
+                                                        <ProgramItem joinMember={this.state.joinMember} login={this.state.login} toolList={this.state.toolList} finalCheck={this.state.finalCheck} projectIdx={this.state.projectIdx}  handleGetUrl={this.handleGetUrl}/>
                                                     </div>
                                                     <label className="thisColor">협업 프로그램 등록과 산출물 업로드는 로그인 회원 혹은 조인된 사용자만 가능합니다.</label>
                                                     <label className={this.state.joinOrLoginBtnHover === false ? "inGoToJoinOrLogin" : "outGoToJoinOrLogin"} onMouseEnter={this.setJoinOrLoginBtnHover} onMouseOut={this.noSetJoinOrLoginBtnHover} onClick={this.goToJoinOrLogin}>
@@ -157,7 +165,7 @@ class UsedProgram extends Component {
                                 <div className={this.state.toolList.length <= 0 ? "non-member-notice" : "mtUsedProgram non-member-notice"}>
                                     <div>
                                         <div className="programItemAlign">
-                                            <ProgramItem login={this.state.login} toolList={this.state.toolList} finalCheck={this.state.finalCheck} projectIdx={this.state.projectIdx}  handleGetUrl={this.handleGetUrl}/>
+                                            <ProgramItem joinMember={this.state.joinMember} login={this.state.login} toolList={this.state.toolList} finalCheck={this.state.finalCheck} projectIdx={this.state.projectIdx}  handleGetUrl={this.handleGetUrl}/>
                                         </div>
                                         <label className="thisColor">협업 프로그램 등록과 산출물 업로드는 로그인 회원 혹은 조인된 사용자만 가능합니다.</label>
                                         <label className={this.state.joinOrLoginBtnHover === false ? "inGoToJoinOrLogin" : "outGoToJoinOrLogin"} onMouseEnter={this.setJoinOrLoginBtnHover} onMouseOut={this.noSetJoinOrLoginBtnHover} onClick={this.goToJoinOrLogin}>

@@ -54,11 +54,11 @@ class ProjectListWrapper extends Component {
 
 
     handleGisuChange = (e, data) => {
-        const v = data.value
+        //const v = data.value
         this.setState({
-            defaultGisu : parseInt(v)
+            defaultGisu : data.value
         })
-        console.log(data.value)
+        //console.log(data.value)
     }
 
     // handleMoveLeft = () => {

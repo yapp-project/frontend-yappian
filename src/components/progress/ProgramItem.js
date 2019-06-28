@@ -13,20 +13,23 @@ class ProgramItem extends Component {
             toolIdx : 0,
             login : this.props.login,
             finalCheck : this.props.finalCheck,
-            projectIdx : this.props.projectIdx
+            projectIdx : this.props.projectIdx,
+            joinMember : this.props.joinMember
         }
     }
 
     componentDidMount() {
         this.setState({
-            finalCheck : this.props.finalCheck
+            finalCheck : this.props.finalCheck,
+            joinMember : this.props.joinMember
         })
     }
 
     componentWillReceiveProps(nextProps){
         //console.log(JSON.stringify(nextProps.defaultGisu))
         this.setState({
-            finalCheck : nextProps.finalCheck
+            finalCheck : nextProps.finalCheck,
+            joinMember : nextProps.joinMember
         })
         //
     }
@@ -72,7 +75,7 @@ class ProgramItem extends Component {
                 this.props.toolList.map((tool, index) => (
                     <div className="programItemWrapper" key={index}>
                         {this.state.login === true && this.state.finalCheck === 'N' ? (
-                            <div className="closeIconWrapper" onClick={() => this.handleDeleteUrl(tool.idx)}>
+                            <div className={this.state.joinMember === false ? 'hideThis closeIconWrapper' : "closeIconWrapper"} onClick={() => this.handleDeleteUrl(tool.idx)}>
                                 <img className="closeIconStyled" src={closeIcon}/>
                             </div>
                         ) : ''}

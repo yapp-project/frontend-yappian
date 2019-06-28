@@ -91,7 +91,7 @@ class TestMainContainer extends Component {
                     <div className="selectBox">
                         <Dropdown placeholder='선택' clearable options={options} onChange={this.handleDropdownChange} value={this.state.type} />
                     </div>
-                    <input name="title" className="taskTitle" placeholder="산출물 제목" onChange={this.handleChange} value={this.state.title} />
+                    <input name="title" className="taskTitle" placeholder="산출물 제목" onChange={this.handleChange} value={this.state.title} disabled={false} />
                     <input name="content" className="insertUrl" placeholder="Copy and Paste URL" onChange={this.handleChange} value={this.state.content} />
                     <button className="buttonStyled" onClick={this.handleSubmit}>
                         <img className="submitButtonStyled" src={submitButton}/>

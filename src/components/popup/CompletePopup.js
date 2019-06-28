@@ -41,6 +41,7 @@ class CompletePopup extends Component {
     }
 
     componentDidMount() {
+
         this.setState({
             projectIdx : this.props.projectIdx,
             redirect : this.props.redirect
@@ -55,9 +56,9 @@ class CompletePopup extends Component {
         //
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        return true;
-    }
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     return true;
+    // }
 
 
     _handleImageChange= (e) => {
@@ -217,8 +218,10 @@ class CompletePopup extends Component {
                         <div className="completePopupInfo">YAPPIAN 여러분! 프로젝트 완료를 축하합니다.</div>
                         <div className="completePopupInputUrlBox">
                             <input name="productURL" type="text" className="inputStyled"
-                                   placeholder="프로젝트 URL (Product Url, 런칭 URL 연결 링크)"
-                                   onChange={this.handleCompleteForm}/>
+                                   placeholder={this.state.releaseCheck === 'N' ? '런칭한 프로젝트만 입력 가능' : '프로젝트 URL (Product Url, 런칭 URL 연결 링크)'}
+                                   onChange={this.handleCompleteForm}
+                                   disabled={this.state.releaseCheck === 'N' ? true : false}
+                            />
                         </div>
                         <div className="intro-img-wrapper">
                             <div className="intro-wrapper">
