@@ -16,7 +16,10 @@ class Logout extends Component {
             memberInfoPopup : false,
             otherPopup : false,
             redirect : this.props.redirect,
-            projectIdx : this.props.projectIdx
+            projectIdx : this.props.projectIdx,
+            finalCheck : this.props.finalCheck,
+            login: this.props.login,
+            joinMember : this.props.joinMember
         }
     }
 
@@ -51,22 +54,34 @@ class Logout extends Component {
 
     render(){
         return(
+
             <div className="right">
 
-                <img src={otherIcon} className="otherIcon" onClick={this.openOtherPopup}/>
-                <OtherPopup
-                    openOtherPopup={this.openOtherPopup}
-                    closeOtherPopup={this.closeOtherPopup}
-                    otherPopup={this.state.otherPopup}
-                    projectIdx={this.state.projectIdx}
-                    redirectToUrl={this.redirectToUrl}
-                />
+                {
+                    this.state.finalCheck === 'N' ? (
+                        <div>
+                            <img src={otherIcon} className="otherIcon" onClick={this.openOtherPopup}/>
+                            <OtherPopup
+                                openOtherPopup={this.openOtherPopup}
+                                closeOtherPopup={this.closeOtherPopup}
+                                otherPopup={this.state.otherPopup}
+                                projectIdx={this.state.projectIdx}
+                                redirectToUrl={this.redirectToUrl}
+                                login={this.state.login}
+                                joinMember={this.state.joinMember}
+                            />
+                        </div>
 
-                <img src={user} className="userIcon" onClick={this.openMemberInfoPopup}/>
-                <MemberInfo login={this.props.login}
-                            openMemberInfoPopup={this.openMemberInfoPopup}
-                            closeMemberInfoPopup={this.closeMemberInfoPopup}
-                            memberInfoPopup={this.state.memberInfoPopup} />
+                    ) : ''
+                }
+
+                <div>
+                    <img src={user} className="userIcon" onClick={this.openMemberInfoPopup}/>
+                    <MemberInfo login={this.props.login}
+                                openMemberInfoPopup={this.openMemberInfoPopup}
+                                closeMemberInfoPopup={this.closeMemberInfoPopup}
+                                memberInfoPopup={this.state.memberInfoPopup} />
+                </div>
 
             </div>
         );

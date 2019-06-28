@@ -18,14 +18,12 @@
     color: #ffffff;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .ItemName {
     width: 48px;
     height: 22px;
     font-family: NotoSansCJKkr;
-
 }
 
 .closeIconWrapper {

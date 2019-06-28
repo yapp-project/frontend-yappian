@@ -20,20 +20,20 @@ class UrlMainContainer extends Component {
         this.state = {
             selected : '',
             projectIdx : props.match.params.projectIdx,
-            finalCheck : '',
+            finalCheck : 'N',
             login : false,
             errorRedirect : false,
             complete : false,
             join : false,
             redirect : false,
-            joinMember : true
+            joinMember : false
         }
     }
 
     componentDidMount() {
         this.getSession()
         this.confirmJoinMember()
-        //console.log(this.state.joinMember)
+        console.log(this.state.joinMember)
         this.handleGetFinalCheck()
     }
 
@@ -144,7 +144,14 @@ class UrlMainContainer extends Component {
                             <Link to="/"><img src={logoOnUrl} className="urlLogo"/></Link>
                         </div>
                         {this.state.login === true ?
-                            (<Logout projectIdx={this.state.projectIdx} completePopup={this.completePopup} joinPopup={this.joinPopup} finalCheck={this.state.finalCheck} redirectToUrl={this.redirectToUrl}/>) : ( <Login />)
+                            (<Logout projectIdx={this.state.projectIdx}
+                                     completePopup={this.completePopup}
+                                     joinPopup={this.joinPopup}
+                                     finalCheck={this.state.finalCheck}
+                                     redirectToUrl={this.redirectToUrl}
+                                     login={this.state.login}
+                                     joinMember={this.state.joinMember}
+                            />) : ( <Login />)
                         }
                     </div>
                     <div className="selectedStateWrapper">

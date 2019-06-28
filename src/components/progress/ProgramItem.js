@@ -17,13 +17,25 @@ class ProgramItem extends Component {
         }
     }
 
-    handleDeleteUrl = (data) => {
-        const dataState = this.state.toolIdx
-        this.setState({
-            toolIdx : data
-        })
+    // handleDeleteUrl = (data) => {
+    //     const dataState = this.state.toolIdx
+    //     this.setState({
+    //         toolIdx : data
+    //     })
+    //
+    //     const apiUrl = 'http://localhost:8085/api/project/'+ this.state.projectIdx+'/url/'+dataState;
+    //
+    //     axios.delete(apiUrl)
+    //         .then(res => {
+    //                 this.props.handleGetUrl();
+    //             }
+    //         )
+    //         .catch(error => {console.log(error)});
+    // }
 
-        const apiUrl = 'http://localhost:8085/api/project/'+ this.state.projectIdx+'/url/'+dataState;
+    handleDeleteUrl = (data) => {
+        const { projectIdx } = this.state;
+        const apiUrl = `http://localhost:8085/api/project/` + projectIdx + `/url/`+data;
 
         axios.delete(apiUrl)
             .then(res => {
@@ -31,7 +43,9 @@ class ProgramItem extends Component {
                 }
             )
             .catch(error => {console.log(error)});
+
     }
+
 
     handleToolUrlClick = (data) => {
         window.location = data
@@ -43,12 +57,12 @@ class ProgramItem extends Component {
             (
                 this.props.toolList.map((tool, index) => (
                     <div className="programItemWrapper" key={index}>
-                        {/*{this.state.login === true && this.state.finalCheck === 'N' ? (*/}
-                            {/*<div className="closeIconWrapper" onClick={() => this.handleDeleteUrl(tool.idx)}>*/}
-                                {/*<img className="closeIconStyled" src={closeIcon}/>*/}
-                            {/*</div>*/}
-                        {/*) : ''}*/}
-                        <div className={this.state.login === true && this.state.finalCheck === 'N'? 'centerAligned' : 'mt-10 centerAligned'}  onClick={() => this.handleToolUrlClick(tool.contents)}>
+                        {this.state.login === true && this.state.finalCheck === 'N' ? (
+                            <div className="closeIconWrapper" onClick={() => this.handleDeleteUrl(tool.idx)}>
+                                <img className="closeIconStyled" src={closeIcon}/>
+                            </div>
+                        ) : ''}
+                        <div className='centerAligned'  onClick={() => this.handleToolUrlClick(tool.contents)}>
                             {tool.title}
                         </div>
                     </div>

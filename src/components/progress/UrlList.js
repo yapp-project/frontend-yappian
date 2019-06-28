@@ -16,7 +16,6 @@ class UrlList extends Component{
         this.state = {
             urlList : [],
             projectIdx : this.props.projectIdx,
-            noMoveUrl : false,
             login : this.props.login,
             finalCheck : this.props.finalCheck,
             joinMember : this.props.joinMember
@@ -48,20 +47,12 @@ class UrlList extends Component{
     }
 
     handleDeleteUrl = (data) => {
-        this.setState({
-            noMoveUrl : true
-        })
-
         const { projectIdx } = this.state;
-
             const apiUrl = `http://localhost:8085/api/project/` + projectIdx + `/url/`+data;
 
             axios.delete(apiUrl)
                 .then(res => {
                         this.handleGetUrl();
-                    this.setState({
-                        noMoveUrl : false
-                    })
                     }
                 )
                 .catch(error => {console.log(error)});
@@ -105,16 +96,16 @@ class UrlList extends Component{
 
                         {
                                     urlList.filter(url => (url.type === 'FIRST')).map((url, index) => (
-                                            <div className="urlObjectWrapper" key={index} onClick={() => {this.handleToolUrlClick(url.contents)}}>
+                                            <div className="urlObjectWrapper" key={index}>
                                                 <div className="insideUrlObject LeftInUrlObject">
                                                     <img src={shareIcon} className="shareIconStyled" />
                                                 </div>
-                                                <div className="centerUrlObject CenterInUrlObject">
+                                                <div className="centerUrlObject CenterInUrlObject" onClick={() => {this.handleToolUrlClick(url.contents)}}>
                                                     {url.title}
                                                 </div>
                                                 {this.state.login === true && this.state.finalCheck === 'N'?
                                                     (
-                                                        <div className="insideUrlObject RightInUrlObject" onClick={() => {console.log("delete")}}>
+                                                        <div className="insideUrlObject RightInUrlObject" onClick={() => {this.handleDeleteUrl(url.idx)}}>
                                                             <img src={deleteIcon} className="deleteIconStyled" />
                                                         </div>
                                                     ) : (<div className="insideUrlObject"></div>)}
@@ -133,15 +124,15 @@ class UrlList extends Component{
 
                         {
                                     urlList.filter(url => (url.type === 'SECOND')).map((url, index) => (
-                                        <div className="urlObjectWrapper" key={"second"+index} onClick={() => {this.handleToolUrlClick(url.contents)}}>
+                                        <div className="urlObjectWrapper" key={"second"+index}>
                                             <div className="insideUrlObject LeftInUrlObject">
                                                 <img src={shareIcon} className="shareIconStyled" />
                                             </div>
-                                            <div className="centerUrlObject CenterInUrlObject">
+                                            <div className="centerUrlObject CenterInUrlObject" onClick={() => {this.handleToolUrlClick(url.contents)}}>
                                                 {url.title}
                                             </div>
                                             {this.state.login === true && this.state.finalCheck === 'N'? (
-                                                <div className="insideUrlObject RightInUrlObject" onClick={() => this.handleDeleteUrl(url.idx)}>
+                                                <div className="insideUrlObject RightInUrlObject" onClick={() => {this.handleDeleteUrl(url.idx)}}>
                                                     <img src={deleteIcon} className="deleteIconStyled" />
                                                 </div>
                                             ) : (<div className="insideUrlObject"></div>)}
@@ -158,11 +149,11 @@ class UrlList extends Component{
 
                         {
                                     urlList.filter(url => (url.type === 'HOME')).map((url, index) => (
-                                        <div className="urlObjectWrapper" key={"home"+index} onClick={() => {this.handleToolUrlClick(url.contents)}}>
+                                        <div className="urlObjectWrapper" key={"home"+index}>
                                             <div className="insideUrlObject LeftInUrlObject">
                                                 <img src={shareIcon} className="shareIconStyled" />
                                             </div>
-                                            <div className="centerUrlObject CenterInUrlObject">
+                                            <div className="centerUrlObject CenterInUrlObject" onClick={() => {this.handleToolUrlClick(url.contents)}}>
                                                 {url.title}
                                             </div>
                                             {this.state.login === true && this.state.finalCheck === 'N' ? (

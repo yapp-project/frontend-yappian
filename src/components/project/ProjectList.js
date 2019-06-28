@@ -27,7 +27,7 @@ class ProjectList extends Component{
     }
 
     componentWillReceiveProps(nextProps){
-        console.log(JSON.stringify(nextProps.defaultGisu))
+        //console.log(JSON.stringify(nextProps.defaultGisu))
         this.setState({
             defaultGisu : nextProps.defaultGisu
         })
@@ -43,13 +43,13 @@ class ProjectList extends Component{
 
     getProjectList = (data) => {
 
-        console.log("get " + data)
+        //console.log("get " + data)
         const apiUrl = `http://localhost:8085/api/order/` + data + `/projects`
 
 
         axios.get(apiUrl)
             .then(res => {
-                console.log(res.data)
+                //console.log(res.data)
                 this.setState({
                     projectListSize : res.data.length,
                     projectList : res.data
@@ -65,7 +65,7 @@ class ProjectList extends Component{
     // }
 
     render(){
-        console.log(this.state.defaultGisu)
+        //console.log(this.state.defaultGisu)
         return (
             <div className="wrapperProjectList">
                 {

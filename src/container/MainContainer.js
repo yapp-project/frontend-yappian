@@ -74,10 +74,10 @@ class MainContainer extends Component {
 
     getProjectListSize = () => {
         const apiUrl = 'http://localhost:8085/api/projects';
-
+        const count = 0;
         axios.get(apiUrl)
             .then(res => {
-                console.log(res.data)
+                //console.log(res.data)
                 this.setState({
                     projectList : res.data,
                     projectListSize : res.data.length
@@ -91,6 +91,7 @@ class MainContainer extends Component {
 
 
     render(){
+
         return (
             <div className="mainWrapper">
                 <div className="top">
