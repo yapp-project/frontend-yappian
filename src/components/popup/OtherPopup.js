@@ -24,8 +24,31 @@ class OtherPopup extends Component {
         this.state = {
             completePopup : false,
             redirect : this.props.redirect,
-            projectIdx : this.props.projectIdx
+            projectIdx : this.props.projectIdx,
+            joinMember : this.props.joinMember
         }
+    }
+
+
+    componentDidMount() {
+        this.setState({
+            joinMember : this.props.joinMember,
+            redirect : this.props.redirect,
+            projectIdx : this.props.projectIdx
+        })
+    }
+
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            joinMember : nextProps.joinMember,
+            redirect : nextProps.redirect,
+            projectIdx : nextProps.projectIdx
+        })
+        //
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return true;
     }
 
     openOtherPopup = () => {
@@ -72,33 +95,40 @@ class OtherPopup extends Component {
                 className="otherWrapper" style={otherPopupBackground}>
                 <div className="otherTitle">프로젝트 관리</div>
 
-                <div className="otherContentList">
-                    <div className="openCompleteProject" onClick={this.openCompletePopup}>
-                        프로젝트 완료하기
-                        <img src={moveIcon} className="moveIcon"/>
-                    </div>
-                    <CompletePopup
-                        openCompletePopup={this.openCompletePopup}
-                        closeCompletePopup={this.closeCompletePopup}
-                        completePopup={this.state.completePopup}
-                        projectIdx={this.props.projectIdx}
-                        redirectToUrl={this.redirectToUrl}
-                    />
-                    <div className="openJoinProject" onClick={this.openJoinPopup}>
-                        프로젝트 참여하기
-                        <img src={moveIcon} className="moveIcon"/>
-                    </div>
-                    <JoinProjectPopup
-                        closeJoinPopup={this.closeJoinPopup}
-                        joinPopup={this.state.joinPopup}
-                        projectIdx={this.state.projectIdx}
-                    />
 
-                </div>
-                <div className="otherBottom">
-                    <span className="urlOfThisPage">[ getUrl ]</span>
-                    <span className="copyUrl">복사</span>
-                </div>
+
+                    {
+                        this.state.joinMember === true ?
+                            (
+                                <div className="otherContentList">
+                                    <div className="openCompleteProject" onClick={this.openCompletePopup}>
+                                        프로젝트 완료하기
+                                        <img src={moveIcon} className="moveIcon"/>
+                                    </div>
+                                    <CompletePopup
+                                        openCompletePopup={this.openCompletePopup}
+                                        closeCompletePopup={this.closeCompletePopup}
+                                        completePopup={this.state.completePopup}
+                                        projectIdx={this.props.projectIdx}
+                                        redirectToUrl={this.redirectToUrl}
+                                    />
+                                </div>
+                            )
+                            :
+                            (
+                                <div className="otherContentList">
+                                    <div className="openJoinProject" onClick={this.openJoinPopup}>
+                                        프로젝트 참여하기
+                                        <img src={moveIcon} className="moveIcon"/>
+                                    </div>
+                                    <JoinProjectPopup
+                                        closeJoinPopup={this.closeJoinPopup}
+                                        joinPopup={this.state.joinPopup}
+                                        projectIdx={this.state.projectIdx}
+                                    />
+                                </div>
+                            )
+                    }
 
             </Modal>
         );

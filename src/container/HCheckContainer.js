@@ -4,7 +4,7 @@ import {Redirect} from 'react-router-dom'
 class HCheckContainer extends Component {
     render(){
         return(
-            <Redirect to="http://localhost:8085/api/_hcheck"/>
+            <Redirect to="https://yappian.com/api/_hcheck"/>
         );
     }
 }

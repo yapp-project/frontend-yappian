@@ -3,7 +3,7 @@ import axios from 'axios'
 import './MemberInfo.css';
 import logoutIcon from '../../img/logoutIcon.png'
 import moveBtn from '../../img/stroke-1@3x.png'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import Modal from "react-modal";
 
 const memberInfoModalBackground = {
@@ -22,7 +22,9 @@ class MemberInfo extends Component {
         super(props);
 
         this.state = {
-            memberjoinList : []
+            memberjoinList : [],
+            redirect : false,
+            redirectNum : 0
         }
 
     }
@@ -32,7 +34,7 @@ class MemberInfo extends Component {
     }
 
     handleGetJoinProject = () => {
-        axios.get('http://localhost:8085/api/user/projects')
+        axios.get('https://yappian.com/api/user/projects')
             .then(res => {
                 this.setState({
                     memberjoinList: this.state.memberjoinList.concat(res.data)
@@ -48,7 +50,7 @@ class MemberInfo extends Component {
     }
 
     handleLogout = () => {
-        window.location = 'http://localhost:8085/api/logout'
+        window.location = 'https://yappian.com/api/logout'
     }
 
     openMemberInfoPopup = () => {
@@ -59,7 +61,17 @@ class MemberInfo extends Component {
         this.props.closeMemberInfoPopup();
     }
 
+    moveOtherPage = (data) => {
+        window.location = 'http://localhost:3000/#/main/' + data
+    }
+
     render(){
+        // if(this.state.redirect === true){
+        //     return(
+        //         window.location = 'http://localhost:3000/#/main/' + this.state.redirectNum
+        //     );
+        //
+        // }
         return (
             <Modal
                 isOpen={this.props.memberInfoPopup}
@@ -68,19 +80,28 @@ class MemberInfo extends Component {
             >
                 <div className="memberInfoWrapperTitle">참여한 프로젝트</div>
                 <div className="joinList">
+                    {/*<div className="joinObjectWrapper" onClick={() => this.moveOtherPage(2)}>*/}
+                        {/*<span className="joinObjectGisu">14기</span>*/}
+                        {/*<span className="joinObjectTitle">날씨왕</span>*/}
+                        {/*<span className="joinObjectPlatform">IOS</span>*/}
+                        {/*<span className="joinObjectBtn">*/}
+                                        {/*<img src={moveBtn} className="moveBtnStyled" />*/}
+                                    {/*</span>*/}
+                    {/*</div>*/}
+
                     {
                         this.state.memberjoinList.length <= 0
                             ?
                             <div className="alignCenterNoJoin">참여한 프로젝트 없음</div>
                             :
                             this.state.memberjoinList.map((list, i) => (
-                                <div className="joinObjectWrapper" key={i} onClick={() => {window.location = 'http://localhost:8085/#/main/'+list.idx}}>
-                                    <span className="joinObject mr-3">{list.orderNumber}기</span>
-                                    <span className="joinObject mr-3">|</span>
-                                    <span className="joinObject mr-3">{list.projectName}</span>
-                                    <span className="joinObject mr-3">|</span>
-                                    <span className="joinObject mr-3">{list.projectType}</span>
-                                    <img src={moveBtn} className="moveBtnStyled" />
+                                <div className="joinObjectWrapper" key={i} onClick={() => {window.location = 'https://yappian.com/#/main/'+list.idx}}>
+                                    <span className="joinObjectGisu">{list.orderNumber}기</span>
+                                    <span className="joinObjectTitle">{list.projectName}</span>
+                                    <span className="joinObjectPlatform">{list.projectType}</span>
+                                    <span className="joinObjectBtn">
+                                        <img src={moveBtn} className="moveBtnStyled" />
+                                    </span>
                                 </div>
                             ))
                     }

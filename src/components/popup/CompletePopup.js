@@ -40,6 +40,25 @@ class CompletePopup extends Component {
 
     }
 
+    componentDidMount() {
+        this.setState({
+            projectIdx : this.props.projectIdx,
+            redirect : this.props.redirect
+        })
+    }
+
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            projectIdx : this.props.projectIdx,
+            redirect : this.props.redirect
+        })
+        //
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return true;
+    }
+
 
     _handleImageChange= (e) => {
         let reader = new FileReader();
@@ -93,7 +112,7 @@ class CompletePopup extends Component {
         const formdata = new FormData();
         formdata.append("file", data)
 
-        axios.post(`http://localhost:8085/api/file/` + this.state.projectIdx,
+        axios.post(`https://yappian.com/api/file/` + this.state.projectIdx,
             formdata, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
@@ -122,20 +141,31 @@ class CompletePopup extends Component {
     handleCompleteSubmit = () => {
         const {productURL, description, releaseCheck, projectIdx, fileIdxList} = this.state;
 
-        axios.post(`http://localhost:8085/api/project/`+ projectIdx +`/finish`, {
+        axios.post(`https://yappian.com/api/project/`+ projectIdx +`/finish`, {
             "description": description,
             "fileIdxList": fileIdxList,
             "productURL": productURL,
             "releaseCheck": releaseCheck
         })
             .then(res => {
-                //window.location = 'http://localhost:8085/#/main/'+ projectIdx
+                //window.location = 'https://yappian.com/#/main/'+ projectIdx
                 // this.setState({
                 //     redirect : true
                 // })
-                this.redirectToUrl()
+                //this.redirectToUrl()
+                window.history.go(-1)
             })
             .catch(error => {
+                alert("입력폼을 확인해주세요")
+                this.setState({
+                    productURL : productURL,
+                    description : description,
+                    releaseCheck : releaseCheck,
+                    fileIdxList : [],
+                    imagePreviewUrl: '',
+                    imgFile: '',
+                })
+                this.openCompletePopup()
                 console.log(error)
             })
     }
@@ -194,8 +224,8 @@ class CompletePopup extends Component {
                             <div className="intro-wrapper">
                                 <div className="intro-title">프로젝트 소개</div>
                                 <textarea name="description" className="intro-textarea"
-                                          placeholder="프로젝트에 대한 소개와 직군별 프로젝트 관리팁을 공유해주세요.(최소 30자)"
-                                          onChange={this.handleCompleteForm}></textarea>
+                                          placeholder="프로젝트에 대한 소개와 직군별 프로젝트 관리팁을 공유해주세요.(최소 10자)"
+                                          onChange={this.handleCompleteForm} minlength='10'></textarea>
                             </div>
                             <div className="img-wrapper">
                                 <div className="img-title">커버 이미지</div>

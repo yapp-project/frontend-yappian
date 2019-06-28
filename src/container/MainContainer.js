@@ -37,7 +37,7 @@ class MainContainer extends Component {
     }
 
     getSession = () => {
-        axios.get('http://localhost:8085/session')
+        axios.get('https://yappian.com/session')
             .then(res => {
                 console.log(res.data)
                 if(res.data == 'ANONYMOUS' || res.data == 'INVALID'){
@@ -53,7 +53,7 @@ class MainContainer extends Component {
     }
 
     // getOrdersNumber = () => {
-    //     const apiUrl = 'http://localhost:8085/api/orders';
+    //     const apiUrl = 'https://yappian.com/api/orders';
     //
     //     axios.get(apiUrl)
     //         .then(res => {
@@ -73,7 +73,7 @@ class MainContainer extends Component {
     // }
 
     getProjectListSize = () => {
-        const apiUrl = 'http://localhost:8085/api/projects';
+        const apiUrl = 'https://yappian.com/api/projects';
         const count = 0;
         axios.get(apiUrl)
             .then(res => {

@@ -20,10 +20,23 @@ class ProgressContainer extends Component {
 
     componentDidMount() {
         this.getProject()
+        this.setState({
+            joinMember : this.props.joinMember
+        })
     }
 
+    componentWillReceiveProps(nextProps){
+        console.log(JSON.stringify(nextProps.joinMember))
+        this.setState({
+            joinMember : nextProps.joinMember
+        })
+        //
+    }
+
+
+
     getProject = () => {
-        const apiUrl = `http://localhost:8085/api/project/`+ this.state.projectIdx;
+        const apiUrl = `https://yappian.com/api/project/`+ this.state.projectIdx;
 
         axios.get(apiUrl)
             .then(res => {

@@ -31,10 +31,8 @@
 }
 
 .otherContentList {
-    border-bottom: 1px solid #F8F8F8;
     padding-top : 18px;
     padding-bottom: 11px;
-
 }
 
 .moveIcon {
@@ -47,7 +45,7 @@
 .openCompleteProject {
     margin-bottom: 5px;
     font-family: NotoSansCJKkr;
-    font-size: 1rem;
+    font-size: 13px;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
@@ -59,7 +57,7 @@
 
 .openJoinProject {
     font-family: NotoSansCJKkr;
-    font-size: 1rem;
+    font-size: 13px;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;

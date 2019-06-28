@@ -11,7 +11,7 @@ class Login extends Component{
 
     handleLogin = () => {
         //this.props.handleLogin()
-        window.location = 'http://localhost:8085/api/login'
+        window.location = 'https://yappian.com/api/login'
     }
 
 

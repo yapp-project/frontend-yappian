@@ -33,13 +33,13 @@ class UrlMainContainer extends Component {
     componentDidMount() {
         this.getSession()
         this.confirmJoinMember()
-        console.log(this.state.joinMember)
+        //console.log(this.state.joinMember)
         this.handleGetFinalCheck()
     }
 
 
     handleGetFinalCheck = () => {
-        const apiUrl = `http://localhost:8085/api/project/` + this.state.projectIdx + `/finish`
+        const apiUrl = `https://yappian.com/api/project/` + this.state.projectIdx + `/finish`
 
         axios.get(apiUrl)
             .then(res => {
@@ -71,7 +71,7 @@ class UrlMainContainer extends Component {
     }
 
     getSession = () => {
-        axios.get('http://localhost:8085/session')
+        axios.get('https://yappian.com/session')
             .then(res => {
                 console.log(res.data)
                 if(res.data == 'ANONYMOUS' || res.data == 'INVALID'){
@@ -106,16 +106,18 @@ class UrlMainContainer extends Component {
 
 
     confirmJoinMember = () => {
-        axios.get(`http://localhost:8085/api/user/projects`)
+        axios.get(`https://yappian.com/api/user/projects`)
             .then(res => {
-
                 res.data.map((list, index) => {
-                    if(list.idx > 0){
+
+
+                    if(parseInt(this.state.projectIdx) === list.idx){
                         this.setState({
                             joinMember : true
                         })
                     }
                 })
+
 
             })
             .catch(error => {
@@ -135,6 +137,7 @@ class UrlMainContainer extends Component {
                 <Redirect to={"main/"+ this.state.projectIdx}/>
             );
         }
+
         return (
             <div className="urlMainWrapper">
                 <div className="topLine"></div>
@@ -168,7 +171,7 @@ class UrlMainContainer extends Component {
 
                     </div>
                     <div className="stateWrapper">
-                        {this.state.selected === 'progress' ? <ProgressContainer login={this.state.login} projectIdx={this.state.projectIdx} finalCheck={this.state.finalCheck} joinMember={this.state.joinMember}/> : <CompleteContainer projectIdx={this.state.projectIdx}/>}
+                        {this.state.selected === 'progress' ? <ProgressContainer login={this.state.login} projectIdx={this.state.projectIdx} finalCheck={this.state.finalCheck} joinMember={this.state.joinMember}/> : <CompleteContainer projectIdx={this.state.projectIdx} finalCheck={this.state.finalCheck}/>}
                     </div>
                 </div>
                 {this.state.complete === true ?

@@ -21,7 +21,31 @@ class Logout extends Component {
             login: this.props.login,
             joinMember : this.props.joinMember
         }
+
     }
+
+    componentDidMount() {
+        this.setState({
+            joinMember : this.props.joinMember,
+            finalCheck : this.props.finalCheck,
+            redirect : this.props.redirect
+        })
+    }
+
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            joinMember : nextProps.joinMember,
+            finalCheck : nextProps.finalCheck,
+            redirect : nextProps.redirect
+        })
+        //
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return true;
+    }
+
+
 
     openMemberInfoPopup = () => {
         this.setState({
@@ -53,12 +77,13 @@ class Logout extends Component {
 
 
     render(){
+
         return(
 
             <div className="right">
 
                 {
-                    this.state.finalCheck === 'N' ? (
+                    this.state.finalCheck === 'N'? (
                         <div>
                             <img src={otherIcon} className="otherIcon" onClick={this.openOtherPopup}/>
                             <OtherPopup
@@ -68,7 +93,7 @@ class Logout extends Component {
                                 projectIdx={this.state.projectIdx}
                                 redirectToUrl={this.redirectToUrl}
                                 login={this.state.login}
-                                joinMember={this.state.joinMember}
+                                joinMember={this.props.joinMember}
                             />
                         </div>
 

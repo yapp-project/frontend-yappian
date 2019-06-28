@@ -28,7 +28,7 @@ class UsedProgram extends Component {
 
     handleGetUrl = () => {
         const { projectIdx } = this.state;
-        const apiUrl = `http://localhost:8085/api/project/`+ projectIdx + `/url/list`;
+        const apiUrl = `https://yappian.com/api/project/`+ projectIdx + `/url/list`;
 
         axios.get(apiUrl)
             .then(res => {
@@ -43,7 +43,7 @@ class UsedProgram extends Component {
 
     handleDeleteUrl = (data) => {
         const { projectIdx } = this.state;
-        const apiUrl = `http://localhost:8085/api/project/`+ projectIdx + `/url/`+data;
+        const apiUrl = `https://yappian.com/api/project/`+ projectIdx + `/url/`+data;
 
         axios.delete(apiUrl)
             .then(res => {
@@ -62,7 +62,7 @@ class UsedProgram extends Component {
 
     goToJoinOrLogin = () => {
         if(this.state.login === false){
-            window.location = 'http://localhost:8085/api/login'
+            window.location = 'https://yappian.com/api/login'
         }else  {
             if(this.state.joinMember === false) {
                 this.openJoinPopup()

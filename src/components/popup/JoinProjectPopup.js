@@ -44,7 +44,7 @@ class JoinProjectPopup extends Component {
 
     handleJoinSubmit = () => {
         const { projectIdx, password} = this.state;
-        const apiUrl = `http://localhost:8085/api/project/` + projectIdx;
+        const apiUrl = `https://yappian.com/api/project/` + projectIdx;
 
         axios.post(apiUrl,{
             "password" : password

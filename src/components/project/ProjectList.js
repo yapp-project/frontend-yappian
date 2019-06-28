@@ -19,7 +19,7 @@ class ProjectList extends Component{
 
     componentDidMount() {
         console.log("componenet : " + this.state.defaultGisu)
-        this.getProjectList()
+        this.getProjectList(this.props.defaultGisu)
         this.setState({
             defaultGisu : this.props.defaultGisu
         })
@@ -32,19 +32,23 @@ class ProjectList extends Component{
             defaultGisu : nextProps.defaultGisu
         })
         //
-        return this.getProjectList(nextProps.defaultGisu)
+
     }
     // //
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     return true;
-    // }
+    shouldComponentUpdate(nextProps, nextState) {
+        return true;
+    }
 
+    // shouldComponentUpdate가 true이면 실행된다. 업데이트시 실행.
+    componentWillUpdate(nextProps, nextState, nextContext) {
+        this.getProjectList(this.state.defaultGisu)
+    }
 
 
     getProjectList = (data) => {
 
         //console.log("get " + data)
-        const apiUrl = `http://localhost:8085/api/order/` + data + `/projects`
+        const apiUrl = `https://yappian.com/api/order/` + data + `/projects`
 
 
         axios.get(apiUrl)
@@ -67,12 +71,19 @@ class ProjectList extends Component{
     render(){
         //console.log(this.state.defaultGisu)
         return (
-            <div className="wrapperProjectList">
+            <div className={this.state.projectListSize <= 0 ? 'toCenter wrapperProjectList' : 'wrapperProjectList'}>
                 {
-                    this.state.projectList.map((project, index) => (
-                        <Project project={project} key={index}/>
-                    ))
+                    this.state.projectListSize > 0 ?
+                        (
+                            this.state.projectList.map((project, index) => (
+                                <Project project={project} key={index}/>
+                            ))
+                        ) :
+                        (
+                            <div className="gisuProjectNull">{parseInt(this.state.defaultGisu) + 9}기의 완료된 프로젝트가 없습니다.</div>
+                        )
                 }
+
             </div>
         );
     }

@@ -26,7 +26,7 @@ class Login extends Component{
 
     handleThis = () => {
         // try {
-        //     const res = await axios.get('http://localhost:8085/api/login')
+        //     const res = await axios.get('https://yappian.com/api/login')
         //     console.log(res.data.status)
         // }catch (e) {
         //     console.log(e)
@@ -35,9 +35,9 @@ class Login extends Component{
 
         // axios({
         //     method: 'get',
-        //     url: 'http://localhost:8085/api/login'
+        //     url: 'https://yappian.com/api/login'
         // })
-        // axios.get('http://localhost:8085/api/login', {
+        // axios.get('https://yappian.com/api/login', {
         //     headers : {
         //         'Access-Control-Allow-Origin' : '*',
         //         'Content-Type' : 'application/json'
@@ -56,7 +56,7 @@ class Login extends Component{
         //         console.log(error.status)
         //     })
         // const req = new XMLHttpRequest();
-        // req.open('GET','http://localhost:8085/api/login', true);
+        // req.open('GET','https://yappian.com/api/login', true);
         // //req.withCredentials = true
         // req.setRequestHeader('Access-Control-Allow-Origin', '*')
         // req.setRequestHeader('Content-Type', 'application/json')
@@ -82,7 +82,7 @@ class Login extends Component{
 
     handleLogin = () => {
         //this.props.handleLogin()
-        window.location = 'http://localhost:8085/api/login'
+        window.location = 'https://yappian.com/api/login'
 
     }
 

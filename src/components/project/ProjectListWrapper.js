@@ -19,17 +19,20 @@ class ProjectListWrapper extends Component {
             projectListSize : 0,
             defaultGisu : 5
         }
+    }
 
-
+    componentDidMount() {
         this.getOrdersNumber()
+        //this.handleGisuChange()
     }
 
-    // componentDidMount() {
-    //     this.handleGisuChange()
-    // }
+    shouldComponentUpdate(nextProps, nextState) {
+        return true;
+    }
+
 
     getOrdersNumber = () => {
-        const apiUrl = 'http://localhost:8085/api/orders';
+        const apiUrl = 'https://yappian.com/api/orders';
 
         axios.get(apiUrl)
             .then(res => {
@@ -48,32 +51,14 @@ class ProjectListWrapper extends Component {
             });
     }
 
-    getOrdersNumber = () => {
-        const apiUrl = 'http://localhost:8085/api/orders';
-
-        axios.get(apiUrl)
-            .then(res => {
-                    res.data.map((list, index) =>
-                        this.setState({
-                            gisuList : this.state.gisuList.concat({
-                                key : index, text : list.number+'기', value: parseInt(list.number) - 9
-                            })
-                        })
-
-                    )
-                }
-            )
-            .catch(error => {
-                console.log(error);
-            });
-    }
 
 
     handleGisuChange = (e, data) => {
+        const v = data.value
         this.setState({
-            defaultGisu : data.value
+            defaultGisu : parseInt(v)
         })
-
+        console.log(data.value)
     }
 
     // handleMoveLeft = () => {
@@ -99,7 +84,7 @@ class ProjectListWrapper extends Component {
     render(){
         const {gisuList} = this.state;
 
-        console.log("ddkdkdkdkdk" + this.state.defaultGisu)
+        //console.log("ddkdkdkdkdk" + this.state.defaultGisu)
         return(
             <div className="projectListContainer">
                 <div className="selectBoxWrapper">

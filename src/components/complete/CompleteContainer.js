@@ -16,12 +16,27 @@ class CompleteContainer extends Component {
         this.state = {
             projectIdx: this.props.projectIdx,
             projectObject: [],
-            pdfUrl : ''
+            pdfUrl : '',
+            releaseCheck : ''
         }
     }
 
     componentDidMount() {
+        this.setState({
+            projectIdx: this.props.projectIdx
+        })
         this.onGetCompleteProject()
+    }
+
+    componentWillReceiveProps(nextProps){
+        //console.log(JSON.stringify(nextProps.defaultGisu))
+        this.setState({
+            projectIdx: this.props.projectIdx
+        })
+    }
+    // //
+    shouldComponentUpdate(nextProps, nextState) {
+        return true;
     }
 
     componentWillMount() {
@@ -30,10 +45,14 @@ class CompleteContainer extends Component {
 
     onGetCompleteProject  = () => {
         const { projectIdx } = this.state
-        const apiUrl = `http://localhost:8085/api/project/`+ projectIdx + `/finish`
+        const apiUrl = `https://yappian.com/api/project/`+ projectIdx + `/finish`
 
         axios.get(apiUrl)
             .then(res => {
+                this.setState({
+                    releaseCheck : res.data.releaseCheck
+                })
+
                 res.data.fileList.map((file, index) => {
                     if(file.type === 'PDF'){
                         this.setState({
@@ -64,17 +83,32 @@ class CompleteContainer extends Component {
                                 {projectObject.ordersNumber} 기 ㅣ {projectObject.projectType}
                             </div>
                         </div>
-                        <div className="rightInTeamInfoComplete">
-                            <img src={completeIcon} className="completeIcon"/>
-                        </div>
+                        {
+                            this.state.projectObject.releaseCheck === 'Y' ?
+                                (
+                                    <div className="rightInTeamInfoComplete">
+                                        <img src={completeIcon} className="completeIcon"/>
+                                    </div>
+                                ) : ''
+
+                        }
+
 
                     </div>
                     <div className="projectIntroInComplete">
                         {projectObject.projectDescription}
                     </div>
-                    <div className="projectAddress">
-                        {projectObject.productURL}
-                    </div>
+
+                    {
+                        this.state.projectObject.releaseCheck === 'Y' ?
+                            (
+                                <div className="projectAddress">
+                                    {projectObject.productURL}
+                                </div>
+                            ) : ''
+
+                    }
+
                 </div>
                 <div className="rightInComplete">
                     <iframe src={pdfUrl} className="pdfView"/>

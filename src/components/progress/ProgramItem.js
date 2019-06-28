@@ -17,13 +17,27 @@ class ProgramItem extends Component {
         }
     }
 
+    componentDidMount() {
+        this.setState({
+            finalCheck : this.props.finalCheck
+        })
+    }
+
+    componentWillReceiveProps(nextProps){
+        //console.log(JSON.stringify(nextProps.defaultGisu))
+        this.setState({
+            finalCheck : nextProps.finalCheck
+        })
+        //
+    }
+
     // handleDeleteUrl = (data) => {
     //     const dataState = this.state.toolIdx
     //     this.setState({
     //         toolIdx : data
     //     })
     //
-    //     const apiUrl = 'http://localhost:8085/api/project/'+ this.state.projectIdx+'/url/'+dataState;
+    //     const apiUrl = 'https://yappian.com/api/project/'+ this.state.projectIdx+'/url/'+dataState;
     //
     //     axios.delete(apiUrl)
     //         .then(res => {
@@ -35,7 +49,7 @@ class ProgramItem extends Component {
 
     handleDeleteUrl = (data) => {
         const { projectIdx } = this.state;
-        const apiUrl = `http://localhost:8085/api/project/` + projectIdx + `/url/`+data;
+        const apiUrl = `https://yappian.com/api/project/` + projectIdx + `/url/`+data;
 
         axios.delete(apiUrl)
             .then(res => {
@@ -62,7 +76,13 @@ class ProgramItem extends Component {
                                 <img className="closeIconStyled" src={closeIcon}/>
                             </div>
                         ) : ''}
-                        <div className='centerAligned'  onClick={() => this.handleToolUrlClick(tool.contents)}>
+                        <div className={
+                            this.state.login === true && this.state.finalCheck === 'N' ?
+                                'centerAligned'
+                                :
+                                'centerAligned toCenterTitle'
+                                }
+                             onClick={() => this.handleToolUrlClick(tool.contents)}>
                             {tool.title}
                         </div>
                     </div>

@@ -46,7 +46,7 @@ class CreateProjectPopup extends Component{
     }
 
     getOrdersNumber = () => {
-        const apiUrl = 'http://localhost:8085/api/orders';
+        const apiUrl = 'https://yappian.com/api/orders';
 
         axios.get(apiUrl)
             .then(res => {
@@ -132,7 +132,7 @@ class CreateProjectPopup extends Component{
         const {ordersIdx, projectName, projectType, code1, code2, code3, code4, codeCaution } = this.state;
 
 
-        const apiUrl = 'http://localhost:8085/api/project';
+        const apiUrl = 'https://yappian.com/api/project';
         if(codeCaution === false){
             axios.post(apiUrl, {
                 "ordersIdx": ordersIdx,
