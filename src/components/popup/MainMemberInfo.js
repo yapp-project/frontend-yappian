@@ -17,7 +17,7 @@ const memberInfoModalBackground = {
     }
 }
 
-class MemberInfo extends Component {
+class MainMemberInfo extends Component {
     constructor(props){
         super(props);
 
@@ -60,10 +60,9 @@ class MemberInfo extends Component {
         this.props.closeMemberInfoPopup();
     }
 
-    redirectToUrl = (idx) => {
-        this.closeMemberInfoPopup()
-        this.props.redirectToUrl(idx)
-        //window.location='http://localhost:3000/#/main/' + idx
+
+    redirectToUrlInMain = (projectIdx) => {
+        window.location = 'https://yappian.com/#/main/' + projectIdx
     }
 
 
@@ -76,29 +75,29 @@ class MemberInfo extends Component {
             >
                 <div className="memberInfoWrapperTitle">참여한 프로젝트</div>
                 <div className="joinList">
-                    {/*<div className="joinObjectWrapper" onClick={()=> {this.redirectToUrl(1)}}>*/}
-                        {/*<span className="joinObjectGisu">14기</span>*/}
-                        {/*<span className="joinObjectTitle">123</span>*/}
-                        {/*<span className="joinObjectPlatform">123123</span>*/}
-                        {/*<span className="joinObjectBtn">*/}
-                                        {/*<img src={moveBtn} className="moveBtnStyled" />*/}
-                                    {/*</span>*/}
+                    {/*<div className="joinObjectWrapper" onClick={()=> {this.redirectToUrlInMain(1)}}>*/}
+                    {/*<span className="joinObjectGisu">14기</span>*/}
+                    {/*<span className="joinObjectTitle">123</span>*/}
+                    {/*<span className="joinObjectPlatform">123123</span>*/}
+                    {/*<span className="joinObjectBtn">*/}
+                    {/*<img src={moveBtn} className="moveBtnStyled" />*/}
+                    {/*</span>*/}
                     {/*</div>*/}
-                    {/*<div className="joinObjectWrapper" onClick={()=> this.redirectToUrl(2)}>*/}
-                        {/*<span className="joinObjectGisu">14기</span>*/}
-                        {/*<span className="joinObjectTitle">123</span>*/}
-                        {/*<span className="joinObjectPlatform">123123</span>*/}
-                        {/*<span className="joinObjectBtn">*/}
-                                        {/*<img src={moveBtn} className="moveBtnStyled" />*/}
-                                    {/*</span>*/}
+                    {/*<div className="joinObjectWrapper" onClick={()=> this.redirectToUrlInMain(2)}>*/}
+                    {/*<span className="joinObjectGisu">14기</span>*/}
+                    {/*<span className="joinObjectTitle">123</span>*/}
+                    {/*<span className="joinObjectPlatform">123123</span>*/}
+                    {/*<span className="joinObjectBtn">*/}
+                    {/*<img src={moveBtn} className="moveBtnStyled" />*/}
+                    {/*</span>*/}
                     {/*</div>*/}
-                    {/*<div className="joinObjectWrapper" onClick={()=> this.redirectToUrl(3)}>*/}
-                        {/*<span className="joinObjectGisu">14기</span>*/}
-                        {/*<span className="joinObjectTitle">123</span>*/}
-                        {/*<span className="joinObjectPlatform">123123</span>*/}
-                        {/*<span className="joinObjectBtn">*/}
-                                        {/*<img src={moveBtn} className="moveBtnStyled" />*/}
-                                    {/*</span>*/}
+                    {/*<div className="joinObjectWrapper" onClick={()=> this.redirectToUrlInMain(3)}>*/}
+                    {/*<span className="joinObjectGisu">14기</span>*/}
+                    {/*<span className="joinObjectTitle">123</span>*/}
+                    {/*<span className="joinObjectPlatform">123123</span>*/}
+                    {/*<span className="joinObjectBtn">*/}
+                    {/*<img src={moveBtn} className="moveBtnStyled" />*/}
+                    {/*</span>*/}
                     {/*</div>*/}
 
                     {
@@ -107,7 +106,7 @@ class MemberInfo extends Component {
                             <div className="alignCenterNoJoin">참여한 프로젝트 없음</div>
                             :
                             this.state.memberjoinList.map((list, i) => (
-                                <div className="joinObjectWrapper" key={i} onClick={() => this.redirectToUrl(list.idx)}>
+                                <div className="joinObjectWrapper" key={i} onClick={() => this.redirectToUrlInMain(list.idx)}>
                                     <span className="joinObjectGisu">{list.orderNumber}기</span>
                                     <span className="joinObjectTitle">{list.projectName}</span>
                                     <span className="joinObjectPlatform">{list.projectType}</span>
@@ -128,4 +127,4 @@ class MemberInfo extends Component {
     }
 }
 
-export default MemberInfo;
+export default MainMemberInfo;

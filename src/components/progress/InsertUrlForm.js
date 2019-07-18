@@ -18,6 +18,22 @@ class InsertUrlForm extends Component {
         }
     }
 
+    componentDidMount() {
+        this.setState({
+            projectIdx : this.props.projectIdx
+        })
+    }
+
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            projectIdx : nextProps.projectIdx
+        })
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return true;
+    }
+
 
 
     handleChange = (e) => {

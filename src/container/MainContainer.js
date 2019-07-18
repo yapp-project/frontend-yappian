@@ -39,7 +39,7 @@ class MainContainer extends Component {
     getSession = () => {
         axios.get('https://yappian.com/session')
             .then(res => {
-                console.log(res.data)
+                //console.log(res.data)
                 if(res.data == 'ANONYMOUS' || res.data == 'INVALID'){
                     this.handleLogin(false)
                 }else{
@@ -74,7 +74,6 @@ class MainContainer extends Component {
 
     getProjectListSize = () => {
         const apiUrl = 'https://yappian.com/api/projects';
-        const count = 0;
         axios.get(apiUrl)
             .then(res => {
                 //console.log(res.data)
@@ -88,10 +87,7 @@ class MainContainer extends Component {
             })
     }
 
-
-
     render(){
-
         return (
             <div className="mainWrapper">
                 <div className="top">
@@ -105,7 +101,7 @@ class MainContainer extends Component {
                             {
                                 this.state.login === true ?
                                     (
-                                        <Logout login={this.state.login} gisuList={this.state.gisuList}/>
+                                        <Logout login={this.state.login} gisuList={this.state.gisuList} />
                                     ) :
                                     (
                                         <Login handleLogin={this.handleLogin}/>

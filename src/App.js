@@ -18,7 +18,7 @@ class App extends Component {
                 <Route exact={true} path="/" component={MainContainer} />
                 <Route path="/main/:projectIdx" component={UrlMainContainer} />
                 <Route path="/error" component={Notfound} />
-                {/*<Route path="/test" component={TestMainContainer} />*/}
+                <Route path="/test" component={TestMainContainer} />
                 {/*<Route path="/test1" component={testContaier} />*/}
         </HashRouter>
     );

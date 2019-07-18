@@ -23,7 +23,6 @@ class ProjectListWrapper extends Component {
 
     componentDidMount() {
         this.getOrdersNumber()
-        //this.handleGisuChange()
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -54,52 +53,25 @@ class ProjectListWrapper extends Component {
 
 
     handleGisuChange = (e, data) => {
-        //const v = data.value
         this.setState({
             defaultGisu : data.value
         })
-        //console.log(data.value)
     }
 
-    // handleMoveLeft = () => {
-    //     const { firstListNum } = this.state;
-    //     if(firstListNum > 0) {
-    //         this.setState({
-    //             firstListNum : this.state.firstListNum - 1
-    //         })
-    //     }
-    // }
-    //
-    // handleMoveRight = () => {
-    //     const { projectListSize, firstListNum } = this.state;
-    //     if(projectListSize - firstListNum > 4){
-    //         this.setState({
-    //             firstListNum : this.state.firstListNum + 1
-    //         })
-    //     }
-    //     this.getProjectList()
-    // }
 
 
     render(){
         const {gisuList} = this.state;
 
-        //console.log("ddkdkdkdkdk" + this.state.defaultGisu)
         return(
             <div className="projectListContainer">
                 <div className="selectBoxWrapper">
                     <Dropdown placeholder="기수 선택" options={gisuList} onChange={this.handleGisuChange}/>
                 </div>
                 <div className="projectListWrapper">
-                    {/*<div className="moveButtonWrapper" onClick={this.handleMoveLeft}>*/}
-                        {/*<img src={left} className="moveProjectObjectbutton"/>*/}
-                    {/*</div>*/}
                     <div className="projectObjectList">
                         <ProjectList defaultGisu={this.state.defaultGisu} />
                     </div>
-                    {/*<div className="moveButtonWrapper" onClick={this.handleMoveRight}>*/}
-                        {/*<img src={right} className="moveProjectObjectbutton" />*/}
-                    {/*</div>*/}
                 </div>
             </div>
         );

@@ -27,7 +27,7 @@
 .ItemName {
     width: 48px;
     height: 22px;
-    font-family: NotoSansCJKkr;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .closeIconWrapper {

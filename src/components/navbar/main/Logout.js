@@ -3,9 +3,7 @@ import './Navbar.css'
 
 import userIcon from '../../../img/userIcon.png';
 import CreateProjectPopup from "../../popup/CreateProjectPopup";
-import MemberInfo from "../../popup/MemberInfo";
-import Modal from "react-modal";
-import TestCreateProjectModal from "../../../container/TestMainContainer";
+import MainMemberInfo from "../../popup/MainMemberInfo";
 
 
 class Logout extends Component {
@@ -40,19 +38,25 @@ class Logout extends Component {
         })
     }
 
+    redirectToUrlInMain = (projectIdx) => {
+        this.props.redirectToUrlInMain(projectIdx)
+    }
+
 
 
     render(){
 
         return (
             <div className="leftFlow">
-                <div className="CreateNewProject" onClick={this.openCreateModal}>새 프로젝트 만들기</div>
+                <div className="createNewProject" onClick={this.openCreateModal}>새 프로젝트 만들기</div>
                 <CreateProjectPopup openCreateModal={this.openCreateModal} closeCreateModal={this.closeCreateModal} createModal={this.state.createModal} gisuList={this.state.gisuList}/>
                 <img src={userIcon} className="userIcon" onClick={this.openMemberInfoPopup}/>
-                <MemberInfo login={this.props.login}
+                <MainMemberInfo login={this.props.login}
                             openMemberInfoPopup={this.openMemberInfoPopup}
                             closeMemberInfoPopup={this.closeMemberInfoPopup}
-                            memberInfoPopup={this.state.memberInfoPopup} />
+                            memberInfoPopup={this.state.memberInfoPopup}
+                            redirectToUrlInMain={this.redirectToUrlInMain}
+                />
             </div>
         );
     }

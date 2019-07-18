@@ -20,22 +20,35 @@ class UsedProgram extends Component {
             joinPopup : false,
             joinOrLoginBtnHover : false
         }
+
     }
 
     componentDidMount() {
-        this.handleGetUrl()
+        this.handleGetUrl(this.props.projectIdx)
+        this.setState({
+            projectIdx : this.props.projectIdx,
+            login : this.props.login,
+            joinMember : this.props.joinMember,
+            finalCheck : this.props.finalCheck
+        })
     }
 
     componentWillReceiveProps(nextProps){
-        //console.log(JSON.stringify(nextProps.defaultGisu))
+        this.handleGetUrl(nextProps.projectIdx)
         this.setState({
-            joinMember : nextProps.joinMember
+            login : nextProps.login,
+            projectIdx : nextProps.projectIdx,
+            joinMember : nextProps.joinMember,
+            finalCheck : nextProps.finalCheck
         })
-        //
     }
 
-    handleGetUrl = () => {
-        const { projectIdx } = this.state;
+    shouldComponentUpdate(nextProps, nextState) {
+        return true;
+    }
+
+    handleGetUrl = (projectIdx) => {
+        // const { projectIdx } = this.state;
         const apiUrl = `https://yappian.com/api/project/`+ projectIdx + `/url/list`;
 
         axios.get(apiUrl)
@@ -69,10 +82,11 @@ class UsedProgram extends Component {
     }
 
     goToJoinOrLogin = () => {
-        if(this.state.login === false){
+        const {login, joinMember} = this.state;
+        if(login === false){
             window.location = 'https://yappian.com/api/login'
         }else  {
-            if(this.state.joinMember === false) {
+            if(joinMember === false) {
                 this.openJoinPopup()
             }
         }
@@ -161,25 +175,37 @@ class UsedProgram extends Component {
                         )
                         :
                         (
-                            <div className="thisContentWrapper">
-                                <div className={this.state.toolList.length <= 0 ? "non-member-notice" : "mtUsedProgram non-member-notice"}>
-                                    <div>
-                                        <div className="programItemAlign">
-                                            <ProgramItem joinMember={this.state.joinMember} login={this.state.login} toolList={this.state.toolList} finalCheck={this.state.finalCheck} projectIdx={this.state.projectIdx}  handleGetUrl={this.handleGetUrl}/>
-                                        </div>
-                                        <label className="thisColor">협업 프로그램 등록과 산출물 업로드는 로그인 회원 혹은 조인된 사용자만 가능합니다.</label>
-                                        <label className={this.state.joinOrLoginBtnHover === false ? "inGoToJoinOrLogin" : "outGoToJoinOrLogin"} onMouseEnter={this.setJoinOrLoginBtnHover} onMouseOut={this.noSetJoinOrLoginBtnHover} onClick={this.goToJoinOrLogin}>
-                                            프로젝트 참여하기
-                                        </label>
-                                        <JoinProjectPopup
-                                            closeJoinPopup={this.closeJoinPopup}
-                                            joinPopup={this.state.joinPopup}
-                                            projectIdx={this.state.projectIdx}
-                                        />
+                            this.state.finalCheck === 'Y' ? (
+                                <div className="thisContentWrapper">
+                                    <div className="programItemAlign">
+                                        <ProgramItem joinMember={this.state.joinMember} login={this.state.login} toolList={this.state.toolList} finalCheck={this.state.finalCheck} projectIdx={this.state.projectIdx} handleGetUrl={this.handleGetUrl}/>
                                     </div>
-
+                                    <div className="non-member-notice">
+                                        완료된 프로젝트는 조회만 가능합니다.
+                                    </div>
                                 </div>
-                            </div>
+                                ) : (
+                                <div className="thisContentWrapper">
+                                    <div className={this.state.toolList.length <= 0 ? "non-member-notice" : "mtUsedProgram non-member-notice"}>
+                                        <div>
+                                            <div className="programItemAlign">
+                                                <ProgramItem joinMember={this.state.joinMember} login={this.state.login} toolList={this.state.toolList} finalCheck={this.state.finalCheck} projectIdx={this.state.projectIdx}  handleGetUrl={this.handleGetUrl}/>
+                                            </div>
+                                            <label className="thisColor">협업 프로그램 등록과 산출물 업로드는 로그인 회원 혹은 조인된 사용자만 가능합니다.</label>
+                                            <label className={this.state.joinOrLoginBtnHover === false ? "inGoToJoinOrLogin" : "outGoToJoinOrLogin"} onMouseEnter={this.setJoinOrLoginBtnHover} onMouseOut={this.noSetJoinOrLoginBtnHover} onClick={this.goToJoinOrLogin}>
+                                                프로젝트 참여하기
+                                            </label>
+                                            <JoinProjectPopup
+                                                closeJoinPopup={this.closeJoinPopup}
+                                                joinPopup={this.state.joinPopup}
+                                                projectIdx={this.state.projectIdx}
+                                            />
+                                        </div>
+
+                                    </div>
+                                </div>
+                            )
+
                         )
                     }
 

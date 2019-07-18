@@ -19,26 +19,33 @@ class Logout extends Component {
             projectIdx : this.props.projectIdx,
             finalCheck : this.props.finalCheck,
             login: this.props.login,
-            joinMember : this.props.joinMember
+            joinMember : this.props.joinMember,
+            completePopup : this.props.completePopup
         }
 
     }
 
     componentDidMount() {
         this.setState({
+            login: this.props.login,
+            projectIdx : this.props.projectIdx,
             joinMember : this.props.joinMember,
             finalCheck : this.props.finalCheck,
-            redirect : this.props.redirect
+            redirect : this.props.redirect,
+            completePopup : this.props.completePopup
         })
     }
 
     componentWillReceiveProps(nextProps){
+        //this.redirectToUrl(nextProps.projectIdx)
         this.setState({
+            login : nextProps.login,
+            projectIdx : nextProps.projectIdx,
             joinMember : nextProps.joinMember,
             finalCheck : nextProps.finalCheck,
-            redirect : nextProps.redirect
+            redirect : nextProps.redirect,
+            completePopup : nextProps.completePopup
         })
-        //
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -71,8 +78,16 @@ class Logout extends Component {
         })
     }
 
-    redirectToUrl = () => {
-        this.props.redirectToUrl()
+    openCompletePopup = () => {
+        this.props.openCompletePopup()
+    }
+
+    closeCompletePopup = () => {
+        this.props.closeCompletePopup()
+    }
+
+    redirectToUrl = (idx) => {
+        this.props.redirectToUrl(idx)
     }
 
 
@@ -93,7 +108,11 @@ class Logout extends Component {
                                 projectIdx={this.state.projectIdx}
                                 redirectToUrl={this.redirectToUrl}
                                 login={this.state.login}
-                                joinMember={this.props.joinMember}
+                                joinMember={this.state.joinMember}
+                                redirect={this.state.redirect}
+                                completePopup={this.state.completePopup}
+                                openCompletePopup={this.openCompletePopup}
+                                closeCompletePopup={this.closeCompletePopup}
                             />
                         </div>
 
@@ -102,10 +121,12 @@ class Logout extends Component {
 
                 <div>
                     <img src={user} className="userIcon" onClick={this.openMemberInfoPopup}/>
-                    <MemberInfo login={this.props.login}
+                    <MemberInfo login={this.state.login}
                                 openMemberInfoPopup={this.openMemberInfoPopup}
                                 closeMemberInfoPopup={this.closeMemberInfoPopup}
-                                memberInfoPopup={this.state.memberInfoPopup} />
+                                memberInfoPopup={this.state.memberInfoPopup}
+                                redirectToUrl={this.redirectToUrl}
+                    />
                 </div>
 
             </div>

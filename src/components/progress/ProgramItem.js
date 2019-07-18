@@ -20,6 +20,8 @@ class ProgramItem extends Component {
 
     componentDidMount() {
         this.setState({
+            login : this.props.login,
+            projectIdx : this.props.projectIdx,
             finalCheck : this.props.finalCheck,
             joinMember : this.props.joinMember
         })
@@ -28,27 +30,13 @@ class ProgramItem extends Component {
     componentWillReceiveProps(nextProps){
         //console.log(JSON.stringify(nextProps.defaultGisu))
         this.setState({
+            login : nextProps.login,
+            projectIdx : nextProps.projectIdx,
             finalCheck : nextProps.finalCheck,
             joinMember : nextProps.joinMember
         })
-        //
     }
 
-    // handleDeleteUrl = (data) => {
-    //     const dataState = this.state.toolIdx
-    //     this.setState({
-    //         toolIdx : data
-    //     })
-    //
-    //     const apiUrl = 'https://yappian.com/api/project/'+ this.state.projectIdx+'/url/'+dataState;
-    //
-    //     axios.delete(apiUrl)
-    //         .then(res => {
-    //                 this.props.handleGetUrl();
-    //             }
-    //         )
-    //         .catch(error => {console.log(error)});
-    // }
 
     handleDeleteUrl = (data) => {
         const { projectIdx } = this.state;
@@ -56,11 +44,14 @@ class ProgramItem extends Component {
 
         axios.delete(apiUrl)
             .then(res => {
-                    this.props.handleGetUrl();
+                    this.handleGetUrl(projectIdx);
                 }
             )
             .catch(error => {console.log(error)});
+    }
 
+    handleGetUrl = (projectIdx) => {
+        this.props.handleGetUrl(projectIdx);
     }
 
 

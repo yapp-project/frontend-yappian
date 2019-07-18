@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import './CompleteContainer.css';
 import axios from 'axios'
-import GoogleDocsViewer from 'react-google-docs-viewer'
-import { Document, Page } from 'react-pdf';
-
-import pdf from '../../img/sample-file.pdf'
 
 
 import completeIcon from '../../img/completeImg.png'
@@ -15,36 +11,33 @@ class CompleteContainer extends Component {
 
         this.state = {
             projectIdx: this.props.projectIdx,
-            projectObject: [],
+            projectObject: {},
             pdfUrl : '',
             releaseCheck : ''
         }
     }
 
     componentDidMount() {
+        this.onGetCompleteProject(this.props.projectIdx)
         this.setState({
             projectIdx: this.props.projectIdx
         })
-        this.onGetCompleteProject()
+
     }
 
     componentWillReceiveProps(nextProps){
-        //console.log(JSON.stringify(nextProps.defaultGisu))
+        this.onGetCompleteProject(nextProps.projectIdx)
         this.setState({
-            projectIdx: this.props.projectIdx
+            projectIdx: nextProps.projectIdx
         })
     }
-    // //
+
     shouldComponentUpdate(nextProps, nextState) {
         return true;
     }
 
-    componentWillMount() {
-        this.onGetCompleteProject()
-    }
 
-    onGetCompleteProject  = () => {
-        const { projectIdx } = this.state
+    onGetCompleteProject  = (projectIdx) => {
         const apiUrl = `https://yappian.com/api/project/`+ projectIdx + `/finish`
 
         axios.get(apiUrl)
@@ -64,11 +57,12 @@ class CompleteContainer extends Component {
             })
             .catch(error => {
                 console.log(error)
+                this.props.handleError()
             })
     }
 
     render(){
-        const { projectObject } = this.state;
+        const { projectObject, releaseCheck } = this.state;
         const pdfUrl = this.state.pdfUrl;
 
         return(
@@ -84,7 +78,7 @@ class CompleteContainer extends Component {
                             </div>
                         </div>
                         {
-                            this.state.projectObject.releaseCheck === 'Y' ?
+                            releaseCheck === 'Y' ?
                                 (
                                     <div className="rightInTeamInfoComplete">
                                         <img src={completeIcon} className="completeIcon"/>
@@ -100,7 +94,7 @@ class CompleteContainer extends Component {
                     </div>
 
                     {
-                        this.state.projectObject.releaseCheck === 'Y' ?
+                        releaseCheck === 'Y' ?
                             (
                                 <div className="projectAddress">
                                     {projectObject.productURL}

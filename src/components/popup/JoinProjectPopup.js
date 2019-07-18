@@ -31,10 +31,24 @@ class JoinProjectPopup extends Component {
     }
 
     componentDidMount() {
+        this.setState({
+            projectIdx : this.props.projectIdx
+        })
         if(this.state.redirect === true){
             this.closeJoinPopup();
         }
     }
+
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            projectIdx : nextProps.projectIdx
+        })
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return true;
+    }
+
 
     onChangeJoinInput = (e) => {
         this.setState({
@@ -82,7 +96,7 @@ class JoinProjectPopup extends Component {
                     <form onSubmit={this.handleJoinSubmit} className="alignedCenterForm">
                         <div className="codeNoticeWord">초대 코드(네자리 숫자)를 입력해 주세요. </div>
                         <div className="inputBoxesStyled">
-                            <input name="password" type="password" className="joinInviteCode" maxLength="4" onChange={this.onChangeJoinInput}/>
+                            <input name="password" type="password" className="joinInviteCode" maxLength="4" required onChange={this.onChangeJoinInput}/>
                         </div>
                         <button className="submitButtonInJoin" type="submit">
                             <img src={submitButtonImg} className="submitButtonImg"/>

@@ -1,4 +1,5 @@
 .completeMainFrame {
+    font-family: 'Noto Sans KR', sans-serif;
     position: absolute;
     left: 22%;
     top: 10%;
@@ -28,7 +29,7 @@
 
 .completePopupTitle {
     width: fit-content;
-    font-family: NotoSansCJKkr;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 30px;
     font-weight: bold;
     font-style: normal;
@@ -42,7 +43,7 @@
 }
 
 .completePopupInfo{
-    font-family: NotoSansCJKkr;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 14px;
     font-weight: 500;
     font-style: normal;
@@ -74,7 +75,7 @@
 
 .inputStyled::placeholder {
     text-align: start;
-    font-family: NotoSansCJKkr;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 14px;
     font-weight: 300;
     font-style: normal;
@@ -99,7 +100,7 @@
 }
 
 .intro-title {
-    font-family: NotoSansCJKkr;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 14px;
     font-weight: 500;
     font-style: normal;
@@ -116,7 +117,7 @@
 }
 
 .img-title {
-    font-family: NotoSansCJKkr;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 14px;
     font-weight: 500;
     font-style: normal;
@@ -144,7 +145,7 @@
 }
 
 textArea::placeholder {
-    font-family: NotoSansCJKkr;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 14px;
     font-weight: 300;
     font-style: normal;
@@ -189,7 +190,7 @@ textArea::placeholder {
 }
 
 .portfo-title {
-    font-family: NotoSansCJKkr;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 14px;
     font-weight: 500;
     font-style: normal;
@@ -218,7 +219,7 @@ textArea::placeholder {
 }
 
 .input-for-file {
-    font-family: NotoSansCJKkr;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 14px;
     font-weight: 300;
     font-style: normal;
@@ -238,7 +239,7 @@ textArea::placeholder {
 }
 
 .launching-title {
-    font-family: NotoSansCJKkr;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 14px;
     font-weight: 500;
     font-style: normal;
@@ -270,7 +271,7 @@ textArea::placeholder {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: NotoSansCJKkr;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 14px;
     font-weight: 500;
     font-style: normal;
@@ -292,7 +293,7 @@ textArea::placeholder {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: NotoSansCJKkr;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 14px;
     font-weight: 500;
     font-style: normal;
@@ -315,6 +316,7 @@ textArea::placeholder {
     box-shadow: 0 10px 15px 3px rgba(0, 0, 0, 0.03);
     background-image: linear-gradient(100deg, #5ae0ff, #c86dd7);
     margin-top: 37px;
+    border: none;
 }
 
 .complete-submit-check {

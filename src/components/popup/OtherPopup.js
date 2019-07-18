@@ -22,16 +22,19 @@ class OtherPopup extends Component {
         super(props)
 
         this.state = {
-            completePopup : false,
+            completePopup : this.props.completePopup,
             redirect : this.props.redirect,
             projectIdx : this.props.projectIdx,
-            joinMember : this.props.joinMember
+            joinMember : this.props.joinMember,
+            showInviteCode : false,
+            inviteWord : '(다른 멤버들을 초대할 수 있는 코드입니다.)'
         }
     }
 
 
     componentDidMount() {
         this.setState({
+            completePopup : this.props.completePopup,
             joinMember : this.props.joinMember,
             redirect : this.props.redirect,
             projectIdx : this.props.projectIdx
@@ -40,6 +43,7 @@ class OtherPopup extends Component {
 
     componentWillReceiveProps(nextProps){
         this.setState({
+            completePopup : nextProps.completePopup,
             joinMember : nextProps.joinMember,
             redirect : nextProps.redirect,
             projectIdx : nextProps.projectIdx
@@ -60,15 +64,11 @@ class OtherPopup extends Component {
     }
 
     openCompletePopup = () => {
-        this.setState({
-            completePopup : true
-        })
+        this.props.openCompletePopup()
     }
 
     closeCompletePopup = () => {
-        this.setState({
-            completePopup : false
-        })
+        this.props.closeCompletePopup()
     }
 
     openJoinPopup = () => {
@@ -83,8 +83,14 @@ class OtherPopup extends Component {
         })
     }
 
-    redirectToUrl = () => {
-        this.props.redirectToUrl()
+    redirectToUrl = (idx) => {
+        this.props.redirectToUrl(idx)
+    }
+
+    joinCodeHover = () => {
+        this.setState({
+            showInviteCode : true
+        })
     }
 
     render(){
@@ -105,12 +111,27 @@ class OtherPopup extends Component {
                                         프로젝트 완료하기
                                         <img src={moveIcon} className="moveIcon"/>
                                     </div>
+                                    <div onMouseOver={this.joinCodeHover}>
+                                        <div className="pwdWrapper">
+                                            프로젝트 조인 코드 보기
+                                        </div>
+                                        <div className="pwdWrapperInfo">
+                                            {
+                                                this.state.showInviteCode === true ?
+                                                    (123)
+                                                    :
+                                                    '(다른 멤버들을 초대할 수 있는 코드입니다.)'
+                                            }
+                                        </div>
+                                    </div>
+
                                     <CompletePopup
                                         openCompletePopup={this.openCompletePopup}
                                         closeCompletePopup={this.closeCompletePopup}
                                         completePopup={this.state.completePopup}
                                         projectIdx={this.props.projectIdx}
                                         redirectToUrl={this.redirectToUrl}
+                                        redirect={this.state.redirect}
                                     />
                                 </div>
                             )

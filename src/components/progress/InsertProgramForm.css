@@ -19,20 +19,21 @@
     border-radius: 20.5px;
     border: solid 0.5px #5b5b5b;
     background-color: #ffffff;
-    margin-right:14px;
+    margin-right: 1.1666666666666667vw;
     text-align: center;
 }
 
-input::placeholder{
-    font-family: NotoSansCJKkr;
-    font-size: 14px;
+input::placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Noto Sans KR', sans-serif;
     font-weight: 300;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.57;
     letter-spacing: -0.1px;
     color: #999999;
-    text-align: center;
 }
 
 .submitButtonStyled {
@@ -42,6 +43,6 @@ input::placeholder{
 }
 
 .buttonStyled {
-    padding: 0;
     border: 0;
+    background:none;
 }

@@ -20,16 +20,15 @@ class Project extends Component {
     }
 
 
-    // componentWillReceiveProps(nextProps){
-    //     this.setState({
-    //         project : nextProps.project
-    //     })
-    //     console.log("1234"+ JSON.stringify(this.state.project))
-    // }
-    //
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     return true;
-    // }
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            project : nextProps.project
+        })
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return true;
+    }
 
 
     render(){
@@ -38,7 +37,7 @@ class Project extends Component {
 
 
         return(
-            <Link to={"/main/" + project.projectIdx} className="projectObjectWrapper">
+            <div onClick={() => {window.location='https://yappian.com/#/main/' + project.projectIdx}} className="projectObjectWrapper">
                 <img src={project.imgUrl} className="imgSize" />
 
                 <div>
@@ -48,7 +47,7 @@ class Project extends Component {
                         <img src={finishedIcon} className="finishedIconStyled" />
                     ) : ''}
                 </div>
-            </Link>
+            </div>
         );
     }
 }

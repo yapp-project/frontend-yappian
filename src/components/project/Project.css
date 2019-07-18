@@ -1,3 +1,4 @@
+
 .projectObjectWrapper {
     width: 23%;
     display: flex;
@@ -20,8 +21,7 @@
 }
 
 .projectFont {
-    font-family: NotoSansCJKkr;
-    font-size: 1rem;
+    font-size: 14px;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.21;

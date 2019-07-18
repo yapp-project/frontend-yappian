@@ -20,19 +20,38 @@ class UrlList extends Component{
             finalCheck : this.props.finalCheck,
             joinMember : this.props.joinMember
         }
+
+
     }
 
     componentDidMount() {
-        this.handleGetUrl()
+        this.handleGetUrl(this.props.projectIdx)
+        this.setState({
+            login : this.props.login,
+            finalCheck : this.props.finalCheck,
+            joinMember : this.props.joinMember,
+            projectIdx : this.props.projectIdx
+        })
     }
 
-    // componentDidUpdate() {
-    //     this.handleGetUrl()
-    // }
+
+    componentWillReceiveProps(nextProps){
+        this.handleGetUrl(nextProps.projectIdx)
+        this.setState({
+            joinMember : nextProps.joinMember,
+            login : nextProps.login,
+            finalCheck : nextProps.finalCheck,
+            projectIdx : nextProps.projectIdx
+        })
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return true;
+    }
 
 
-    handleGetUrl = () => {
-        const { projectIdx } = this.state;
+
+    handleGetUrl = (projectIdx) => {
         const apiUrl = `https://yappian.com/api/project/` + projectIdx + `/url/list`;
 
         axios.get(apiUrl)
@@ -52,7 +71,7 @@ class UrlList extends Component{
 
             axios.delete(apiUrl)
                 .then(res => {
-                        this.handleGetUrl();
+                        this.handleGetUrl(projectIdx);
                     }
                 )
                 .catch(error => {console.log(error)});

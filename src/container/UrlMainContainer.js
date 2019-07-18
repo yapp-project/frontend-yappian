@@ -20,35 +20,57 @@ class UrlMainContainer extends Component {
         this.state = {
             selected : '',
             projectIdx : props.match.params.projectIdx,
-            finalCheck : 'N',
+            finalCheck : '',
             login : false,
             errorRedirect : false,
-            complete : false,
+            completePopup : false,
             join : false,
             redirect : false,
-            joinMember : false
+            joinMember : false,
+            projectObject : {},
+
         }
+
     }
+
 
     componentDidMount() {
+        this.handleGetFinalCheck(this.state.projectIdx)
+        this.getProgressProject(this.state.projectIdx)
         this.getSession()
         this.confirmJoinMember()
-        //console.log(this.state.joinMember)
-        this.handleGetFinalCheck()
+
+    }
+
+    componentWillReceiveProps(nextProps){
+        this.handleGetFinalCheck(nextProps.match.params.projectIdx)
+        this.getProgressProject(nextProps.match.params.projectIdx)
+        this.setState({
+            projectIdx : nextProps.match.params.projectIdx
+        })
     }
 
 
-    handleGetFinalCheck = () => {
-        const apiUrl = `https://yappian.com/api/project/` + this.state.projectIdx + `/finish`
+    shouldComponentUpdate(nextProps, nextState) {
+        return true;
+    }
+
+
+    handleGetFinalCheck = (projectIdx) => {
+        //alert(projectIdx)
+        const apiUrl = `https://yappian.com/api/project/` + projectIdx + `/finish`
 
         axios.get(apiUrl)
             .then(res => {
                 if(res.data.fileList.length === 0){
+
                      this.setState({
                          selected : 'progress',
                          finalCheck : 'N'
                      })
                 }else {
+                    //this.getCompleteProject(projectIdx)
+
                     this.setState({
                         selected : 'complete',
                         finalCheck : 'Y'
@@ -57,11 +79,15 @@ class UrlMainContainer extends Component {
             })
             .catch(error => {
                 if(error.response) {
-                    this.setState({
-                        errorRedirect : true
-                    })
+                    this.handleError()
                 }
             })
+    }
+
+    handleError = () => {
+        this.setState({
+            errorRedirect : true
+        })
     }
 
     handleLogin = (status) => {
@@ -73,7 +99,7 @@ class UrlMainContainer extends Component {
     getSession = () => {
         axios.get('https://yappian.com/session')
             .then(res => {
-                console.log(res.data)
+                //console.log(res.data)
                 if(res.data == 'ANONYMOUS' || res.data == 'INVALID'){
                     this.handleLogin(false)
                 }else{
@@ -86,11 +112,11 @@ class UrlMainContainer extends Component {
             })
     }
 
-    completePopup = () => {
-        this.setState({
-            complete : !this.state.complete
-        })
-    }
+    // completePopup = () => {
+    //     this.setState({
+    //         complete : !this.state.complete
+    //     })
+    // }
 
     joinPopup = () => {
         this.setState({
@@ -98,14 +124,17 @@ class UrlMainContainer extends Component {
         })
     }
 
-    redirectToUrl = () => {
+    redirectToUrl = (idx) => {
+        window.location='https://yappian.com/#/main/' + idx
+        this.handleGetFinalCheck(idx)
         this.setState({
-            redirect : !this.state.redirect
+            projectIdx : idx
         })
     }
 
 
     confirmJoinMember = () => {
+        const {projectIdx} = this.state;
         axios.get(`https://yappian.com/api/user/projects`)
             .then(res => {
                 res.data.map((list, index) => {
@@ -125,16 +154,42 @@ class UrlMainContainer extends Component {
             })
     }
 
+    getProgressProject = (projectIdx) => {
+        // const {projectIdx} = this.state;
+        const apiUrl = `https://yappian.com/api/project/`+ projectIdx;
+
+        axios.get(apiUrl)
+            .then(res => {
+                this.setState({
+                    projectObject: res.data
+                })
+            })
+            .catch(error => {
+                console.log(error)
+                this.handleError()
+            })
+    }
+
+    openCompletePopup = () => {
+        //alert('12')
+        this.setState({
+            completePopup : true
+        })
+    }
+
+    closeCompletePopup = () => {
+        this.setState({
+            completePopup : false
+        })
+    }
+
+
     render(){
-        if (this.state.errorRedirect === true){
+        const {errorRedirect, redirect, projectIdx, login, finalCheck,  joinMember, selected, projectObject} = this.state;
+
+        if (errorRedirect === true){
             return(
                 <Redirect to="/error" />
-            );
-        }
-
-        if(this.state.redirect === true){
-            return(
-                <Redirect to={"main/"+ this.state.projectIdx}/>
             );
         }
 
@@ -146,24 +201,27 @@ class UrlMainContainer extends Component {
                         <div className="left">
                             <Link to="/"><img src={logoOnUrl} className="urlLogo"/></Link>
                         </div>
-                        {this.state.login === true ?
-                            (<Logout projectIdx={this.state.projectIdx}
-                                     completePopup={this.completePopup}
+                        {login === true ?
+                            (<Logout projectIdx={projectIdx}
                                      joinPopup={this.joinPopup}
-                                     finalCheck={this.state.finalCheck}
+                                     finalCheck={finalCheck}
                                      redirectToUrl={this.redirectToUrl}
-                                     login={this.state.login}
-                                     joinMember={this.state.joinMember}
+                                     login={login}
+                                     joinMember={joinMember}
+                                     openCompletePopup={this.openCompletePopup}
+                                     closeCompletePopup={this.closeCompletePopup}
+                                     completePopup={this.state.completePopup}
+
                             />) : ( <Login />)
                         }
                     </div>
                     <div className="selectedStateWrapper">
-                        <div className={ this.state.selected === 'progress' ? 'activedStateBar' : 'inactivedStateBar'}
+                        <div className={ selected === 'progress' ? 'activedStateBar' : 'inactivedStateBar'}
                              onClick={() => {this.setState( {selected : 'progress'})}}>
                             PROGRESS
                         </div>
-                        {this.state.finalCheck === 'Y' ? (
-                            <div className={this.state.selected === 'complete' ? 'activedStateBar' : 'inactivedStateBar'}
+                        {finalCheck === 'Y' ? (
+                            <div className={selected === 'complete' ? 'activedStateBar' : 'inactivedStateBar'}
                                  onClick={() => {this.setState( {selected : 'complete'})}}>
                                 COMPLETE
                             </div>
@@ -171,14 +229,17 @@ class UrlMainContainer extends Component {
 
                     </div>
                     <div className="stateWrapper">
-                        {this.state.selected === 'progress' ? <ProgressContainer login={this.state.login} projectIdx={this.state.projectIdx} finalCheck={this.state.finalCheck} joinMember={this.state.joinMember}/> : <CompleteContainer projectIdx={this.state.projectIdx} finalCheck={this.state.finalCheck}/>}
+                        {selected === 'progress' ?
+                            <ProgressContainer projectObject={projectObject}
+                                               login={login} projectIdx={projectIdx} finalCheck={finalCheck} joinMember={joinMember}/> :
+                            <CompleteContainer projectIdx={projectIdx} finalCheck={finalCheck} handleError={this.handleError}/>}
                     </div>
                 </div>
                 {this.state.complete === true ?
-                    (<CompletePopup projectIdx={this.state.projectIdx} completePopup={this.completePopup}/>) : ''
+                    (<CompletePopup projectIdx={projectIdx} completePopup={this.completePopup}/>) : ''
                 }
                 {this.state.join === true ?
-                    (<JoinProjectPopup projectIdx={this.state.projectIdx} completePopup={this.completePopup} joinPopup={this.joinPopup}/>) : ''
+                    (<JoinProjectPopup projectIdx={projectIdx} completePopup={this.completePopup} joinPopup={this.joinPopup}/>) : ''
                 }
             </div>
         );

@@ -18,7 +18,6 @@ class ProjectList extends Component{
     }
 
     componentDidMount() {
-        console.log("componenet : " + this.state.defaultGisu)
         this.getProjectList(this.props.defaultGisu)
         this.setState({
             defaultGisu : this.props.defaultGisu
@@ -27,22 +26,12 @@ class ProjectList extends Component{
     }
 
     componentWillReceiveProps(nextProps){
-        //console.log(JSON.stringify(nextProps.defaultGisu))
         this.setState({
             defaultGisu : nextProps.defaultGisu
         })
-        this.getProjectList(this.state.defaultGisu)
+        this.getProjectList(nextProps.defaultGisu)
 
     }
-    // //
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     return true;
-    // }
-
-    // shouldComponentUpdate가 true이면 실행된다. 업데이트시 실행.
-    // componentWillUpdate(nextProps, nextState, nextContext) {
-    //     this.getProjectList(this.state.defaultGisu)
-    // }
 
 
     getProjectList = (data) => {
@@ -64,9 +53,6 @@ class ProjectList extends Component{
             })
     }
 
-    // btnClick = () => {
-    //     console.log(this)
-    // }
 
     render(){
         //console.log(this.state.defaultGisu)
@@ -80,7 +66,7 @@ class ProjectList extends Component{
                             ))
                         ) :
                         (
-                            <div className="gisuProjectNull">{parseInt(this.state.defaultGisu) + 9}기의 완료된 프로젝트가 없습니다.</div>
+                            <div className="gisuProjectNull">완료된 프로젝트가 없습니다.</div>
                         )
                 }
 

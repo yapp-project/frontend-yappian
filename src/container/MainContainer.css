@@ -1,3 +1,5 @@
+
+
 .mainWrapper{
     margin:0px;
     padding: 0px;
@@ -19,7 +21,7 @@
 }
 
 .bottomProjectListNull {
-    font-family: NotoSansCJKkr;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 18px;
     font-weight: normal;
     font-style: normal;

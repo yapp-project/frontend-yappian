@@ -35,30 +35,29 @@ class CompletePopup extends Component {
             projectIdx : this.props.projectIdx,
             files : [],
             fileIdxList : [],
-            redirect : this.props.redirect
+            completePopup : this.props.completePopup,
+            redirect : false
         }
-
     }
 
     componentDidMount() {
-
         this.setState({
-            projectIdx : this.props.projectIdx,
-            redirect : this.props.redirect
+            completePopup : this.props.completePopup,
+            projectIdx : this.props.projectIdx
         })
     }
 
     componentWillReceiveProps(nextProps){
         this.setState({
-            projectIdx : this.props.projectIdx,
-            redirect : this.props.redirect
+            completePopup : nextProps.completePopup,
+            projectIdx : nextProps.projectIdx
         })
         //
     }
 
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     return true;
-    // }
+    shouldComponentUpdate(nextProps, nextState) {
+        return true;
+    }
 
 
     _handleImageChange= (e) => {
@@ -73,7 +72,7 @@ class CompletePopup extends Component {
         }
 
         reader.readAsDataURL(file)
-        console.log(file)
+        // console.log(file)
 
         this.fileSubmit(file)
 
@@ -81,7 +80,7 @@ class CompletePopup extends Component {
 
 
     handleUploadPdf = (e) => {
-        console.log(e.target.files[0])
+        // console.log(e.target.files[0])
 
         this.fileSubmit(e.target.files[0])
     }
@@ -91,7 +90,7 @@ class CompletePopup extends Component {
         this.setState({
             [e.target.name] : e.target.value
         })
-        console.log(e.target.value)
+         console.log(e.target.value)
     }
 
 
@@ -100,13 +99,14 @@ class CompletePopup extends Component {
             this.setState({
                 releaseCheck : 'N'
             })
+
         }else {
             this.setState({
                 releaseCheck : 'Y'
             })
         }
 
-        console.log(this.state.releaseCheck)
+        // console.log(this.state.releaseCheck)
     }
 
     fileSubmit = (data) => {
@@ -122,12 +122,10 @@ class CompletePopup extends Component {
             }
         )
             .then(res => {
-                //console.log(res);
                 this.setState({
                     fileIdxList : this.state.fileIdxList.concat(res.data.fileIdx)
                 })
 
-                //console.log(this.state.fileIdxList);
             })
             .catch(error => {
                 console.log(error);
@@ -142,33 +140,33 @@ class CompletePopup extends Component {
     handleCompleteSubmit = () => {
         const {productURL, description, releaseCheck, projectIdx, fileIdxList} = this.state;
 
-        axios.post(`https://yappian.com/api/project/`+ projectIdx +`/finish`, {
-            "description": description,
-            "fileIdxList": fileIdxList,
-            "productURL": productURL,
-            "releaseCheck": releaseCheck
-        })
-            .then(res => {
-                //window.location = 'https://yappian.com/#/main/'+ projectIdx
-                // this.setState({
-                //     redirect : true
-                // })
-                //this.redirectToUrl()
-                window.history.go(-1)
-            })
-            .catch(error => {
-                alert("입력폼을 확인해주세요")
-                this.setState({
-                    productURL : productURL,
-                    description : description,
-                    releaseCheck : releaseCheck,
-                    fileIdxList : [],
-                    imagePreviewUrl: '',
-                    imgFile: '',
+        if(fileIdxList.length == 2){
+                axios.post(`https://yappian.com/api/project/`+ projectIdx +`/finish`, {
+                    "description": description,
+                    "fileIdxList": fileIdxList,
+                    "productURL": productURL,
+                    "releaseCheck": releaseCheck
                 })
-                this.openCompletePopup()
-                console.log(error)
-            })
+                    .then(res => {
+                        //console.log(JSON.stringify(res.data));
+                        //alert(JSON.stringify(res.data));
+                        this.closeCompletePopup()
+                        this.redirectToUrl(this.state.projectIdx)
+                        //window.location = 'https://yappian.com/#/main/'+ projectIdx
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        alert("입력폼을 확인해주세요.")
+                        //this.openCompletePopup()
+                        //alert("1 : "+error)
+                    })
+
+        }else{
+            //this.openCompletePopup()
+            alert("입력폼을 채워주세요.")
+        }
+
+
     }
 
     openCompletePopup = () => {
@@ -179,14 +177,14 @@ class CompletePopup extends Component {
         this.props.closeCompletePopup();
     }
 
-    redirectToUrl = () => {
-        this.props.redirectToUrl()
+    redirectToUrl = (idx) => {
+        this.props.redirectToUrl(idx)
     }
 
 
 
     render(){
-        let {imagePreviewUrl} = this.state;
+        let {imagePreviewUrl, projectIdx, completePopup} = this.state;
         let $imagePreview = null;
         if (imagePreviewUrl) {
             $imagePreview = (<img src={imagePreviewUrl} className="img-loaded"/>);
@@ -194,22 +192,20 @@ class CompletePopup extends Component {
             $imagePreview = (<img src={addCoverImg} className="img-add"/>);
         }
 
-        const { projectIdx } = this.state;
-
-        if(this.state.redirect === true){
-            return(
-                <Redirect to={"main/"+ this.state.projectIdx}/>
-            );
-        }
+        // if(this.state.redirect === true){
+        //     return(
+        //         <Redirect to={"main/"+ projectIdx}/>
+        //     );
+        // }
 
         return(
 
             <Modal
-                isOpen={this.props.completePopup}
+                isOpen={completePopup}
                 onRequestClose={this.closeCompletePopup}
                 className="completeMainFrame" style={completePopupBackground}
             >
-                <form onSubmit={this.handleCompleteSubmit}>
+                {/*<form onSubmit={this.handleCompleteSubmit}>*/}
                     <div className="completeHeader">
                         <img src={closeIcon} className="styledCloseIcon"  onClick={this.closeCompletePopup}/>
                     </div>
@@ -218,17 +214,15 @@ class CompletePopup extends Component {
                         <div className="completePopupInfo">YAPPIAN 여러분! 프로젝트 완료를 축하합니다.</div>
                         <div className="completePopupInputUrlBox">
                             <input name="productURL" type="text" className="inputStyled"
-                                   placeholder={this.state.releaseCheck === 'N' ? '런칭한 프로젝트만 입력 가능' : '프로젝트 URL (Product Url, 런칭 URL 연결 링크)'}
-                                   onChange={this.handleCompleteForm}
-                                   disabled={this.state.releaseCheck === 'N' ? true : false}
-                            />
+                                   placeholder='프로젝트 URL (Product Url, 런칭 URL 연결 링크)'
+                                   onChange={this.handleCompleteForm} />
                         </div>
                         <div className="intro-img-wrapper">
                             <div className="intro-wrapper">
                                 <div className="intro-title">프로젝트 소개</div>
                                 <textarea name="description" className="intro-textarea"
                                           placeholder="프로젝트에 대한 소개와 직군별 프로젝트 관리팁을 공유해주세요.(최소 10자)"
-                                          onChange={this.handleCompleteForm} minlength='10'></textarea>
+                                          onChange={this.handleCompleteForm} value={this.state.description}></textarea>
                             </div>
                             <div className="img-wrapper">
                                 <div className="img-title">커버 이미지</div>
@@ -263,13 +257,13 @@ class CompletePopup extends Component {
                                 </div>
                             </div>
                         </div>
-                        <button className="submit-button-complete" type="submit">
+                        <button className="submit-button-complete" onClick={this.handleCompleteSubmit}>
                             <img src={completeCheck} className="complete-submit-check"/>
                         </button>
                     </div>
                     <input type="file" name="files" id="file0" className="img-in-complete" onChange={this._handleImageChange} accept=".jpg, .jpeg, .png"/>
 
-                </form>
+                {/*</form>*/}
             </Modal>
         );
     }

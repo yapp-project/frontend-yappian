@@ -141,7 +141,7 @@ class CreateProjectPopup extends Component{
                 "projectType": projectType
             })
                 .then(res => {
-                    console.log(res.data)
+                    //console.log(res.data)
                     this.setState({
                         projectIdx : res.data.projectIdx,
                         redirect : true
@@ -149,7 +149,7 @@ class CreateProjectPopup extends Component{
 
                 })
                 .catch(error => {
-                    alert(error)
+                    alert("입력폼을 확인해주세요!")
                 });
         }else {
             alert("입력폼을 확인해주세요!")
