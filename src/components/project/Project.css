@@ -1,5 +1,6 @@
 
 .projectObjectWrapper {
+    font-family: 'Noto Sans KR', sans-serif;
     width: 23%;
     display: flex;
     flex-direction: row;

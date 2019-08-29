@@ -54,7 +54,7 @@ class InsertUrlForm extends Component {
     //     e.preventDefault();
     //
     //     const {type, title, content, projectIdx} = this.state;
-    //     const apiUrl = 'https://yappian.com/api/project/'+ projectIdx +'/url';
+    //     const apiUrl = 'http://localhost:8085/api/project/'+ projectIdx +'/url';
     //
     //     axios.post(apiUrl, {
     //         "contents" : content,
@@ -81,7 +81,7 @@ class InsertUrlForm extends Component {
         const {type, title, content, projectIdx} = this.state;
 
         if(type !== '' && title !== '' && content !== ''){
-            const apiUrl = 'https://yappian.com/api/project/'+ projectIdx +'/url';
+            const apiUrl = 'http://localhost:8085/api/project/'+ projectIdx +'/url';
 
             axios.post(apiUrl, {
                 "contents" : content,

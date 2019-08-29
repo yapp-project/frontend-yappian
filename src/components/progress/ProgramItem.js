@@ -40,7 +40,7 @@ class ProgramItem extends Component {
 
     handleDeleteUrl = (data) => {
         const { projectIdx } = this.state;
-        const apiUrl = `https://yappian.com/api/project/` + projectIdx + `/url/`+data;
+        const apiUrl = `http://localhost:8085/api/project/` + projectIdx + `/url/`+data;
 
         axios.delete(apiUrl)
             .then(res => {

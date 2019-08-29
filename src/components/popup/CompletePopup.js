@@ -29,11 +29,11 @@ class CompletePopup extends Component {
             urlInputCaution: true,
             imagePreviewUrl: '',
             imgFile: '',
+            pdfFile : '',
             releaseCheck : 'Y',
             productURL : '',
             description : '',
             projectIdx : this.props.projectIdx,
-            files : [],
             fileIdxList : [],
             completePopup : this.props.completePopup,
             redirect : false
@@ -74,7 +74,7 @@ class CompletePopup extends Component {
         reader.readAsDataURL(file)
         // console.log(file)
 
-        this.fileSubmit(file)
+        //this.fileSubmit(file)
 
     }
 
@@ -82,7 +82,11 @@ class CompletePopup extends Component {
     handleUploadPdf = (e) => {
         // console.log(e.target.files[0])
 
-        this.fileSubmit(e.target.files[0])
+        //this.fileSubmit(e.target.files[0])
+
+        this.setState({
+            pdfFile : e.target.files[0]
+        })
     }
 
 
@@ -106,68 +110,8 @@ class CompletePopup extends Component {
             })
         }
 
-        // console.log(this.state.releaseCheck)
     }
 
-    fileSubmit = (data) => {
-        const formdata = new FormData();
-        formdata.append("file", data)
-
-        axios.post(`https://yappian.com/api/file/` + this.state.projectIdx,
-            formdata, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                    'Access-Control-Allow-Origin' : '*'
-                }
-            }
-        )
-            .then(res => {
-                this.setState({
-                    fileIdxList : this.state.fileIdxList.concat(res.data.fileIdx)
-                })
-
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }
-
-    redirectToUrl = () => {
-        this.props.redirectToUrl();
-    }
-
-
-    handleCompleteSubmit = () => {
-        const {productURL, description, releaseCheck, projectIdx, fileIdxList} = this.state;
-
-        if(fileIdxList.length == 2){
-                axios.post(`https://yappian.com/api/project/`+ projectIdx +`/finish`, {
-                    "description": description,
-                    "fileIdxList": fileIdxList,
-                    "productURL": productURL,
-                    "releaseCheck": releaseCheck
-                })
-                    .then(res => {
-                        //console.log(JSON.stringify(res.data));
-                        //alert(JSON.stringify(res.data));
-                        this.closeCompletePopup()
-                        this.redirectToUrl(this.state.projectIdx)
-                        //window.location = 'https://yappian.com/#/main/'+ projectIdx
-                    })
-                    .catch(error => {
-                        console.log(error)
-                        alert("입력폼을 확인해주세요.")
-                        //this.openCompletePopup()
-                        //alert("1 : "+error)
-                    })
-
-        }else{
-            //this.openCompletePopup()
-            alert("입력폼을 채워주세요.")
-        }
-
-
-    }
 
     openCompletePopup = () => {
         this.props.openCompletePopup();
@@ -179,6 +123,68 @@ class CompletePopup extends Component {
 
     redirectToUrl = (idx) => {
         this.props.redirectToUrl(idx)
+    }
+
+    handleComplete = () => {
+        const {imgFile, pdfFile} = this.state;
+
+        if(imgFile !== '' && pdfFile !== ''){
+            // console.log(imgFile)
+            // console.log(pdfFile)
+
+            const formdata = new FormData();
+            formdata.append("files", imgFile);
+            formdata.append("files", pdfFile);
+
+            axios.post(`http://localhost:8085/api/file/` + this.state.projectIdx,
+                formdata, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                        'Access-Control-Allow-Origin' : '*'
+                    }
+                }
+            ).then(res => {
+                console.log(JSON.stringify(res.data));
+
+                res.data.map((file, i) => {
+                    this.setState({
+                        fileIdxList : [...this.state.fileIdxList, file.fileIdx]
+                    })
+                });
+
+                this.finalSubmit();
+            }
+            ).catch(error => {
+                console.log(error);
+            })
+
+        }else{
+            alert("파일업로드를 완료해주세요.");
+        }
+
+    }
+
+    finalSubmit = () => {
+        const {productURL, description, releaseCheck, projectIdx, fileIdxList} = this.state;
+
+        console.log(fileIdxList)
+
+        axios.post(`http://localhost:8085/api/project/`+ projectIdx +`/finish`, {
+            "description": description,
+            "fileIdxList": fileIdxList,
+            "productURL": productURL,
+            "releaseCheck": releaseCheck
+        })
+            .then(res => {
+                console.log("ok")
+                this.closeCompletePopup()
+                this.redirectToUrl(this.state.projectIdx)
+                //window.location = 'http://localhost:8085/#/main/'+ projectIdx
+            })
+            .catch(error => {
+                console.log(error)
+                alert("입력폼을 확인해주세요.")
+            })
     }
 
 
@@ -257,7 +263,7 @@ class CompletePopup extends Component {
                                 </div>
                             </div>
                         </div>
-                        <button className="submit-button-complete" onClick={this.handleCompleteSubmit}>
+                        <button className="submit-button-complete" onClick={this.handleComplete}>
                             <img src={completeCheck} className="complete-submit-check"/>
                         </button>
                     </div>

@@ -37,7 +37,7 @@ class Project extends Component {
 
 
         return(
-            <div onClick={() => {window.location='https://yappian.com/#/main/' + project.projectIdx}} className="projectObjectWrapper">
+            <div onClick={() => {window.location='http://localhost:8085/#/main/' + project.projectIdx}} className="projectObjectWrapper">
                 <img src={project.imgUrl} className="imgSize" />
 
                 <div>

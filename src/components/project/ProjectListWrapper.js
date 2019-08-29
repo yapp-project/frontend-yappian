@@ -31,7 +31,7 @@ class ProjectListWrapper extends Component {
 
 
     getOrdersNumber = () => {
-        const apiUrl = 'https://yappian.com/api/orders';
+        const apiUrl = 'http://localhost:8085/api/orders';
 
         axios.get(apiUrl)
             .then(res => {

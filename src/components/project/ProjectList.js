@@ -37,7 +37,7 @@ class ProjectList extends Component{
     getProjectList = (data) => {
 
         //console.log("get " + data)
-        const apiUrl = `https://yappian.com/api/order/` + data + `/projects`
+        const apiUrl = `http://localhost:8085/api/order/` + data + `/projects`
 
 
         axios.get(apiUrl)

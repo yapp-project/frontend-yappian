@@ -21,30 +21,28 @@ class UrlMainContainer extends Component {
             selected : '',
             projectIdx : props.match.params.projectIdx,
             finalCheck : '',
-            login : false,
+            login : true,
             errorRedirect : false,
             completePopup : false,
             join : false,
             redirect : false,
-            joinMember : false,
+            joinMember : true,
             projectObject : {},
-
         }
-
     }
 
 
     componentDidMount() {
         this.handleGetFinalCheck(this.state.projectIdx)
         this.getProgressProject(this.state.projectIdx)
-        this.getSession()
-        this.confirmJoinMember()
+        //this.getSession()
+        //this.confirmJoinMember()
 
     }
 
     componentWillReceiveProps(nextProps){
         this.handleGetFinalCheck(nextProps.match.params.projectIdx)
-        this.getProgressProject(nextProps.match.params.projectIdx)
+        //this.getProgressProject(nextProps.match.params.projectIdx)
         this.setState({
             projectIdx : nextProps.match.params.projectIdx
         })
@@ -58,7 +56,7 @@ class UrlMainContainer extends Component {
 
     handleGetFinalCheck = (projectIdx) => {
         //alert(projectIdx)
-        const apiUrl = `https://yappian.com/api/project/` + projectIdx + `/finish`
+        const apiUrl = `http://localhost:8085/api/project/` + projectIdx + `/finish`
 
         axios.get(apiUrl)
             .then(res => {
@@ -97,7 +95,7 @@ class UrlMainContainer extends Component {
     }
 
     getSession = () => {
-        axios.get('https://yappian.com/session')
+        axios.get('http://localhost:8085/session')
             .then(res => {
                 //console.log(res.data)
                 if(res.data == 'ANONYMOUS' || res.data == 'INVALID'){
@@ -125,7 +123,7 @@ class UrlMainContainer extends Component {
     }
 
     redirectToUrl = (idx) => {
-        window.location='https://yappian.com/#/main/' + idx
+        window.location='http://localhost:8085/#/main/' + idx
         this.handleGetFinalCheck(idx)
         this.setState({
             projectIdx : idx
@@ -135,7 +133,7 @@ class UrlMainContainer extends Component {
 
     confirmJoinMember = () => {
         const {projectIdx} = this.state;
-        axios.get(`https://yappian.com/api/user/projects`)
+        axios.get(`http://localhost:8085/api/user/projects`)
             .then(res => {
                 res.data.map((list, index) => {
 
@@ -156,7 +154,7 @@ class UrlMainContainer extends Component {
 
     getProgressProject = (projectIdx) => {
         // const {projectIdx} = this.state;
-        const apiUrl = `https://yappian.com/api/project/`+ projectIdx;
+        const apiUrl = `http://localhost:8085/api/project/`+ projectIdx;
 
         axios.get(apiUrl)
             .then(res => {

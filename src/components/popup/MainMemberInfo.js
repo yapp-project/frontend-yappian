@@ -33,7 +33,7 @@ class MainMemberInfo extends Component {
     }
 
     handleGetJoinProject = () => {
-        axios.get('https://yappian.com/api/user/projects')
+        axios.get('http://localhost:8085/api/user/projects')
             .then(res => {
                 this.setState({
                     memberjoinList: this.state.memberjoinList.concat(res.data)
@@ -49,7 +49,7 @@ class MainMemberInfo extends Component {
     }
 
     handleLogout = () => {
-        window.location = 'https://yappian.com/api/logout'
+        window.location = 'http://localhost:8085/api/logout'
     }
 
     openMemberInfoPopup = () => {
@@ -62,7 +62,7 @@ class MainMemberInfo extends Component {
 
 
     redirectToUrlInMain = (projectIdx) => {
-        window.location = 'https://yappian.com/#/main/' + projectIdx
+        window.location = 'http://localhost:8085/#/main/' + projectIdx
     }
 
 

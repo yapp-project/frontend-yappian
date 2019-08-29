@@ -111,19 +111,19 @@ class OtherPopup extends Component {
                                         프로젝트 완료하기
                                         <img src={moveIcon} className="moveIcon"/>
                                     </div>
-                                    <div onMouseOver={this.joinCodeHover}>
-                                        <div className="pwdWrapper">
-                                            프로젝트 조인 코드 보기
-                                        </div>
-                                        <div className="pwdWrapperInfo">
-                                            {
-                                                this.state.showInviteCode === true ?
-                                                    (123)
-                                                    :
-                                                    '(다른 멤버들을 초대할 수 있는 코드입니다.)'
-                                            }
-                                        </div>
-                                    </div>
+                                    {/*<div onMouseOver={this.joinCodeHover}>*/}
+                                        {/*<div className="pwdWrapper">*/}
+                                            {/*프로젝트 조인 코드 보기*/}
+                                        {/*</div>*/}
+                                        {/*<div className="pwdWrapperInfo">*/}
+                                            {/*{*/}
+                                                {/*this.state.showInviteCode === true ?*/}
+                                                    {/*(123)*/}
+                                                    {/*:*/}
+                                                    {/*'(다른 멤버들을 초대할 수 있는 코드입니다.)'*/}
+                                            {/*}*/}
+                                        {/*</div>*/}
+                                    {/*</div>*/}
 
                                     <CompletePopup
                                         openCompletePopup={this.openCompletePopup}
