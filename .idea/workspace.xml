@@ -2,29 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93783b20-2aca-456c-ab77-5b005eae6547" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/complete/CompleteContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/complete/CompleteContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navbar/main/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navbar/main/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navbar/url/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navbar/url/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/popup/CompletePopup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/popup/CompletePopup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/popup/CreateProjectPopup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/popup/CreateProjectPopup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/popup/JoinProjectPopup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/popup/JoinProjectPopup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/popup/MainMemberInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/popup/MainMemberInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/popup/MemberInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/popup/MemberInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/popup/OtherPopup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/popup/OtherPopup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/progress/InsertProgramForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/progress/InsertProgramForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/progress/InsertUrlForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/progress/InsertUrlForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/progress/ProgramItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/progress/ProgramItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/progress/ProgressContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/progress/ProgressContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/progress/UrlList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/progress/UrlList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/progress/UsedProgram.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/progress/UsedProgram.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/project/Project.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/project/Project.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/project/Project.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/project/Project.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/project/ProjectList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/project/ProjectList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/project/ProjectListWrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/project/ProjectListWrapper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/MainContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/MainContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/UrlMainContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/UrlMainContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,50 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/popup/CompletePopup.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="49" column="41" lean-forward="true" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/popup/JoinProjectPopup.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="75" column="5" lean-forward="true" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/popup/OtherPopup.js">
+        <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="138" column="29" lean-forward="true" selection-start-line="138" selection-start-column="29" selection-end-line="138" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/container/UrlMainContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="77" column="29" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="345">
+              <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -175,7 +114,6 @@
         <option value="$PROJECT_DIR$/src/components/project/Project.js" />
         <option value="$PROJECT_DIR$/src/components/navbar/url/Logout.js" />
         <option value="$PROJECT_DIR$/src/container/MainContainer.css" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/components/navbar/main/Logout.js" />
         <option value="$PROJECT_DIR$/src/components/navbar/main/Navbar.css" />
         <option value="$PROJECT_DIR$/src/components/popup/CreateProjectPopup.css" />
@@ -197,6 +135,7 @@
         <option value="$PROJECT_DIR$/src/container/UrlMainContainer.js" />
         <option value="$PROJECT_DIR$/src/components/popup/CompletePopup.js" />
         <option value="$PROJECT_DIR$/src/components/popup/OtherPopup.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
       </list>
     </option>
   </component>
@@ -220,6 +159,11 @@
               <item name="frontend-yappian" type="b2602c69:ProjectViewProjectNode" />
               <item name="frontend-yappian" type="462c0819:PsiDirectoryNode" />
               <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="frontend-yappian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="frontend-yappian" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="frontend-yappian" type="b2602c69:ProjectViewProjectNode" />
@@ -350,12 +294,12 @@
       <workItem from="1566028848682" duration="3963000" />
       <workItem from="1566035910780" duration="6994000" />
       <workItem from="1566288087401" duration="1036000" />
-      <workItem from="1567051164434" duration="1593000" />
+      <workItem from="1567051164434" duration="2172000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="610801000" />
+    <option name="totallyTimeSpent" value="611380000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -368,9 +312,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49148935" visible="true" weight="0.18669528" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49148935" visible="true" weight="0.18669528" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -387,7 +330,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32891566" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49499285" visible="true" weight="0.22409639" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49499285" visible="true" weight="0.22409639" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50500715" side_tool="true" weight="0.18072289" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="bottom" id="TypeScript" order="13" />
@@ -458,17 +401,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/@types/react/index.d.ts" />
-    <entry file="file://$PROJECT_DIR$/src/App.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/progress/ProgramItem.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="46" column="21" lean-forward="true" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/navbar/main/Login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -755,13 +687,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="45" lean-forward="true" selection-start-column="45" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/project_sample.json" />
     <entry file="file://$PROJECT_DIR$/src/components/complete/CompleteContainer.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -808,13 +733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/complete/CompleteContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
@@ -835,16 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/container/UrlMainContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="77" column="29" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/popup/JoinProjectPopup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -857,11 +765,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/popup/OtherPopup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="138" column="29" lean-forward="true" selection-start-line="138" selection-start-column="29" selection-end-line="138" selection-end-column="29" />
+        <state relative-caret-position="357">
+          <caret line="148" column="38" lean-forward="true" selection-start-line="148" selection-start-column="38" selection-end-line="148" selection-end-column="38" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/favicon.ico">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/sample-photo.jpeg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="69" lean-forward="true" selection-start-column="69" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/container/UrlMainContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="77" column="29" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
         </state>
       </provider>
     </entry>
