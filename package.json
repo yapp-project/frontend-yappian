@@ -53,7 +53,7 @@
     "react-app-polyfill": "^0.2.2",
     "react-bootstrap": "^1.0.0-beta.8",
     "react-cookie": "^4.0.0",
-    "react-dev-utils": "^8.0.0",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.8.6",
     "react-fontawesome": "^1.6.1",
     "react-google-docs-viewer": "^1.0.1",
